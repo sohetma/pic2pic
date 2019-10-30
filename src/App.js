@@ -2,16 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 //import ButtonStart from '.components/newGame/BoutonStart';
-import Header from './Header';
+import Header from './components/Header';
+import players from './utils.js'
+import PlayersInDrawer from './components/drawer/PlayersInDrawer.js'
 
 
-function App() {
+class App extends React.Component{
+  constructor(props) {
+    super(props);
 
-  return (
-    <div>
-       <Header />
-    </div>
-  );
+    this.state = {
+      players
+    };
+  }
+
+  render(){
+    return (
+      <div>
+         <Header />
+         <PlayersInDrawer players={["test player 0"]} />
+      </div>
+    );
+  }
 }
 
 export default App;
