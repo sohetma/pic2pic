@@ -1,6 +1,7 @@
 import React from 'react';
 
-// Component pic taking an argument 'picture' and its a source
+// Component pic return an image
+// picInDrawer take an argument 'picture' and its a source
 const PicInDrawer = props => (
   <div className = "picInDrawer">
     {

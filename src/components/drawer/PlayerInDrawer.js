@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 // Component player with its avatar, username and points
 const PlayerInDrawer = props => (
   <div className = "playerInDrawer">
