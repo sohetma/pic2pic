@@ -1,5 +1,6 @@
 import React from 'react';
 import PicInDrawer from './PlayerInDrawer.js';
+import players from '../utils.js'
 
 // Component players with all infos on play
 // players must be an array
