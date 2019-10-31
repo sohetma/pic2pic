@@ -1,0 +1,9 @@
+.pix{
+
+    color : 'red';
+}
+
+.array {
+  display: flex;
+  flex-direction: row;
+}

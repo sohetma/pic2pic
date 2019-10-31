@@ -5,14 +5,21 @@ import './App.css';
 import Header from './components/Header';
 import players from './utils.js'
 import PlayersInDrawer from './components/drawer/PlayersInDrawer.js'
+import Canvas from './components/drawer/Canvas.js'
+import Matrix from './components/drawer/Matrix.js'
 
 
+console.log(players);
 class App extends React.Component{
   constructor(props) {
     super(props);
 
     this.state = {
-      players
+      newPlayer : {
+        username : '',
+        avatar : '',
+        points : 0
+      }
     };
   }
 
@@ -20,7 +27,8 @@ class App extends React.Component{
     return (
       <div>
          <Header />
-         <PlayersInDrawer players={["test player 0"]} />
+         <PlayersInDrawer players={players} />
+         <Matrix />
       </div>
     );
   }

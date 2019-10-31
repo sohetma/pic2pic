@@ -2,15 +2,15 @@ import React from 'react';
 
 
 // Component player with its avatar, username and points
-const PlayerInDrawer = props => (
+const PlayerInDrawer = ({username, avatar, points}) => (
   <div className = "playerInDrawer">
     {
-    !props.avatar
-      ? <img src={"https://www.drupal.org/files/issues/default-avatar.png"} alt={firstname}/>
-      : <img src={props.avatar} alt={props.username}/>
+    !avatar
+      ? <img src={"https://www.drupal.org/files/issues/default-avatar.png"} alt={username}/>
+      : <img src={avatar} alt={username}/>
     }
-    <h3>{props.username}</h3>
-    <h4>{props.points}</h3>
+    <h3>{username}</h3>
+    <h4>{points}</h4>
   </div>
 );
 
