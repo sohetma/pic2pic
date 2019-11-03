@@ -26,7 +26,6 @@ class App extends React.Component{
   render(){
     return (
       <div>
-         <Header />
          <PlayersInDrawer players={players} />
          <Matrix />
       </div>

@@ -1,45 +1,52 @@
 import React from 'react';
 import Pix from './Pix.js';
+import MatrixInit from './MatrixInit.js'
 import './Pix.css'
 
 
 class Matrix extends React.Component{
-  render(){
-    const taille = 100;
 
-    let matrix = new Array(taille);
-    let array = new Array(taille);
-
-    for (let j = 0; j < taille ; j++){
-      array[j] = <Pix />;
-    }
-
-    const arrayMod = <div className="array"> {array} </div>;
-
-    for(let i = 0 ; i < taille ; i ++){
-      matrix.push(arrayMod);
-    }
-
-    return <div className="matrix"> {matrix} </div>
+  constructor(props) {
+    super(props);
+    //let mat = this.initArray.bind();
+    this.state = {
+      padcolor: "white",
+      matrix : new MatrixInit()
+    };
   }
 
+  changeColor = () => {
+    this.setState({
+      padcolor: "black"
+    });
+  }
+
+  render(){
+    return (
+      <MatrixInit />
+    )
+  }
 }
 
 export default Matrix;
 
-// function matrix(taille){
-//   let matrix = new Array(taille);
-//   let array = new Array(taille);
-//
-//   for (let j = 0; j < taille ; j++){
-//     array[j] = <Pix taille={3} />;
-//   }
-//
-//   for(let i = 0 ; i < taille ; i ++){
-//     matrix[i] = array;
-//   }
-//   console.log(matrix)
-//   return matrix;
-// }
-//
-// matrix = matrix(10);
+  // initArray = () => {
+  //   const taille = 16;
+  //
+  //   let matrix = new Array(taille);
+  //   let array = new Array(taille);
+  //
+  //   for (let j = 0; j < taille ; j++){
+  //     array[j] = <Pix boolean={false} color={this.state.padcolor}/>;
+  //   }
+  //
+  //   const arrayMod = <div className="array"> {array} </div>;
+  //
+  //   for(let i = 0 ; i < taille ; i ++){
+  //     matrix.push(arrayMod);
+  //   }
+  //
+  //   return <div className="matrix"> {matrix} </div>
+  //
+  //   {console.log({matrix})}
+  // }

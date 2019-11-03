@@ -1,9 +1,30 @@
 .pix{
 
-    color : 'red';
+    background-color:'white';
+    width : 49px;
+    border : 1px solid;
+    display: flex;
+    flex: auto;
+    align-items: center;
+    text-align: center;
+
+}
+
+.pix p{
+  width : 100%;
+  text-align: center;
 }
 
 .array {
+  width : 500px;
+  height : 48px;
   display: flex;
   flex-direction: row;
+  border: 1px solid;
+}
+
+.matrix{
+  height: 500px;
+  width : 500px;
+  border: solid;
 }
