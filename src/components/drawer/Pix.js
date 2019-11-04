@@ -7,27 +7,43 @@ class Pix extends React.Component {
     super(props);
     this.state = {
       count : 0,
-      color : 'black'
+      painted : false
     };
     this.isCliked = this.isCliked.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
 
+
+  handleMouseEnter= () => {
+      this.setState({ painted : true});
+  }
+
+
   isCliked = (event) => {
-   this.setState((prevState, { count, color }) => ({
+   this.setState((prevState, { count }) => ({
      count: prevState.count + 1,
-     color : 'red'
    }));
-   const pixel = document.getElementsByClassName('valuePix');
-   pixel[0].innerHTML = `<p> ${this.state.count} </p>`;
+   const pixel = document.getElementsByClassName('pixel');
+   pixel[0].innerHTML = `<td> ${this.state.count} </td>`;
    //alert(`You cliked me ${this.state.count} times`);
  }
 
    render(){
-     return (
-    <div className="pix" onClick={(e) => this.isCliked(e)}>
-      <p className="valuePix"> 0 </p>
-    </div>
-  )
+     return <td
+              onMouseEnter={this.props.hovered === "mouseDown" ? this.handleMouseEnter: undefined}
+              style={{
+                backgroundColor: this.state.painted ? 'black' : 'white'
+              }}
+              className="pixel"
+              >
+            </td>
+
+        //    <div className="pix" onClick={(e) => this.isCliked(e)}>
+        //      <p className="valuePix"> 0 </p>
+        //    </div>
+
+
+
   }
 }
 

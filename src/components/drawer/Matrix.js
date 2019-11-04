@@ -1,8 +1,25 @@
 import React from 'react';
 import Pix from './Pix.js';
-import MatrixInit from './MatrixInit.js'
-import './Pix.css'
+// import MatrixInit from './MatrixInit.js';
+import './Pix.css';
 
+
+const n = 200; // length grid
+
+const createTable = () => {
+    let grid = [];
+    for (let i = 0; i < n; i++) {
+        let row = [];
+            for (let j= 0; j < n; j++) {
+                row.push('0'); /*PAS ICI*/
+            }
+    grid.push(row)
+    }
+    return grid;
+}
+
+const matrixInit = createTable();
+console.log(matrixInit);
 
 class Matrix extends React.Component{
 
@@ -11,8 +28,21 @@ class Matrix extends React.Component{
     //let mat = this.initArray.bind();
     this.state = {
       padcolor: "white",
-      matrix : new MatrixInit()
+      matrix : matrixInit,
+      status :"mouseUp"
     };
+  }
+
+  onMouseDown = () => {
+    this.setState({
+        status: "mouseDown"
+    })
+  }
+
+  onMouseUp = () => {
+      this.setState({
+          status: "mouseUp"
+      })
   }
 
   changeColor = () => {
@@ -21,9 +51,28 @@ class Matrix extends React.Component{
     });
   }
 
-  render(){
+  render = () => {
     return (
-      <MatrixInit />
+        <table onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}>
+        <thead></thead>
+          <tbody>
+              {
+              this.state.matrix.map((pixels, rowIndex) => (
+                  <tr key={rowIndex}>
+                      { pixels.map((pixel, colIndex) => (
+                          <Pix
+                              pixel={pixel}
+                              hovered = {this.state.status}
+                              key={"row" + rowIndex.toString() + "col" + colIndex.toString()}
+                          />
+                        )
+                      )}
+                  </tr>
+                      )
+                  )
+              }
+            </tbody>
+          </table>
     )
   }
 }

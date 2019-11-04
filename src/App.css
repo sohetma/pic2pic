@@ -24,3 +24,14 @@
 .App-link {
   color: #09d3ac;
 }
+
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  text-align: center;
+}
+
+td {
+  width:1px;
+  height:1px;
+}
