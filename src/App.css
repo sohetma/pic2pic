@@ -25,14 +25,3 @@
 .App-link {
   color: #09d3ac;
 }
-
-table {
-  border-collapse: collapse;
-  border: 3px solid black;
-  text-align: center;
-}
-
-td {
-  width:8px;
-  height:8px;
-}

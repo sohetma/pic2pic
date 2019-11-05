@@ -1,0 +1,10 @@
+li{
+  list-style-type: none;
+  padding: 20px;
+}
+
+.Header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -8,16 +8,16 @@
 
 .hero-header {
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     text-align: center;
-    color: white; 
-    
+    color: white;
+
     background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url('./img/photo_hero_header.jpg');
     background-size: cover;
     background-position: center;
@@ -43,7 +43,7 @@
 .hero-header h2 {
     font-size: 2.5em;
     color: black;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     margin-top: 150px;
 }
 
@@ -54,21 +54,21 @@ hr {
 }
 
 .pen{
-    background-image: url('./img/draw_hero_header.png');
+    background-image: url('./img/draw_hero_header.jpg');
 }
 
 .hero-header .button {
     width: 200px;
-    
+
     padding: 0.8em;
     margin-top: 100px;
-    
-    color: white; 
+
+    color: white;
     text-decoration: none;
     font-size: 1.5em;
     background-color: rgba(209, 165, 49, 0.8);
 
-    border: 3px solid white; 
+    border: 3px solid white;
     border-radius: 20px;
 
     transition: all 0.3s ease-in-out;

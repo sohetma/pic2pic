@@ -2,16 +2,10 @@ import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
-import './HeroHeader.css'
-//import ButtonStart from '.components/newGame/BoutonStart';
-import Header from './components/Header';
-import HeroHeader from './HeroHeader';
 
-
-
-import Head from './Head.js'
-import Game from './Game.js'
-
+import HeroHeader from './components/heroHeaderComp/HeroHeader.js';
+import Head from './components/Head.js'
+import Game from './components/drawer/Game.js'
 
 class App extends React.Component{
   constructor(props) {
@@ -35,14 +29,11 @@ class App extends React.Component{
             <Route path="/game" component={Game} />
           </Switch>
 
+          <Head />
       </div>
 
     );
   }
 }
-
-// const Home = () => {
-//   return <h1>Welcome</h1>
-// }
 
 export default App;

@@ -1,20 +1,22 @@
 .playersInDrawer{
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border : 1px solid black;
   padding-top: 2px;
+  margin-bottom: 10px;
 }
 
 .playerInDrawer{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
 }
 
 .imageAvatar{
-  width: 50%;
+  width: 20%;
 }

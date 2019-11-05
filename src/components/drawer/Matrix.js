@@ -1,16 +1,9 @@
 import React from 'react';
 import Pix from './Pix.js';
 import ButtonRefresh from './ButtonRefresh.js'
-// import MatrixInit from './MatrixInit.js';
 import './Pix.css';
+import './Matrix.css'
 import './ButtonRefresh.css';
-
-// class pixel {
-//     constructor(colored, color){
-//         this.isColored = colored;
-//         this.color = color;
-//     }
-// }
 
 
 class Matrix extends React.Component{
