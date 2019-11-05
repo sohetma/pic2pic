@@ -1,36 +1,77 @@
 import React from 'react';
 import Pix from './Pix.js';
+import ButtonRefresh from './ButtonRefresh.js'
 // import MatrixInit from './MatrixInit.js';
 import './Pix.css';
 
+// class pixel {
+//     constructor(colored, color){
+//         this.isColored = colored;
+//         this.color = color;
+//     }
+// }
 
-const n = 200; // length grid
-
-const createTable = () => {
-    let grid = [];
-    for (let i = 0; i < n; i++) {
-        let row = [];
-            for (let j= 0; j < n; j++) {
-                row.push('0'); /*PAS ICI*/
-            }
-    grid.push(row)
-    }
-    return grid;
-}
-
-const matrixInit = createTable();
-console.log(matrixInit);
 
 class Matrix extends React.Component{
 
   constructor(props) {
     super(props);
-    //let mat = this.initArray.bind();
+
+    //console.log(this.updateGrid(this.createTable(10),1,2))
+
     this.state = {
-      padcolor: "white",
-      matrix : matrixInit,
+      matrix : this.createTable(64),
+      col: 'inherit',
       status :"mouseUp"
     };
+
+    // console.log(this.freshGrid());
+    // console.log(this.state.matrix);
+    // console.log(this.updateGrid(1,1));
+    // console.log(this.refresh());
+  }
+
+
+
+  createTable = dim => {
+    console.log(' I m in createTable')
+    let grid = [];
+    for (let j = 0; j < dim ; j++){
+      grid[j] = new Array(dim).fill(0); // new pixel(false, "white")
+    }
+    return grid;
+    // const ruler = new Array(dim).fill("-Pixel-");
+    // return ruler.map(x => ruler.map(y => 0));
+  }
+
+  freshGrid = () => {
+    console.log('I m in fresh grid');
+    return this.createTable(64);
+  }
+
+  updateGrid = (x, y) => {
+    //console.log(this.state.matrix);
+    if(this.state.matrix[x][y] === `😍`){return;}
+
+    let updateMyGrid = this.state.matrix;
+    updateMyGrid[x][y] = `😍`;
+    console.log('I m in update');
+
+    return updateMyGrid;
+
+    this.setState({
+        matrix: updateMyGrid,
+        col : 'blue'
+    })
+  }
+
+  refresh = () => {
+
+    console.log(' I m in refresh');
+
+    this.setState({
+      matrix : this.freshGrid()
+    })
   }
 
   onMouseDown = () => {
@@ -45,14 +86,10 @@ class Matrix extends React.Component{
       })
   }
 
-  changeColor = () => {
-    this.setState({
-      padcolor: "black"
-    });
-  }
 
   render = () => {
     return (
+       <div>
         <table onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}>
         <thead></thead>
           <tbody>
@@ -61,10 +98,13 @@ class Matrix extends React.Component{
                   <tr key={rowIndex}>
                       { pixels.map((pixel, colIndex) => (
                           <Pix
-                              pixel={pixel}
-                              hovered = {this.state.status}
+                              lat={rowIndex}
+                              lng={colIndex}
+                              col = {this.state.col}
+                              color = {this.state.matrix[rowIndex][colIndex]}
+                              updateGrid={this.updateGrid}
                               key={"row" + rowIndex.toString() + "col" + colIndex.toString()}
-                          />
+                          ></Pix>
                         )
                       )}
                   </tr>
@@ -73,29 +113,14 @@ class Matrix extends React.Component{
               }
             </tbody>
           </table>
+
+          <ButtonRefresh
+            refresh={this.refresh}
+          ></ButtonRefresh>
+        </div>
+
     )
   }
 }
 
 export default Matrix;
-
-  // initArray = () => {
-  //   const taille = 16;
-  //
-  //   let matrix = new Array(taille);
-  //   let array = new Array(taille);
-  //
-  //   for (let j = 0; j < taille ; j++){
-  //     array[j] = <Pix boolean={false} color={this.state.padcolor}/>;
-  //   }
-  //
-  //   const arrayMod = <div className="array"> {array} </div>;
-  //
-  //   for(let i = 0 ; i < taille ; i ++){
-  //     matrix.push(arrayMod);
-  //   }
-  //
-  //   return <div className="matrix"> {matrix} </div>
-  //
-  //   {console.log({matrix})}
-  // }
