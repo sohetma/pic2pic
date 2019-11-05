@@ -3,9 +3,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 100%;
-  border: 1px solid black;
-  padding: 2px;
+  width: 60%;
+  border: 2px solid black;
+  padding: 3px;
   margin-top: 3px;
 
 }

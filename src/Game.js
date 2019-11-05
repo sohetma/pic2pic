@@ -4,12 +4,13 @@ import Draw from './components/drawer/Draw.js';
 import players from './utils.js';
 import PlayersInDrawer from './components/drawer/PlayersInDrawer.js';
 import Canvas from './components/drawer/Canvas.js';
+import './Game.css'
 
 
 console.log(players);
 
 const Game = (props) => (
-<div>
+<div className="game">
    <PlayersInDrawer players={players} />
    <Draw />
 </div>
