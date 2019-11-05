@@ -4,7 +4,7 @@ import './Pix.css'
 const Pix = (props) => (
   <td className="pixel"
           onMouseMove={() => props.updateGrid(props.lat, props.lng) }
-          style = {{backgroundColor : !props.color ? 'inherit' : 'black'}}
+          style = {{backgroundColor : !props.color ? 'inherit' : props.col}}
           ></td>
 
 );

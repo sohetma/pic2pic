@@ -1,41 +1,43 @@
 import React from 'react';
-
-// Component draw : its here we draw (empty for the moment)
-/*const Draw = props => (
-  <div className = "scopeDraw">
-
-  </div>
-);
-
-export default Draw;
-*/
+import Matrix from './Matrix';
+import Palette from './Palette';
+import './Draw.css'
 
 
-class Canvas extends React.Component {
+
+class Draw extends React.Component {
   constructor(props) {
     super(props);
-    this.canvasRef = React.createRef();
+
+    this.state = {
+      color : this.generateColors(),
+      name : this.generateName(),
+      theColor : 'black'
+    };
   }
-  componentDidUpdate() {
-    // Draws a square in the middle of the canvas rotated
-    // around the centre by this.props.angle
-    const { angle } = this.props;
-    const canvas = this.canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-    ctx.save();
-    ctx.beginPath();
-    ctx.clearRect(0, 0, width, height);
-    ctx.translate(width / 2, height / 2);
-    ctx.rotate((angle * Math.PI) / 180);
-    ctx.fillStyle = '#4397AC';
-    ctx.fillRect(-width / 4, -height / 4, width / 2, height / 2);
-    ctx.restore();
+
+  generateColors = () => {
+    return ['red','blue','black'];
   }
-  render() {
-    return <canvas width="300" height="300" ref={this.canvasRef} />;
+
+  generateName = () => {
+    return ["Red" , "Blue", "Black"]
+  }
+
+  updateColor = (color) => {
+    this.setState({
+      theColor : color
+    })
+  }
+
+  render = () =>  {
+    return (
+      <div className="draw">
+        <Matrix theColor={this.state.theColor}/>
+        <Palette color={this.state.color} name={this.state.name} updateColor={this.updateColor} />
+      </div>
+    );
   }
 }
 
-export default Canvas;
+export default Draw;

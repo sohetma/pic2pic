@@ -1,15 +1,16 @@
 import React from 'react';
+import {Switch, Route} from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 //import ButtonStart from '.components/newGame/BoutonStart';
 import Header from './components/Header';
-import players from './utils.js'
-import PlayersInDrawer from './components/drawer/PlayersInDrawer.js'
-import Canvas from './components/drawer/Canvas.js'
-import Matrix from './components/drawer/Matrix.js'
 
 
-console.log(players);
+
+import Head from './Head.js'
+import Game from './Game.js'
+
+
 class App extends React.Component{
   constructor(props) {
     super(props);
@@ -25,12 +26,22 @@ class App extends React.Component{
 
   render(){
     return (
-      <div>
-         <PlayersInDrawer players={players} />
-         <Matrix />
+      <div class="App">
+        <Head />
+        <router>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path="/game" component={Game} />
+          </Switch>
+        </router>
       </div>
+
     );
   }
+}
+
+const Home = () => {
+  return <h1>Welcome</h1>
 }
 
 export default App;

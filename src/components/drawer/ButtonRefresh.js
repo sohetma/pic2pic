@@ -4,8 +4,8 @@ import React from 'react';
 
 const ButtonRefresh = (props) => (
   <button
-  className = "ButtonRefresh"
-  onClick = {() => props.refresh()}
+    className = "ButtonRefresh"
+    onClick = {() => props.refresh()}
   > Refresh the Drawer board </button>
 );
 

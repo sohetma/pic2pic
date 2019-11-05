@@ -49,9 +49,11 @@ class Matrix extends React.Component{
     return this.createTable(64);
   }
 
-  updateGrid = (x, y) => {
+  updateGrid = (x, y, rgba) => {
     //console.log(this.state.matrix);
     if(this.state.matrix[x][y] === `😍`){return;}
+
+    if(!this.props.theColor === 'black') {return;}
 
     let updateMyGrid = this.state.matrix;
     updateMyGrid[x][y] = `😍`;
@@ -100,7 +102,7 @@ class Matrix extends React.Component{
                           <Pix
                               lat={rowIndex}
                               lng={colIndex}
-                              col = {this.state.col}
+                              col = {this.props.theColor}
                               color = {this.state.matrix[rowIndex][colIndex]}
                               updateGrid={this.updateGrid}
                               key={"row" + rowIndex.toString() + "col" + colIndex.toString()}
