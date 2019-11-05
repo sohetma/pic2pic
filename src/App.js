@@ -2,8 +2,10 @@ import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
+import './HeroHeader.css'
 //import ButtonStart from '.components/newGame/BoutonStart';
 import Header from './components/Header';
+import HeroHeader from './HeroHeader';
 
 
 
@@ -27,10 +29,9 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <Head />
-        
+
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={HeroHeader} />
             <Route path="/game" component={Game} />
           </Switch>
 
@@ -40,8 +41,8 @@ class App extends React.Component{
   }
 }
 
-const Home = () => {
-  return <h1>Welcome</h1>
-}
+// const Home = () => {
+//   return <h1>Welcome</h1>
+// }
 
 export default App;
