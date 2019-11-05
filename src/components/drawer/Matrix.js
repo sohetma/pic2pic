@@ -3,6 +3,7 @@ import Pix from './Pix.js';
 import ButtonRefresh from './ButtonRefresh.js'
 // import MatrixInit from './MatrixInit.js';
 import './Pix.css';
+import './ButtonRefresh.css';
 
 // class pixel {
 //     constructor(colored, color){
@@ -21,7 +22,6 @@ class Matrix extends React.Component{
 
     this.state = {
       matrix : this.createTable(64),
-      col: 'inherit',
       status :"mouseUp"
     };
 
@@ -34,7 +34,7 @@ class Matrix extends React.Component{
 
 
   createTable = dim => {
-    console.log(' I m in createTable')
+    //console.log(' I m in createTable')
     let grid = [];
     for (let j = 0; j < dim ; j++){
       grid[j] = new Array(dim).fill(0); // new pixel(false, "white")
@@ -45,25 +45,29 @@ class Matrix extends React.Component{
   }
 
   freshGrid = () => {
-    console.log('I m in fresh grid');
+    //console.log('I m in fresh grid');
     return this.createTable(64);
   }
 
-  updateGrid = (x, y, rgba) => {
-    //console.log(this.state.matrix);
-    if(this.state.matrix[x][y] === `😍`){return;}
-
-    if(!this.props.theColor === 'black') {return;}
-
+  updateGrid = (x, y) => {
     let updateMyGrid = this.state.matrix;
-    updateMyGrid[x][y] = `😍`;
-    console.log('I m in update');
 
-    return updateMyGrid;
+    if(this.state.matrix[x][y] !== 0){
+      return;
+    }
+
+    for (let i = 0 ; i < this.props.choiceColor.length ; i++){
+      if(this.props.theColor === this.props.choiceColor[i]) {
+        updateMyGrid[x][y] = this.props.theColor;
+      }
+    }
+
+    //console.log('I m in update');
+    console.log(updateMyGrid);
+    //return updateMyGrid;
 
     this.setState({
         matrix: updateMyGrid,
-        col : 'blue'
     })
   }
 
@@ -102,7 +106,6 @@ class Matrix extends React.Component{
                           <Pix
                               lat={rowIndex}
                               lng={colIndex}
-                              col = {this.props.theColor}
                               color = {this.state.matrix[rowIndex][colIndex]}
                               updateGrid={this.updateGrid}
                               key={"row" + rowIndex.toString() + "col" + colIndex.toString()}
@@ -117,6 +120,7 @@ class Matrix extends React.Component{
           </table>
 
           <ButtonRefresh
+            className="div-button-refresh"
             refresh={this.refresh}
           ></ButtonRefresh>
         </div>

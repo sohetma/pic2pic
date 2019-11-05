@@ -1,5 +1,7 @@
 .draw{
+  display: flex;
+  flex-direction: column;
   aligns-items : center;
-  width : 50%;
+  /* width : 50%; */
   text-align: center;
 }

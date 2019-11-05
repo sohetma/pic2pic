@@ -26,14 +26,14 @@ class App extends React.Component{
 
   render(){
     return (
-      <div class="App">
+      <div className="App">
         <Head />
-        <router>
+        
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/game" component={Game} />
           </Switch>
-        </router>
+
       </div>
 
     );

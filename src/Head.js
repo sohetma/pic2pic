@@ -1,7 +1,8 @@
 import React,  {Component} from 'react';
 import {Link, NavLink} from "react-router-dom";
+import './Head.css';
 
-const Header = (props) => (
+const Head = (props) => (
   <div>
     <ul className="Header">
       <li> <NavLink activeClassName="active" exact to="/"> Home </NavLink></li>
@@ -11,4 +12,4 @@ const Header = (props) => (
 
 );
 
-export default Header;
+export default Head;

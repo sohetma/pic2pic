@@ -17,11 +17,11 @@ class Draw extends React.Component {
   }
 
   generateColors = () => {
-    return ['red','blue','black'];
+    return ['red','blue','black','green','yellow'];
   }
 
   generateName = () => {
-    return ["Red" , "Blue", "Black"]
+    return ["Red" , "Blue", "Black", "green", "yellow"]
   }
 
   updateColor = (color) => {
@@ -33,7 +33,7 @@ class Draw extends React.Component {
   render = () =>  {
     return (
       <div className="draw">
-        <Matrix theColor={this.state.theColor}/>
+        <Matrix theColor={this.state.theColor} choiceColor={this.state.color} />
         <Palette color={this.state.color} name={this.state.name} updateColor={this.updateColor} />
       </div>
     );
