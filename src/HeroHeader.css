@@ -1,0 +1,80 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+
+.hero-header {
+    width: 100vw;
+    height: 100vh; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    color: white; 
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url('./img/photo_hero_header.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-header h1 {
+    font-size: 8em;
+    margin-bottom: 0.5em;
+    margin-top: 100px;
+}
+
+.pic-1 {
+    color: red;
+}
+.deux {
+    color: blue;
+}
+.pic-2 {
+    color: green;
+}
+
+.hero-header h2 {
+    font-size: 2.5em;
+    color: black;
+    margin-bottom: 20px; 
+    margin-top: 150px;
+}
+
+hr {
+    width: 700px;
+    height: 3px;
+    background-color: black;
+}
+
+.pen{
+    background-image: url('./img/draw_hero_header.png');
+}
+
+.hero-header .button {
+    width: 200px;
+    
+    padding: 0.8em;
+    margin-top: 100px;
+    
+    color: white; 
+    text-decoration: none;
+    font-size: 1.5em;
+    background-color: rgba(209, 165, 49, 0.8);
+
+    border: 3px solid white; 
+    border-radius: 20px;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-header .button:hover {
+    color: rgb(209, 165, 49);
+    background-color: rgba(255, 255, 255, 0);
+}
