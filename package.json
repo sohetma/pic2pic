@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ansi-regex": "^5.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "typescript": "^3.6.4",
-    "webfontloader": "^1.6.28",
-    "react-router-dom": "^5.1.2"
-
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "NODE_PATH=./src react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
