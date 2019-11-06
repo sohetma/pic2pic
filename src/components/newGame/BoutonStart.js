@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import './BoutonStart.css';
 
 const ButtonStart = () => {
     return(
-    <button style = {{ fontWeight : 'bold', fontSize : '40px', borderRadius: '30px'}}>Start</button>
+        <div className="button">
+            <button className="start">Start Game</button>
+        </div>
 );
     }
 export default ButtonStart;
