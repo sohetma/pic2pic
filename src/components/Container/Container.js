@@ -1,6 +1,7 @@
 import React from 'react'
 import Round from '../../components/ListBox/Round'
 import Themes from '../../components/ListBox/Themes'
+import ButtonStart from '../newGame/BoutonStart'
 const Container = () => {
     return(
     <section className ='container'>
@@ -10,6 +11,7 @@ const Container = () => {
         <div className ='box'>
             <Themes/>
         </div>
+        <ButtonStart/>
     </section>
 
 );
