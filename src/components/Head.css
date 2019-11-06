@@ -7,4 +7,6 @@ li{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #727C7B;
+  color : #FFFFFF;
 }

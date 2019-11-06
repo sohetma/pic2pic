@@ -1,0 +1,24 @@
+Archtitecture of components
+
+Game
+    1. PlayersInDrawer
+        1. PlayerInDrawer
+
+    2. Timer
+
+    3. PicInDrawer
+
+    4. WordInDrawer
+
+    5. Draw
+        1. Matrix
+            1. Pixel
+            2. FunctionalityDrawer
+                1. ButtonRefresh
+                2. SaveTheDraw
+                3. DraftBack
+
+        2. Palette
+            1. Col
+
+    6. Chat

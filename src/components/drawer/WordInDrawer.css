@@ -1,0 +1,16 @@
+.wordInDrawer{
+  background-color: #FFFFFF;
+  height: 250px;
+  width: 100%;
+  opacity: 80%;
+}
+
+.theword{
+  margin-top: 40px;
+}
+
+.hints{
+  margin-top: 40px;
+  color: #000000;
+
+}

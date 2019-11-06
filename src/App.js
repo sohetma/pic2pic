@@ -7,6 +7,10 @@ import Head from './components/Head.js';
 import Game from './components/drawer/Game.js';
 import NewGame from './components/newGame/NewGame.js';
 
+// API fetch library
+import fetch from 'node-fetch';
+global.fetch = fetch;
+
 class App extends React.Component{
   constructor(props) {
     super(props);
