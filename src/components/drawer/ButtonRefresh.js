@@ -7,7 +7,7 @@ const ButtonRefresh = (props) => (
   <button
     className = "ButtonRefresh"
     onClick = {() => props.refresh()}
-  > Refresh the Drawer board </button>
+  > Refresh the Drawer </button>
 );
 
 export default ButtonRefresh;

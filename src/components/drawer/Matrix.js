@@ -1,9 +1,9 @@
 import React from 'react';
 import Pix from './Pix.js';
-import ButtonRefresh from './ButtonRefresh.js'
 import './Pix.css';
 import './Matrix.css'
 import './ButtonRefresh.css';
+import FunctionalityDrawer from './FunctionalityDrawer.js'
 
 
 class Matrix extends React.Component{
@@ -15,6 +15,7 @@ class Matrix extends React.Component{
 
     this.state = {
       matrix : this.createTable(64),
+      saved : this.createTable(64),
       status :"mouseUp"
     };
 
@@ -41,6 +42,40 @@ class Matrix extends React.Component{
     //console.log('I m in fresh grid');
     return this.createTable(64);
   }
+
+  gomme = (x,y) => {
+    let gommeMyGrid = this.state.matrix;
+
+    if(this.state.matrix[x][y] !== 0){
+      gommeMyGrid[x][y] = 0;
+      this.props.theColor = 'white';
+    }
+
+    this.setState({
+      matrix : gommeMyGrid
+    })
+  }
+
+  save = () => {
+    let saveTheGrid = this.state.matrix;
+
+    this.setState({
+      saved : saveTheGrid
+    })
+
+    return saveTheGrid;
+  }
+
+
+  draftBack = () => {
+    let draftBack = this.state.saved;
+    console.log('draft', draftBack);
+
+    this.setState({
+      matrix : draftBack
+    })
+  }
+
 
   updateGrid = (x, y) => {
     let updateMyGrid = this.state.matrix;
@@ -112,10 +147,7 @@ class Matrix extends React.Component{
             </tbody>
           </table>
 
-          <ButtonRefresh
-            className="div-button-refresh"
-            refresh={this.refresh}
-          ></ButtonRefresh>
+          <FunctionalityDrawer refresh={this.refresh} saveTheDraw={this.save} draftBack={this.draftBack} />
         </div>
 
     )

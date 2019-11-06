@@ -1,13 +1,16 @@
-.ButtonRefresh{
-  margin-top: 3px;
-  width : 30%;
+.ButtonRefresh, .SaveTheDraw, .DraftBack {
+  margin-top: 5px;
+  margin-left: 5px;
+  width : 25%;
+  height: 40px;
   border-radius: 10px;
-  background-color: black;
+  background-color: #454545;
   color : white;
 }
 
 .div-button-refresh{
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 }
