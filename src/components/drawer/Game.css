@@ -1,4 +1,5 @@
 .game{
+  background-color: #dbc89a;
   display : flex;
   text-align: center;
   flex-wrap: wrap;

@@ -17,11 +17,11 @@ class Draw extends React.Component {
   }
 
   generateColors = () => {
-    return ['red','blue','black','green','yellow'];
+    return ['red','blue','black','green','yellow','white'];
   }
 
   generateName = () => {
-    return ["Red" , "Blue", "Black", "green", "yellow"]
+    return ["Red" , "Blue", "Black", "green", "yellow",'white']
   }
 
   updateColor = (color) => {

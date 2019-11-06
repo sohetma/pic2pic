@@ -80,9 +80,9 @@ class Matrix extends React.Component{
   updateGrid = (x, y) => {
     let updateMyGrid = this.state.matrix;
 
-    if(this.state.matrix[x][y] !== 0){
-      return;
-    }
+    // if(this.state.matrix[x][y] !== 0){
+    //   return;
+    // }
 
     for (let i = 0 ; i < this.props.choiceColor.length ; i++){
       if(this.props.theColor === this.props.choiceColor[i]) {
