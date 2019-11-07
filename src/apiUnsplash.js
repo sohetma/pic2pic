@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const uploadPhotos= (query) => {
   const unsplash = new Unsplash({
-    accessKey: "95a56e4dbdbda45b38ebd65bfde2e487cc2b6afbb0a6fd9737d915f36d872a9b",
+    accessKey: "",
     secret: process.env.APP_SECRET_KEY,
     timeout: 500
   });

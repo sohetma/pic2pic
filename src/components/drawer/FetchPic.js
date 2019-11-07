@@ -20,7 +20,7 @@ class PicInDrawer extends Component {
     const response = await axios.get('https://api.unsplash.com/search/photos', {
         params: { query: term},
         headers: {
-            Authorization: 'Client-ID 95a56e4dbdbda45b38ebd65bfde2e487cc2b6afbb0a6fd9737d915f36d872a9b'
+            Authorization: 'Client-ID '
         }
     })
 
@@ -49,8 +49,8 @@ class PicInDrawer extends Component {
         <SearchBar userSubmit={this.onSearchSubmit}/>
           {
           !this.state.photo
-            ? <img src={"https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3937&q=80 3937w"} alt={'avatar'}/>
-            : <img src={this.state.photo} alt={this.state.description}/>
+            ? <img className="picFetch" src={"https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3937&q=80 3937w"} alt={'avatar'}/>
+            : <img className="picFetch" src={this.state.photo} alt={this.state.description}/>
           }
       </div>
     );
