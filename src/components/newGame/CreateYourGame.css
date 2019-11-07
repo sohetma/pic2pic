@@ -1,0 +1,28 @@
+.header{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+hr{
+    border: 2px solid black;
+  }
+
+.title-header{
+    font-size: 50px;
+    font-weight: bold;
+
+}
+.pic-1{
+    color: rgba(16, 84, 146);
+}
+
+.pic-2{
+    color: rgba(37, 77, 25);
+}
+
+.pic-3{
+    color: rgba(100, 3, 8);
+}

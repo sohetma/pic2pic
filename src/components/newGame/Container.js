@@ -4,18 +4,19 @@ import Themes from './Themes.js';
 import ButtonStart from './BoutonStart.js';
 import './Container.css';
 
+// include the central part with lobby, round and themes
 const Container = () => {
     return(
-    <section className ='container'>
-        <div className ='box'>
-            <Round/>
+        <div className="container-first">
+            <div className ='container'>
+                <div className ='box'>
+                    <Round/>
+                </div>
+                <div className ='box'>
+                    <Themes/>
+                </div>
+            </div>
         </div>
-        <div className ='box'>
-            <Themes/>
-        </div>
-        <ButtonStart/>
-    </section>
-
 );
     }
 export default Container;

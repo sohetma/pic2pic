@@ -44,23 +44,3 @@ unsplash.search.photos(query, 1, 3, { orientation: "portrait" })
   .then(json => {
     // Your code
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
