@@ -5,6 +5,7 @@ import players from './utils.js';
 import PlayersInDrawer from './PlayersInDrawer.js';
 import Timer from './Timer.js';
 import PicInDrawer from './PicInDrawer.js';
+import FetchPic from './FetchPic.js';
 import WordInDrawer from './WordInDrawer.js';
 import Chat from './Chat.js';
 import './Game.css';
@@ -24,7 +25,7 @@ const Game = (props) => (
 
     <div className="draw-game">
       <div className="pic-word">
-        <PicInDrawer word={"House"} picture={"https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=architectuur-carport-dak-186077.jpg&fm=jpg"}/>
+        <FetchPic />
         <WordInDrawer word={"House"}/>
       </div>
       <Draw />
@@ -34,3 +35,5 @@ const Game = (props) => (
 );
 
 export default Game;
+
+// <PicInDrawer word={"House"} picture={"https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=architectuur-carport-dak-186077.jpg&fm=jpg"}/>

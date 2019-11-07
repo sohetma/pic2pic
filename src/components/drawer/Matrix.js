@@ -74,7 +74,7 @@ class Matrix extends React.Component{
 
   draftBack = () => {
     let draftBack = this.state.saved;
-    console.log('draft', draftBack);
+    // console.log('draft', draftBack);
 
     this.setState({
       matrix : draftBack
@@ -99,7 +99,7 @@ class Matrix extends React.Component{
     }
 
     //console.log('I m in update');
-    console.log(updateMyGrid);
+    // console.log(updateMyGrid);
     //return updateMyGrid;
 
     this.setState({
@@ -109,7 +109,7 @@ class Matrix extends React.Component{
 
   refresh = () => {
 
-    console.log(' I m in refresh');
+    // console.log(' I m in refresh');
 
     this.setState({
       matrix : this.freshGrid()

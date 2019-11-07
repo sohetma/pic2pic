@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "ansi-regex": "^5.0.0",
+    "axios": "^0.19.0",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
@@ -14,7 +17,7 @@
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start dotenv_config_path=/src",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
