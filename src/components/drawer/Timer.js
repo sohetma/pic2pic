@@ -7,19 +7,19 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      seconds: 0
+      seconds: 45
     };
   }
 
   tick() {
     this.setState(state => ({
-      seconds: state.seconds + 1
+      seconds: state.seconds - 1
     }));
   }
 
   stop() {
     this.setState(state => ({
-      seconds: 0
+      seconds: 45
     }));
     //alert("End of the party");
   }
@@ -35,12 +35,10 @@ class Timer extends React.Component {
   }
 
 
-
   render() {
     return (
       <div className="timer">
-        <h3> Seconds: {this.state.seconds} </h3>
-        <p> Timer stop at 45 Seconds </p>
+        <h2> Time : {this.state.seconds} </h2>
       </div>
     );
   }
