@@ -20,7 +20,7 @@ class PicInDrawer extends Component {
     const response = await axios.get('https://api.unsplash.com/search/photos', {
         params: { query: term},
         headers: {
-            Authorization: 'Client-ID '
+            Authorization: 'Client-ID 95a56e4dbdbda45b38ebd65bfde2e487cc2b6afbb0a6fd9737d915f36d872a9b'
         }
     })
 
