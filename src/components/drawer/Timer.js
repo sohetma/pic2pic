@@ -21,6 +21,7 @@ class Timer extends React.Component {
     this.setState(state => ({
       seconds: 0
     }));
+    //alert("End of the party");
   }
 
 

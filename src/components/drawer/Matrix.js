@@ -49,6 +49,10 @@ class Matrix extends React.Component{
 
     if(this.state.matrix[x][y] !== 0){
       gommeMyGrid[x][y] = 0;
+      gommeMyGrid[x][y-1] = 0;
+      gommeMyGrid[x-1][y] = 0;
+      gommeMyGrid[x+1][y] = 0;
+      gommeMyGrid[x][y+1] = 0;
       this.props.theColor = 'white';
     }
 

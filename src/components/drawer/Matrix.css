@@ -4,6 +4,8 @@ table {
   border: 3px solid black;
   border-radius: 10px;
   text-align: center;
+  cursor : cell;
+  /* cursor : url('/img/gomme.png'), auto; */
 }
 
 td {
