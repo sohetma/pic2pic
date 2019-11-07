@@ -24,7 +24,7 @@ class Round extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            <p className ='lobby'>Lobby</p>
+            <p className="lobby">Lobby</p>
             <p className ='round'>Round:
               <select className ="list" value={this.state.value} onChange={this.handleChange}>
                 <option value="1">1</option>

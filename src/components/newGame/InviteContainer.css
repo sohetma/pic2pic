@@ -1,19 +1,28 @@
-.form-control{
-    display: flex;
-    text-align: center;
-    width: 500px;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-left: auto;
-    margin-right: auto;
-}
+/* Les 3 sous point contrôle le Join a friend with the URL*/
 .link{
+    color: rgba(51, 51, 51);
     text-align: center;
     font-size: 30px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 50px;
+    background-color: rgba(242, 236, 236);
+    border: 10px black double;
+}
+
+.join-friend{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 5px;
+}
+.link-one{
+    display: flex;
+    margin: 3px;
+    margin-left: auto;
+    width: 350px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
 }
