@@ -1,11 +1,19 @@
-import React from 'react';
-import './Background.css';
-
-const Background = () => {
-    return(
-        <div className='background-image'>
-        <img src="./img/photo_newgame.jpg" alt="piste d'athlétisme" />
-        </div>
-);
+import React, { url } from 'react';
+// Affiche l'image de fond de la page Newgame, l'autre bout de code ce trouve dans NewGame
+class Background extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        theme: './img/photo_newgame.jpg',
+        color: 'green'
+      }
     }
+
+    render() {
+        return (
+            <div className="theme" style={{background: this.state.theme,}}>
+            </div>
+        );
+    }
+};
 export default Background;

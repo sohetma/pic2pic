@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-bottom: 11px;
 }
 hr{
     border: 2px solid black;
@@ -14,15 +15,4 @@ hr{
     font-size: 50px;
     font-weight: bold;
 
-}
-.pic-1{
-    color: rgba(16, 84, 146);
-}
-
-.pic-2{
-    color: rgba(37, 77, 25);
-}
-
-.pic-3{
-    color: rgba(100, 3, 8);
 }

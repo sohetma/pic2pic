@@ -5,6 +5,7 @@ import './Container.css';
 class Round extends React.Component {
     constructor(props) {
       super(props);
+
       this.state = {value: '1'};
 
       this.handleChange = this.handleChange.bind(this);
@@ -12,11 +13,13 @@ class Round extends React.Component {
     }
 
     handleChange(event) {
-      this.setState({value: event.target.value});
+      this.setState({
+        value: event.target.value
+      });
     }
 
     handleSubmit(event) {
-      alert('Your favorite flavor is: ' + this.state.value);
+      //alert('Your favorite flavor is: ' + this.state.value);
       event.preventDefault();
     }
 
@@ -24,7 +27,9 @@ class Round extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            <p className="lobby">Lobby</p>
+            <div className="lobby">
+            <p>Lobby</p>
+            </div>
             <p className ='round'>Round:
               <select className ="list" value={this.state.value} onChange={this.handleChange}>
                 <option value="1">1</option>

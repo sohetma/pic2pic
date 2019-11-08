@@ -14,7 +14,7 @@
     justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(242, 236, 236);
+    background-color: rgba(161, 161, 161);
     border: 10px black double ;
     border-radius: 10px;
   }
@@ -22,11 +22,12 @@
     display: flex;
   }
   .lobby{
+    display: flex;
+    justify-content: center;
     color: rgba(51, 51, 51);
-    text-align: center;
     font-size: 40px;
-    margin: 0 auto;
     width: 300px;
+    height: 70px;
     border-bottom: 2px solid black;
   }
   .round{
