@@ -2,11 +2,11 @@
   margin: 5px;
 }
 
-#gomme{
+/* #gomme{
 	padding: 5px;
 	border: 1px solid black;
 	border-radius: 5px 5px 5px 5px;
-}
+} */
 
 .palette{
   display : flex;
@@ -22,37 +22,8 @@
   /* border-radius: 10px; */
   opacity: 80%;
   /* padding: 3px; */
-  /* margin-left: auto;
-  margin-right: auto; */
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 3px;
   margin-bottom: 10px;
-}
-
-.browser-palette-colors {
-    width: 100%;
-    height: 45px;
-    border-radius: 5px;
-    cursor: default;
-}
-
-.browser-palette-colors div {
-    height: 100%;
-    width: 20%;
-    float: left;
-    transition: background .1s linear;
-    transition-property: background;
-    transition-duration: 0.1s;
-    transition-timing-function: linear;
-    transition-delay: 0s;
-    box-shadow: inset rgba(255,255,255,.1) 0 1px, inset rgba(255,255,255,.1) 0 -1px;
-    cursor: default;
-}
-
-.browser-palette-colors div:first-child {
-    border-radius: 5px 0 0 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 5px;
-    box-shadow: inset rgba(255,255,255,.1) 1px 1px, inset rgba(255,255,255,.1) 0 -1px;
 }

@@ -26,15 +26,11 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-          <Head />
           <Switch>
             <Route exact path='/' component={HeroHeader} />
             <Route path="/game" component={Game} />
             <Route path="/newgame" component={NewGame} />
           </Switch>
-
-
-
       </div>
 
     );

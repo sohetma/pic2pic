@@ -1,4 +1,5 @@
 import React from 'react';
+import HintsWord from './HintsWord.js';
 import './WordInDrawer.css';
 
 // Component word : its the word to find for win the game
@@ -6,8 +7,7 @@ import './WordInDrawer.css';
 const WordInDrawer = props => (
   <div className = "wordInDrawer">
     <h3 className="theword">{props.word}</h3>
-
-    <h1 className="hints"> _ _ _ _ _ </h1>
+    <HintsWord word={props.word}/>
   </div>
 );
 

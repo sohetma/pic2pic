@@ -8,6 +8,7 @@ import PicInDrawer from './PicInDrawer.js';
 import FetchPic from './FetchPic.js';
 import WordInDrawer from './WordInDrawer.js';
 import Chat from './Chat.js';
+import '../../App.css';
 import './Game.css';
 import '../heroHeaderComp/HeroHeader.css';
 

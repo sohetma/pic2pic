@@ -25,9 +25,9 @@
 }
 
 .hero-header h1 {
-    font-size: 8em;
+    font-size: 10em;
     margin-bottom: 0.5em;
-    margin-top: 100px;
+    margin-top: 40px;
 }
 
 .pic-1 {
@@ -41,35 +41,43 @@
 }
 
 .hero-header h2 {
-    font-size: 2.5em;
+    font-size: 3.5em;
     color: black;
     margin-bottom: 20px;
-    margin-top: 150px;
+    margin-top: 200px;
 }
 
-hr {
-    width: 700px;
-    height: 3px;
-    background-color: black;
+.hero-header hr {
+    width: 840px;
+    border: 2px solid black;
 }
 
-.pen{
+.hero-pen{
     background-image: url('./img/draw_hero_header.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 310px;
+    height: 160px;
+    margin-bottom: 100px;
+
 }
 
 .hero-header .button {
-    width: 200px;
+    width: 270px;
 
     padding: 0.8em;
-    margin-top: 100px;
+    margin-top: -100px;
+    margin-bottom: 50px;
 
     color: white;
     text-decoration: none;
     font-size: 1.5em;
-    background-color: rgba(209, 165, 49, 0.8);
+    background: rgb(18,143,227);
+    background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%);
 
-    border: 3px solid white;
-    border-radius: 20px;
+    border: 2px solid black;
+    border-radius: 50px;
 
     transition: all 0.3s ease-in-out;
 }
@@ -77,4 +85,8 @@ hr {
 .hero-header .button:hover {
     color: rgb(209, 165, 49);
     background-color: rgba(255, 255, 255, 0);
+}
+
+hr{
+    border: 2px solid black;
 }
