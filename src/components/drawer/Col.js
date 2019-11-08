@@ -7,7 +7,7 @@ const Col = (props) => (
     className = "colButton"
     style={{backgroundColor : props.color, color: 'white'}}
     onClick={() => props.updateColor(props.color)}
-  >{props.name}</button>
+  ></button>
 );
 
 export default Col;

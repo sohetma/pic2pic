@@ -1,0 +1,13 @@
+.picInDrawer img{
+  width : 100%;
+  border-radius: 10px;
+  /* background-image : image(./img/unsplash.jpg); */
+}
+
+.picInDrawer{
+  height: 400px;
+}
+
+.picFetch{
+  border-radius: 10px;
+}

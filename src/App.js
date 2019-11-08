@@ -7,6 +7,9 @@ import Head from './components/Head.js';
 import Game from './components/drawer/Game.js';
 import NewGame from './components/newGame/NewGame.js';
 
+// import api from './apiUnsplash.js';
+
+
 class App extends React.Component{
   constructor(props) {
     super(props);

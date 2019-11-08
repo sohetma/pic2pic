@@ -1,8 +1,55 @@
 .game{
+  /* background-color: #BBD0CE; */
+  background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%);
+  /* background-image: url("img/forest2.jpg"); */
+  /* "img/cel.jpg" */
   display : flex;
   text-align: center;
   flex-wrap: wrap;
   align-items: center;
   flex-direction: column;
   justify-content : space-around;
+  /* border: 1px solid red; */
+}
+
+.draw-game{
+  /* border : 1px solid green; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.pic-word{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid black; */
+  height: 500px;
+  margin-top: 5px;
+  width: 25%;
+}
+
+.header-game{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  /* border: 1px solid blue; */
+}
+
+.title-game{
+  margin-top: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
+  align-items: center;
+  text-align: center;
+}
+
+.timer{
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 20px;
 }

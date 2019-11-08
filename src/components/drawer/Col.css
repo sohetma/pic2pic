@@ -1,4 +1,7 @@
 .colButton{
-  border-radius : 80%;
-  width: 15%;
+  margin: 0 15px 0 0;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	border-radius: 100%;
 }

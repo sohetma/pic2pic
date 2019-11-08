@@ -3,10 +3,9 @@ import './InviteContainer.css';
 
 const InviteContainer = () => {
     return(
-        <div className="global">
-          <p className="link">Link of the URL</p>
-          <div className="login">
-            <input className="form-control" type="text" readOnly placeholder="Localhost:3000"></input>
+        <div className="link">
+          <p className="join-friend">Join a friend with this URL :</p>
+          <div className="link-one">
           </div>
       </div>
 

@@ -3,17 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "js.": "^1.0.0",
+=======
+    "ansi-regex": "^5.0.0",
+    "axios": "^0.19.0",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0",
+>>>>>>> 6184d968edb530cf73ad14db522cd4afaf2fd854
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
+    "request": "^2.88.0",
     "typescript": "^3.6.4",
+<<<<<<< HEAD
+=======
+    "unsplash-js": "^6.0.0",
+>>>>>>> 6184d968edb530cf73ad14db522cd4afaf2fd854
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "NODE_PATH=./src react-scripts build",
+    "start": "react-scripts start dotenv_config_path=/src",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -10,6 +10,7 @@ const Palette = (props) => (
     <Col color={props.color[2]} name={props.name[2]} updateColor={props.updateColor}/>
     <Col color={props.color[3]} name={props.name[3]} updateColor={props.updateColor}/>
     <Col color={props.color[4]} name={props.name[4]} updateColor={props.updateColor}/>
+    <Col color={props.color[5]} name={props.name[5]} updateColor={props.updateColor}/>
   </div>
 );
 

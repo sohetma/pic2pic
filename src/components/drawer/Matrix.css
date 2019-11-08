@@ -2,10 +2,13 @@
 table {
   border-collapse: collapse;
   border: 3px solid black;
+  border-radius: 10px;
   text-align: center;
+  cursor : cell;
+  /* cursor : url('/img/gomme.png'), auto; */
 }
 
 td {
-  width:8px;
-  height:8px;
+  width:10px;
+  height:10px;
 }

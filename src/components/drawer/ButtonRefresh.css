@@ -3,8 +3,8 @@
   margin-left: 5px;
   width : 25%;
   height: 40px;
-  border-radius: 10px;
-  background-color: #454545;
+  border-radius: 20px;
+  background-color: blue;  /*rgba(37, 77, 25) ; #456DD8  #6698cb */
   color : white;
 }
 

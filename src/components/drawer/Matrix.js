@@ -3,8 +3,9 @@ import Pix from './Pix.js';
 import './Pix.css';
 import './Matrix.css'
 import './ButtonRefresh.css';
-import FunctionalityDrawer from './FunctionalityDrawer.js'
+import FunctionalityDrawer from './FunctionalityDrawer.js';
 
+const dimension = 50;
 
 class Matrix extends React.Component{
 
@@ -14,8 +15,8 @@ class Matrix extends React.Component{
     //console.log(this.updateGrid(this.createTable(10),1,2))
 
     this.state = {
-      matrix : this.createTable(64),
-      saved : this.createTable(64),
+      matrix : this.createTable(dimension),
+      saved : this.createTable(dimension),
       status :"mouseUp"
     };
 
@@ -40,7 +41,7 @@ class Matrix extends React.Component{
 
   freshGrid = () => {
     //console.log('I m in fresh grid');
-    return this.createTable(64);
+    return this.createTable(dimension);
   }
 
   gomme = (x,y) => {
@@ -48,6 +49,10 @@ class Matrix extends React.Component{
 
     if(this.state.matrix[x][y] !== 0){
       gommeMyGrid[x][y] = 0;
+      gommeMyGrid[x][y-1] = 0;
+      gommeMyGrid[x-1][y] = 0;
+      gommeMyGrid[x+1][y] = 0;
+      gommeMyGrid[x][y+1] = 0;
       this.props.theColor = 'white';
     }
 
@@ -69,7 +74,7 @@ class Matrix extends React.Component{
 
   draftBack = () => {
     let draftBack = this.state.saved;
-    console.log('draft', draftBack);
+    // console.log('draft', draftBack);
 
     this.setState({
       matrix : draftBack
@@ -80,18 +85,21 @@ class Matrix extends React.Component{
   updateGrid = (x, y) => {
     let updateMyGrid = this.state.matrix;
 
-    if(this.state.matrix[x][y] !== 0){
-      return;
-    }
+    // if(this.state.matrix[x][y] !== 0){
+    //   return;
+    // }
 
     for (let i = 0 ; i < this.props.choiceColor.length ; i++){
       if(this.props.theColor === this.props.choiceColor[i]) {
         updateMyGrid[x][y] = this.props.theColor;
+        if(this.props.theColor === 'white'){
+          updateMyGrid[x][y] = 0;
+        }
       }
     }
 
     //console.log('I m in update');
-    console.log(updateMyGrid);
+    // console.log(updateMyGrid);
     //return updateMyGrid;
 
     this.setState({
@@ -101,7 +109,7 @@ class Matrix extends React.Component{
 
   refresh = () => {
 
-    console.log(' I m in refresh');
+    // console.log(' I m in refresh');
 
     this.setState({
       matrix : this.freshGrid()
@@ -132,6 +140,7 @@ class Matrix extends React.Component{
                   <tr key={rowIndex}>
                       { pixels.map((pixel, colIndex) => (
                           <Pix
+                              hovered = {this.state.status}
                               lat={rowIndex}
                               lng={colIndex}
                               color = {this.state.matrix[rowIndex][colIndex]}
