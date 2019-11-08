@@ -1,6 +1,6 @@
 import React from 'react';
-import Matrix from './Matrix';
-import Palette from './Palette';
+import Matrix from './Matrix.js';
+import Palette from './Palette.js';
 import './Draw.css'
 
 
@@ -33,8 +33,8 @@ class Draw extends React.Component {
   render = () =>  {
     return (
       <div className="draw">
-        <Matrix theColor={this.state.theColor} choiceColor={this.state.color} />
-        <Palette color={this.state.color} name={this.state.name} updateColor={this.updateColor} />
+        <Matrix theColor={this.state.theColor} choiceColor={this.state.color} ></Matrix>
+        <Palette color={this.state.color} name={this.state.name} updateColor={this.updateColor} ></Palette>
       </div>
     );
   }

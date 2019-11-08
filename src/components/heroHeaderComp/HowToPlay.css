@@ -61,10 +61,10 @@
   flex-direction: column;
 }
 
-.draw{
+/* .draw{
   height: 349px;
-  border: 1px solid black; 
-}
+  border: 1px solid black;
+} */
 .logoPencil{
   background-image:  url('./img/pencil.svg');
   height: 144px;
@@ -107,7 +107,7 @@
 .my-gradient {
   background: rgb(18,143,227);
   background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%);
-} 
+}
 
 .text{
   width: 86%;
