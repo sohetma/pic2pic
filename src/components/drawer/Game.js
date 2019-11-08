@@ -26,7 +26,7 @@ const Game = (props) => (
     <div className="draw-game">
       <div className="pic-word">
         <FetchPic />
-        <WordInDrawer word={"House"}/>
+        <WordInDrawer word={"The word to draw"}/>
       </div>
       <Draw />
       <Chat />

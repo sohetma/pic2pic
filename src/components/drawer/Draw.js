@@ -17,7 +17,7 @@ class Draw extends React.Component {
   }
 
   generateColors = () => {
-    return ['red','blue','black','green','yellow','white'];
+    return ['#36486b','#618685','#b2b2b2','#80ced6','#d5f4e6','white'];
   }
 
   generateName = () => {

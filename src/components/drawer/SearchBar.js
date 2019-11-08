@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
         return (
             <div>
                 <form onSubmit={this.onFormSubmit}  className="flexContainer">
-                    <label><h2>Choose your word </h2></label>
+                    <label><h2 id="choose-word">Choose your word </h2></label>
                     <input
                         className="inputStyle"
                         type="text"

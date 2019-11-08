@@ -3,6 +3,7 @@ import './PlayersInDrawer.css'
 
 // Component player with its avatar, username and points
 const PlayerInDrawer = ({username, avatar, points}) => (
+
   <div className = "playerInDrawer">
     {
     !avatar

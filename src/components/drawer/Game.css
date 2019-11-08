@@ -1,6 +1,8 @@
 .game{
-  /* background-color: #BBD0CE; */
-  background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%);
+  background-color: #43575E;
+  /* background-size: cover;
+  background-position: center; */
+  /* background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%); */
   /* background-image: url("img/forest2.jpg"); */
   /* "img/cel.jpg" */
   display : flex;
