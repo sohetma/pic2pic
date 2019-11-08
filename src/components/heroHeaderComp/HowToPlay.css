@@ -1,0 +1,117 @@
+.how-to-play h2{
+  font-size: 5em;
+  text-align: center;
+  margin-top: 90px;
+}
+.pic-1 {
+  color: rgba(100, 3, 8);
+}
+.deux {
+  color: rgba(16, 84, 146);
+}
+.pic-2 {
+  color: rgba(37, 77, 25);
+}
+
+.how-to-play hr{
+  width: 900px;
+  border: 1px solid black;
+  margin-left: 300px;
+}
+
+
+.box{
+  width: 100%;
+  height: 700px;
+  border: 1px solid black;
+  display: flex;
+  margin-top: 50px;
+}
+
+.create{
+  width: 23%;
+  height: 700px;
+  border: 1px solid black;
+}
+.logoMore{
+  background-image: url('./img/more.jpg');
+  height: 143px;
+  margin-top: 40px;
+}
+.logoJoinUs{
+  background-image: url('./img/join_us.png');
+  height: 192px;
+  margin-top: 100px;
+}
+
+.name{
+  width: 23%;
+  height: 700px;
+  border: 1px solid black;
+}
+.logoProfile{
+  background-image:  url('./img/profile.jpg');
+  height: 163px;
+  margin-top: 150px;
+}
+
+
+.boxColumn{
+  width: 31%;
+  flex-direction: column;
+}
+
+.draw{
+  height: 349px;
+  border: 1px solid black; 
+}
+.logoPencil{
+  background-image:  url('./img/pencil.svg');
+  height: 144px;
+}
+.textDowns{
+  font-size: 5em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 29px;
+}
+
+.guess{
+  height: 349px;
+  border: 1px solid black;
+}
+.logoManThinking{
+  background-image:  url('./img/manthinking.png');
+  height: 200px;
+  margin-top: 20px;
+}
+
+
+.score{
+  width: 23%;
+  height: 700px;
+  border: 1px solid black;
+}
+.logoPodium{
+  background-image:  url('./img/pudium.png');
+  height:192px;
+  margin-top: 150px;
+}
+
+.logo{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.my-gradient {
+  background: rgb(18,143,227);
+  background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%);
+} 
+
+.text{
+  width: 86%;
+  font-size: 2em;
+  text-transform: uppercase;
+  margin: auto;
+}
