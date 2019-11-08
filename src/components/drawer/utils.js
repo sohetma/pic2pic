@@ -2,22 +2,22 @@ const players = [
   {
     username : "Benoit",
     avatar : '../img/avatar1.png',
-    points : 0
+    points : 5
   },
   {
     username : "Nico",
     avatar : "../img/avatar2.png",
-    points : 0
+    points : 3
   },
   {
     username : "Guislain",
     avatar : "../img/avatar3.png",
-    points : 0
+    points : 2
   },
   {
     username : "Pierre",
     avatar : "../img/avatar4.png",
-    points : 0
+    points : 1
   },
   {
     username : "Maxime",
