@@ -1,7 +1,7 @@
 *{
     margin:0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: cursive;
 }
 
 
@@ -18,10 +18,11 @@
     text-align: center;
     color: white;
 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url('./img/photo_hero_header.jpg');
+    background-image: url('./img/photo_hero_header.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    
 }
 
 .hero-header h1 {
