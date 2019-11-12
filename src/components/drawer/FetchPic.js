@@ -1,12 +1,13 @@
 import React , { Component } from 'react';
 import './PicInDrawer.css';
 import SearchBar from './SearchBar.js';
+import ButtonPic from './ButtonPic.js'
 
 const axios = require('axios');
 
 // Component pic return an image
 // picInDrawer take an argument 'picture' (a source)
-class PicInDrawer extends Component {
+class FetchPic extends Component {
   constructor(props){
     super(props);
 
@@ -16,9 +17,13 @@ class PicInDrawer extends Component {
     }
   }
 
-  onSearchSubmit = async (term) => {
+
+  // onSearchSubmit = async (term) => {
+  onPlayerSubmit = async (word) => {
+    console.log('comp', this.props.word)
+    let wordChoose = word;
     const response = await axios.get('https://api.unsplash.com/search/photos', {
-        params: { query: term},
+        params: { query: wordChoose},
         headers: {
             Authorization: 'Client-ID 95a56e4dbdbda45b38ebd65bfde2e487cc2b6afbb0a6fd9737d915f36d872a9b'
         }
@@ -46,7 +51,7 @@ class PicInDrawer extends Component {
     return (
 
       <div className="picInDrawer">
-        <SearchBar userSubmit={this.onSearchSubmit}/>
+        <ButtonPic chooseAWord={this.props.chooseAWord} onPlayerSubmit={this.onPlayerSubmit} theme={'sport'} />
           {
           !this.state.photo
             ? <img className="picFetch" src={"https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3937&q=80 3937w"} alt={'avatar'}/>
@@ -57,4 +62,6 @@ class PicInDrawer extends Component {
   }
 }
 
-export default PicInDrawer;
+export default FetchPic;
+
+// <SearchBar userSubmit={this.onSearchSubmit}/>

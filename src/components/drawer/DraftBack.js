@@ -4,9 +4,10 @@ import './ButtonRefresh.css';
 
 const DraftBack = (props) => (
   <button
+    id = "Back"
     className = "DraftBack"
     onClick = {() => props.draftBack()}
-  > Get your draft back </button>
+  > ↩️ </button>
 );
 
 export default DraftBack;
