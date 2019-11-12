@@ -1,0 +1,7 @@
+.newgame{
+  height : 100 vh;
+  width : 100 vw;
+  background-repeat: 'no-repeat';
+  background-position: 'center';
+  background-size: 'cover';
+}

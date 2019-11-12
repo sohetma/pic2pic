@@ -1,6 +1,6 @@
 import React from 'react';
 import './Game.css';
-import './Timer.css';
+
 
 // Timer component
 

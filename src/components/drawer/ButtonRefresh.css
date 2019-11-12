@@ -3,9 +3,10 @@
   margin-left: 5px;
   width : 25%;
   height: 40px;
-  border-radius: 20px;
-  background-color: blue;  /*rgba(37, 77, 25) ; #456DD8  #6698cb */
+  border-radius: 5px;
+  background-color: #618685;  /*rgba(37, 77, 25) ; #456DD8  #6698cb */
   color : white;
+  border : 1px solid #618685;
 }
 
 .div-button-refresh{

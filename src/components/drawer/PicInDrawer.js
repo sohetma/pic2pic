@@ -20,7 +20,7 @@ class PicInDrawer extends Component {
 
   fetchPhotos(query){
     const unsplash = new Unsplash({
-      accessKey: "",
+      accessKey: "95a56e4dbdbda45b38ebd65bfde2e487cc2b6afbb0a6fd9737d915f36d872a9b",
       secret: process.env.APP_SECRET_KEY,
       timeout: 50000
     });
@@ -34,7 +34,7 @@ class PicInDrawer extends Component {
 
         response.results.forEach((photo,index) => {
           //result.push(`<img src="${photo.urls.regular}">`);
-          result[index] = photo.urls.regular;
+          result[index] = photo.urls.small;
           //console.log(typeof result[index], result[index]);
           //console.log(`the url ${index} is : `, photo.urls.regular);
         })

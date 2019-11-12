@@ -1,32 +1,32 @@
 const players = [
   {
     username : "Benoit",
-    avatar : "http://pngimg.com/uploads/simpsons/simpsons_PNG93.png",
-    points : 0
+    avatar : '../img/avatar1.png',
+    points : 5
   },
   {
     username : "Nico",
-    avatar : "http://pngimg.com/uploads/simpsons/simpsons_PNG71.png",
-    points : 0
+    avatar : "../img/avatar2.png",
+    points : 3
   },
   {
     username : "Guislain",
-    avatar : "http://pngimg.com/uploads/simpsons/simpsons_PNG90.png",
-    points : 0
+    avatar : "../img/avatar3.png",
+    points : 2
   },
   {
     username : "Pierre",
-    avatar : "http://pngimg.com/uploads/simpsons/simpsons_PNG85.png",
-    points : 0
+    avatar : "../img/avatar4.png",
+    points : 1
   },
   {
     username : "Maxime",
-    avatar : "http://pngimg.com/uploads/simpsons/simpsons_PNG84.png",
+    avatar : "../img/avatar5.png",
     points : 0
   },
   {
     username : "Steve",
-    avatar : "http://pngimg.com/uploads/simpsons/simpsons_PNG57.png",
+    avatar : "../img/avatar6.png",
     points : 0
   },
 

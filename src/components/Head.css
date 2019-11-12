@@ -1,12 +1,14 @@
 li{
   list-style-type: none;
-  padding: 20px;
+  padding: 10px;
+  height: 25px;
 }
 
-.Header{
+.link-list{
+  height: 35px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   background-color: #727C7B;
   color : #FFFFFF;
 }

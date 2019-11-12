@@ -17,7 +17,8 @@ class Matrix extends React.Component{
     this.state = {
       matrix : this.createTable(dimension),
       saved : this.createTable(dimension),
-      status :"mouseUp"
+      status :"mouseUp",
+      isActive : false
     };
 
     // console.log(this.freshGrid());
@@ -25,6 +26,7 @@ class Matrix extends React.Component{
     // console.log(this.updateGrid(1,1));
     // console.log(this.refresh());
   }
+
 
 
 
@@ -118,13 +120,13 @@ class Matrix extends React.Component{
 
   onMouseDown = () => {
     this.setState({
-        status: "mouseDown"
+        isActive : true
     })
   }
 
   onMouseUp = () => {
       this.setState({
-          status: "mouseUp"
+          isActive : false
       })
   }
 
@@ -146,6 +148,7 @@ class Matrix extends React.Component{
                               color = {this.state.matrix[rowIndex][colIndex]}
                               updateGrid={this.updateGrid}
                               key={"row" + rowIndex.toString() + "col" + colIndex.toString()}
+                              actived={this.state.isActive}
                           ></Pix>
                         )
                       )}
