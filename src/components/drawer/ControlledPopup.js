@@ -6,23 +6,34 @@ import Popup from "reactjs-popup";
 class ControlledPopup extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = {
+      open: false
+    };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
   openModal() {
-    this.setState({ open: true });
+    this.setState({
+      open: true
+    });
   }
+
   closeModal() {
-    this.setState({ open: false });
+    this.setState({
+       open: false
+     });
   }
+
+  componentDidMount(){
+    this.openModal();
+  }
+
 
   render() {
     return (
       <div>
-        <button className="button-popup" onClick={this.openModal}>
-          Controlled Popup
-        </button>
+
         <Popup
           open={this.state.open}
           closeOnDocumentClick
@@ -38,24 +49,19 @@ class ControlledPopup extends Component {
 
           <div className="actions">
           <Popup
-            trigger={<button className="button"> Trigger </button>}
+            trigger={<button className="button"> Action </button>}
             position="top center"
             closeOnDocumentClick
           >
             <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-              magni omnis delectus nemo, maxime molestiae dolorem numquam
-              mollitia, voluptate ea, accusamus excepturi deleniti ratione
-              sapiente! Laudantium, aperiam doloribus. Odit, aut.
+              On va lui dire qqch ici
             </span>
           </Popup>
           <button
             className="button"
-            onClick={() => {
-              console.log("modal closed ");
-            }}
+            onClick={() => this.closeModal}
           >
-            close modal
+            New Game
           </button>
         </div>
         </Popup>
@@ -65,6 +71,8 @@ class ControlledPopup extends Component {
 }
 
 // render(<ControlledPopup />);
-
+// <button className="button-popup" onClick={this.openModal}>
+//   Popup
+// </button>
 
 export default ControlledPopup;

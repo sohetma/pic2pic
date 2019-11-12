@@ -24,8 +24,21 @@ constructor(props){
   super(props);
   this.state = {
     word : 'wouwou',
-    hints : ''
+    hints : '',
+    isPlaying : true,
   }
+}
+
+newGame = () => {
+  this.setState({
+    isPlaying : true
+  })
+}
+
+endGame = () => {
+  this.setState({
+    isPlaying : false
+  })
 }
 
 hints = word => {
@@ -68,8 +81,8 @@ render(){
         <div className="header-game">
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
           <PlayersInDrawer players={players} />
-          <Timer />
-          <ControlledPopup />
+          <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
+          {!this.state.isPlaying && <ControlledPopup />}
         </div>
 
         <div className="draw-game">

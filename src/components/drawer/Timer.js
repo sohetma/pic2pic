@@ -22,17 +22,25 @@ class Timer extends React.Component {
   }
 
   stop = () => {
+    // console.log('1', this.props.isPlaying);
+    this.props.endGame();
+    // console.log('2', this.props.isPlaying);
+    //alert("End of the party");
+  }
+
+  reset = () => {
+    this.props.newGame();
     this.setState(state => ({
-      seconds: 45,
+      seconds: 60,
       color : 'white'
     }));
-    //alert("End of the party");
   }
 
 
   componentDidMount() {
     this.interval = setInterval(() => this.tick(), 1000);
-    this.interval2 = setInterval(() => this.stop(), 45000);
+    this.interval2 = setInterval(() => this.stop(), 60000);
+    this.interval3 = setInterval(() => this.reset(), 65000);
   }
 
   componentWillUnmount() {
