@@ -12,7 +12,8 @@ import '../../App.css';
 import './Game.css';
 import '../heroHeaderComp/HeroHeader.css';
 import words from '../words.js';
-import ControlledPopup from './ControlledPopup.js'
+import ControlledPopup from './ControlledPopup.js';
+import Popupic from './PopupPics.js';
 
 //console.log(players);
 
@@ -26,6 +27,7 @@ constructor(props){
     word : 'wouwou',
     hints : '',
     isPlaying : true,
+    start : true
   }
 }
 
@@ -79,6 +81,7 @@ render(){
   return (
     <div className="game">
         <div className="header-game">
+          {this.state.start && <Popupic />}
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
           <PlayersInDrawer players={players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />

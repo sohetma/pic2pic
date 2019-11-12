@@ -3,6 +3,7 @@ import './popup.css';
 import Popup from "reactjs-popup";
 
 
+
 class ControlledPopup extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +27,7 @@ class ControlledPopup extends Component {
   }
 
   componentDidMount(){
-    this.openModal();
+    this.openModal()
   }
 
 
