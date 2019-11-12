@@ -50,15 +50,5 @@ class NewGame extends React.Component {
       );
   }
 };
-/*const NewGame = (props) => (
-  <div className="newgame">
-    <Theme/>
-    <CreateYourGame/>
-    <ButtonStart/>
-    <Container/>
-    <InviteContainer/>
-  </div>
-
-);*/
 
 export default NewGame;

@@ -10,10 +10,10 @@ const Container = () => {
     return(
         <div className="container-first">
             <div className ='container'>
-                <div className ='box'>
+                <div className ='selection'>
                     <Round/>
                 </div>
-                <div className ='box'>
+                <div className ='selection'>
                     <Themes/>
                 </div>
             </div>
