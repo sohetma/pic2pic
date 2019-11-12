@@ -5,9 +5,10 @@ import './ButtonRefresh.css'
 
 const ButtonRefresh = (props) => (
   <button
+    id = "ButRefresh"
     className = "ButtonRefresh"
     onClick = {() => props.refresh()}
-  > Refresh the Drawer </button>
+  > 🗑️ </button>
 );
 
 export default ButtonRefresh;

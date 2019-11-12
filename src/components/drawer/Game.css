@@ -1,9 +1,11 @@
 .game{
-  background-color: #43575E;
+  /* background-color: rgb(48, 46, 64); */
+  /* #43575E; */
+  background-image: url('./img/wood4.jpg');
   background-size: cover;
   background-position: center;
   /* background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%); */
-  /* background-image: url("img/forest2.jpg"); */
+
   /* "img/cel.jpg" */
   display : flex;
   text-align: center;
@@ -55,6 +57,7 @@
 }
 
 .timer{
+  color : white;
   align-items: center;
   text-align: center;
   margin-top: 50px;

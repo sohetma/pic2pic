@@ -4,9 +4,11 @@ import './ButtonRefresh.css';
 
 const SaveTheDraw = (props) => (
   <button
+    id = "heart"
     className = "SaveTheDraw"
     onClick = {() => props.saveTheDraw()}
-  > Save your draft </button>
+  > ❤️ </button>
 );
 
 export default SaveTheDraw;
+// Save your draft
