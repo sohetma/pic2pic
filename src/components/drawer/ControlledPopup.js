@@ -10,11 +10,11 @@ class ControlledPopup extends Component {
     this.state = {
       open: false
     };
-    this.openModal = this.openModal.bind(this);
+    // this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal() {
+  openModal = () => {
     this.setState({
       open: true
     });
@@ -59,12 +59,16 @@ class ControlledPopup extends Component {
               On va lui dire qqch ici
             </span>
           </Popup>
-          <button
-            className="button"
-            onClick={() => this.closeModal}
+
+          <Popup
+            trigger={<button onClick={() => this.closeModal} className="close-popup-button"> New Game </button>}
+            position="top center"
+            closeOnDocumentClick
           >
-            New Game
-          </button>
+          <span>
+            On va lui dire qqch ici aussi
+          </span>
+          </Popup>
         </div>
         </Popup>
       </div>
