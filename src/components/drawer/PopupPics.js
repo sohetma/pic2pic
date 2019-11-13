@@ -1,6 +1,7 @@
 import React , { Component } from 'react';
 import './popup.css';
 import Popup from "reactjs-popup";
+import APP_ACCESS_KEY from './token.js';
 const axios = require('axios');
 
 
@@ -10,6 +11,7 @@ class Popupic extends Component {
     this.state = {
       open: false,
       photos : [],
+      photosTest : ['../img/cel.jpg', '../img/pod.jpg', '../img/wood.jpg'],
       selectedPic : ''
     };
     this.openModal = this.openModal.bind(this);
@@ -30,12 +32,13 @@ class Popupic extends Component {
 
   componentDidMount = async () => {
     this.openModal();
+    let query = this.props.word;
 
     // API THREE PICS
     const response = await axios.get('https://api.unsplash.com/search/photos', {
-        params: { query: 'tennis'},
+        params: { query: query},
         headers: {
-            Authorization: 'Client-ID 95a56e4dbdbda45b38ebd65bfde2e487cc2b6afbb0a6fd9737d915f36d872a9b'
+            Authorization: APP_ACCESS_KEY
         }
     })
 
@@ -57,25 +60,29 @@ class Popupic extends Component {
       })
   }
 
-  // selectionPicture = (url) =>{
-  //   this.setState({
-  //     open : false,
-  //     selectedPic : url
-  //   })
-  // }
+  selectionPicture = (url) =>{
+    console.log('url : ', url);
+    this.props.updateUrl(url);
+    this.setState({
+      open : false,
+      selectedPic : url
+    })
+  }
 
   render() {
     return (
-      <div>
+      <div className="modal-pop">
         <Popup
+          className="popup3pics"
           open={this.state.open}
           closeOnDocumentClick
           onClose={this.closeModal}
         >
+          <h1> Choose a picture </h1>
           <div className="modal images-popup">
-            <img src={this.state.photos[0]} alt="image1" className="close-popup image-unsplash" onClick={this.closeModal} />
-            <img src={this.state.photos[1]} alt="image2" className="close-popup image-unsplash" onClick={this.closeModal} />
-            <img src={this.state.photos[2]} alt="image3" className="close-popup image-unsplash" onClick={this.closeModal} />
+            <img src={this.state.photos[0]} alt="image-popup" className="close-popup image-unsplash" onClick={() => this.selectionPicture(this.state.photos[0])} />
+            <img src={this.state.photos[1]} alt="image-popup" className="close-popup image-unsplash" onClick={() => this.selectionPicture(this.state.photos[1])} />
+            <img src={this.state.photos[2]} alt="image-popup" className="close-popup image-unsplash" onClick={() => this.selectionPicture(this.state.photos[2])} />
           </div>
         </Popup>
       </div>

@@ -27,8 +27,25 @@ constructor(props){
     word : 'wouwou',
     hints : '',
     isPlaying : true,
-    start : true
+    start : true,
+    urlPic : ''
   }
+}
+
+startGame = () => {
+  this.setState({
+    start : true
+  })
+}
+
+updateUrl = (url) => {
+  // console.log('url update', url);
+  this.setState({
+    urlPic : url,
+    start : false
+  })
+  // setInterval(console.log('url state', this.state.urlPIc), 1000);
+
 }
 
 newGame = () => {
@@ -39,7 +56,8 @@ newGame = () => {
 
 endGame = () => {
   this.setState({
-    isPlaying : false
+    isPlaying : false,
+    start : false
   })
 }
 
@@ -47,7 +65,13 @@ hints = word => {
   let hint = [];
   let dim = word.length;
   for(let i=0; i< dim; i++ ){
-    hint.push('_');
+    if(word[i]=== ' '){
+      hint.push(' ');
+    }
+    else{
+      hint.push('_');
+    }
+
   }
   let theHint = hint.join(' ')
   return theHint; // return a hint
@@ -76,12 +100,19 @@ chooseAWord = theme => {
   return listWords[random]
 }
 
+componentWillMount () {
+  let word = this.chooseAWord('sport');
+  // this.setState({
+  //   word : word
+  // })
+}
+
 
 render(){
   return (
     <div className="game">
         <div className="header-game">
-          {this.state.start && <Popupic />}
+          {this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
           <PlayersInDrawer players={players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
@@ -90,7 +121,7 @@ render(){
 
         <div className="draw-game">
           <div className="pic-word">
-            <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} />
+            <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic} />
             <WordInDrawer word={this.state.word} hints={this.state.hints} />
           </div>
           <Draw />
