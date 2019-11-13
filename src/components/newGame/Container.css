@@ -8,6 +8,7 @@
 }
 .container{
     /* Le margin permettra d'ajuster sur la page le bloc container*/
+    background-image: url('./img/wood-lobby.jpg');
     margin: 20px 0px 40px 0px;
     display: flex;
     flex-direction: column;
@@ -15,7 +16,7 @@
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(161, 161, 161);
-    border: 10px black double ;
+    border: 10px black  ;
     border-radius: 10px;
   }
   .selection{
