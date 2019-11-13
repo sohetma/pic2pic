@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { Component } from 'react';
 import Matrix from './Matrix.js';
 import Draw from './Draw.js';
 import players from './utils.js';
@@ -11,29 +11,92 @@ import Chat from './Chat.js';
 import '../../App.css';
 import './Game.css';
 import '../heroHeaderComp/HeroHeader.css';
+import words from '../words.js';
+import ControlledPopup from './ControlledPopup.js'
 
 //console.log(players);
 
 // Return children's components : this the page where we play
 
-const Game = (props) => (
-<div className="game">
-    <div className="header-game">
-      <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
-      <PlayersInDrawer players={players} />
-      <Timer />
-    </div>
+class Game extends Component{
 
-    <div className="draw-game">
-      <div className="pic-word">
-        <FetchPic />
-        <WordInDrawer word={"The word to draw"}/>
-      </div>
-      <Draw />
-      <Chat />
+constructor(props){
+  super(props);
+  this.state = {
+    word : 'wouwou',
+    hints : '',
+    isPlaying : true,
+  }
+}
+
+newGame = () => {
+  this.setState({
+    isPlaying : true
+  })
+}
+
+endGame = () => {
+  this.setState({
+    isPlaying : false
+  })
+}
+
+hints = word => {
+  let hint = [];
+  let dim = word.length;
+  for(let i=0; i< dim; i++ ){
+    hint.push('_');
+  }
+  let theHint = hint.join(' ')
+  return theHint; // return a hint
+}
+
+chooseAWord = theme => {
+  let listWords;
+  // return the array in function of the theme : listWords
+  if (theme === 'sport'){
+    listWords = words.sport;
+  }
+  else if (theme ==='food') {
+    listWords = words.food;
+  }
+  else if (theme === 'travel') {
+      listWords = words.travel;
+  }
+  // return randomly a number between 0 and length-1 of listWords : i
+  let random = Math.floor(Math.random() * Math.floor(listWords.length-1))
+  // set state word with the word pic randomly : listWords[i]
+  let hint = this.hints(listWords[random]);
+  this.setState({
+    word : listWords[random],
+    hints : hint
+  })
+  return listWords[random]
+}
+
+
+render(){
+  return (
+    <div className="game">
+        <div className="header-game">
+          <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
+          <PlayersInDrawer players={players} />
+          <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
+          {!this.state.isPlaying && <ControlledPopup />}
+        </div>
+
+        <div className="draw-game">
+          <div className="pic-word">
+            <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} />
+            <WordInDrawer word={this.state.word} hints={this.state.hints} />
+          </div>
+          <Draw />
+          <Chat />
+        </div>
     </div>
-</div>
-);
+    );
+  }
+}
 
 export default Game;
 

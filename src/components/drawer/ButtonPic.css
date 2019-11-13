@@ -1,0 +1,21 @@
+.ButtonPic{
+  margin-top : 5px;
+  margin-bottom : 10px;
+
+}
+
+#buttonPicture{
+  border-radius : 5px;
+  height: 25px;
+  width : 50%;
+  background-color: white;
+  color : balck;
+  border : 1px solid white;
+}
+
+#buttonPicture:hover{
+  border : 1px solid rgba(16, 84, 146);
+  background-color: rgba(16, 84, 146);
+  color : white;
+  opacity: 90%;
+}

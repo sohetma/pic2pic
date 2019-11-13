@@ -7,7 +7,7 @@ import './WordInDrawer.css';
 const WordInDrawer = props => (
   <div className = "wordInDrawer">
     <h3 className="theword">{props.word}</h3>
-    <HintsWord word={props.word}/>
+    <HintsWord hints={props.hints}/>
   </div>
 );
 

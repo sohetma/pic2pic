@@ -1,8 +1,6 @@
-.draw{
+/* .draw{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  aligns-items : center;
-  /* width : 50%; */
-  text-align: center;
-  /* border : 1px solid black; */
-}
+  align-items: center;
+} */

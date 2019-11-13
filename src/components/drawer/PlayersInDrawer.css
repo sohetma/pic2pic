@@ -5,13 +5,13 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border : 2px solid black;
+  /* border : 2px solid black; */
   padding-top: 2px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #C0C0C0;
+  /* background-color: #C0C0C0;
   border-radius: 10px;
-  opacity: 80%;
+  opacity: 80%; */
 }
 
 .playerInDrawer{
@@ -25,6 +25,7 @@
   width: 15%;
   height: 90%;
   border-radius: 10px;
+  opacity: 80%;
   margin : 0;
 }
 
