@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+
+.pencils-background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-image: url('./img/pencils-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.components-page {
+    width: 65%;
+    margin-left: auto;
+    margin-top: 40px;
+}
+
+.title-profile {
+    width: 85%;
+    font-size: 3em;
+    margin: auto;
+}
+
+.word-create {
+    color: rgba(16, 84, 146);
+}
+
+.word-your {
+    color: rgba(37, 77, 25);
+}
+
+.word-profile {
+    color: rgba(100, 3, 8);
+}
+
+.name-profile {
+    width: 50%;
+    font-size: 1.5em;
+    margin-top: 100px;
+}
+
+.avatar-profile {
+    width: 90%;
+    border: 3px black solid;
+    height: 480px;
+    background-color: #f2ecec;
+}
+
+.choose-drawer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.9em;
+}
+
+.list-avatars {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ghost {
+    width: 20%;
+    height: 20%;
+    margin: 20px;
+    height: 150px;
+    border: 1px black solid;
+    background-image: url('./img/ghost.png');
+    background-size: cover;
+}
+
+.frog {
+    width: 20%;
+    height: 20%;
+    margin: 20px;
+    height: 150px;
+    border: 1px black solid;
+    background-image: url('./img/frog.png');
+    background-size: cover;
+}
+
+.genie {
+    width: 20%;
+    height: 20%;
+    margin: 20px;
+    height: 150px;
+    border: 1px black solid;
+    background-image: url('./img/genie.png');
+    background-size: cover;
+}
+
+.skeleton {
+    width: 20%;
+    height: 20%;
+    margin: 20px;
+    height: 150px;
+    border: 1px black solid;
+    background-image: url('./img/skeleton.png');
+    background-size: cover;
+}
+
+.unicorn {
+    width: 20%;
+    height: 20%;
+    margin: 20px;
+    height: 150px;
+    border: 1px black solid;
+    background-image: url('./img/unicorn.png');
+    background-size: cover;
+}
+
+.mermaid {
+    width: 20%;
+    height: 20%;
+    margin: 20px;
+    height: 150px;
+    border: 1px black solid;
+    background-image: url('./img/mermaid.png');
+    background-size: cover;
+}
+
+.invisibleman {
+    width: 20%;
+    height: 20%;
+    margin: 20px;
+    height: 150px;
+    border: 1px black solid;
+    background-image: url('./img/invisibleman.png');
+    background-size: cover;
+}
+
+.witch {
+    width: 20%;
+    height: 20%;
+    margin: 20px;
+    height: 150px;
+    border: 1px black solid;
+    background-image: url('./img/witch.png');
+    background-size: cover;
+}
+
+.user-profile{
+  width: 60%;
+  height: 30px;
+  margin-bottom: 10px;
+  border: 1px black solid;
+  color: black;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.avatar-profile : hover{
+  border: 2px black solid;
+  width: 23%;
+  height: 23%;
+}
