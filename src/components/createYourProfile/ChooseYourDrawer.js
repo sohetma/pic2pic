@@ -12,6 +12,8 @@ class ChooseYourDrawer extends React.Component{
     }
   }
 
+  //  Il faut creer tes fonctions qui vont venir mettre a jour l'etat de ton composant quand quelqu'un a rempli le formulaire
+
   render(){
     return (
         <div className="pencils-background">
@@ -22,7 +24,11 @@ class ChooseYourDrawer extends React.Component{
                     <h2><span className="word-create">Create </span><span className="word-your">your </span><span className="word-profile">profile</span></h2>
                 </div>
 
+                // Il va falloir creer un form ici on on recupere l'avatar choisi
+
                 <div className="name-profile">
+                    //  Il faut enfait crééer un input qui recuper le username de chaque nouveau joueur
+                    // J'ai cree une className mais je te laisse améliorer le style
                     <input className="user-profile" id="username-avatar" type="text" placeholder="Enter your username here"></input>
                 </div>
 
@@ -32,6 +38,8 @@ class ChooseYourDrawer extends React.Component{
                         <h2>Choose your drawer</h2>
                     </div>
                     <div className="list-avatars">
+                      //  il faut que chaque image soit un bouton par exemple pour retenir quand tu cliques
+                      // et venir modifier l'etat en venant appliquer les fonctions que tu auras cree
                         <div className="avatar-profile ghost"></div>
                         <div className="avatar-profile frog"></div>
                         <div className="avatar-profile genie"></div>
