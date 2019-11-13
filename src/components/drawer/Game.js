@@ -102,9 +102,6 @@ chooseAWord = theme => {
 
 componentWillMount () {
   let word = this.chooseAWord('sport');
-  // this.setState({
-  //   word : word
-  // })
 }
 
 
