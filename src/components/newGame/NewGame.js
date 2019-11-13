@@ -18,7 +18,7 @@ class NewGame extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      theme: 'photo_newgame.jpg',
+      theme: 'sport.jpg',
 
     }
   }
