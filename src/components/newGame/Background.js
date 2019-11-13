@@ -5,13 +5,12 @@ class Background extends React.Component {
       super(props)
       this.state = {
         theme: './img/sport.jpg',
-        color: 'green'
       }
     }
 
     render() {
         return (
-            <div className="theme" style={{background: this.state.theme,}}>
+            <div className="themes" style={{background: this.state.theme,}}>
             </div>
         );
     }

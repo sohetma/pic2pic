@@ -12,7 +12,7 @@
 .start{
     border: none;
     background: rgb(127,172,223);
-    background: linear-gradient(90deg, rgba(127,172,223,1) 0%, rgba(247,64,66,1) 100%);
+    background-image: url('./img/wood-lobby.jpg');
     color: #ffffff !important;
     font-weight: 100;
     padding: 20px;

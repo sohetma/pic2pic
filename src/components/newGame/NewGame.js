@@ -1,5 +1,5 @@
 import React, {url} from 'react';
-import Theme from './Background.js';
+import Themes from './Background.js';
 import Container from './Container.js';
 import InviteContainer from './InviteContainer.js';
 import CreateYourGame from './CreateYourGame.js';
@@ -25,7 +25,7 @@ class NewGame extends React.Component {
 
   selectJpg = (themeValue) => {
     if (themeValue) {
-
+      
     }
     // console.log("i am in select jpg function");
 
@@ -41,7 +41,7 @@ class NewGame extends React.Component {
   render() {
       return (
         <div className="newgame" style={{backgroundImage: `url("${this.state.theme}")`}}>
-          <Theme changeTheme={this.changeTheme} selectedTheme={1} />
+          <Themes changeTheme={this.changeTheme} selectedTheme={1} />
           <CreateYourGame/>
           <ButtonStart/>
           <Container/>
