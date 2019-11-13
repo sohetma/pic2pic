@@ -30,35 +30,35 @@ class Popupic extends Component {
      });
   }
 
-  // componentDidMount = async () => {
-  //   this.openModal();
-  //   let query = this.props.word;
-  //
-  //   // API THREE PICS
-  //   const response = await axios.get('https://api.unsplash.com/search/photos', {
-  //       params: { query: query},
-  //       headers: {
-  //           Authorization: APP_ACCESS_KEY
-  //       }
-  //   })
-  //
-  //   const res = response.data.results;
-  //   let result = [];
-  //
-  //   res.forEach((photo,index) => {
-  //     result[index] = photo.urls.regular;
-  //     //console.log(typeof result[index], result[index]);
-  //   })
-  //
-  //   let photosList = result.slice(0,3);
-  //
-  //   console.log('the result' , result);
-  //
-  //   this.setState({
-  //      photos : photosList,
-  //      selectedPic : photosList[0]
-  //     })
-  // }
+  componentDidMount = async () => {
+    this.openModal();
+    let query = this.props.word;
+
+    // API THREE PICS
+    const response = await axios.get('https://api.unsplash.com/search/photos', {
+        params: { query: query},
+        headers: {
+            Authorization: APP_ACCESS_KEY
+        }
+    })
+
+    const res = response.data.results;
+    let result = [];
+
+    res.forEach((photo,index) => {
+      result[index] = photo.urls.regular;
+      //console.log(typeof result[index], result[index]);
+    })
+
+    let photosList = result.slice(0,3);
+
+    console.log('the result' , result);
+
+    this.setState({
+       photos : photosList,
+       selectedPic : photosList[0]
+      })
+  }
 
   selectionPicture = (url) =>{
     console.log('url : ', url);

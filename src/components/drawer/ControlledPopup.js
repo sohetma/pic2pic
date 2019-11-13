@@ -44,6 +44,7 @@ class ControlledPopup extends Component {
             <a className="close-popup" onClick={this.closeModal}>
               &times;
             </a>
+            <h1 style={{marginBottom : '10px'}}> Congrats {this.props.winner} ! </h1>
             <img src='../img/pod.jpg' alt="podium" />
           </div>
 

@@ -28,7 +28,11 @@ constructor(props){
     hints : '',
     isPlaying : true,
     start : true,
-    urlPic : ''
+    urlPic : '',
+    latestMessage : '',
+    winner : 'Who gonna win ?',
+    isWinner : false
+
   }
 }
 
@@ -56,7 +60,7 @@ newGame = () => {
 
 endGame = () => {
   this.setState({
-    isPlaying : false,
+    winner : false,
     start : false
   })
 }
@@ -100,9 +104,30 @@ chooseAWord = theme => {
   return listWords[random]
 }
 
-componentWillMount () {
-  let word = this.chooseAWord('sport');
-}
+  updateLastMessage = (message,sender) => {
+    this.setState((prevState, {latestMessage}) => ({
+      latestMessage : message
+    }));
+    this.checkMessage(message,sender);
+  }
+
+
+  // Function yo check every last word enter in chat
+  checkMessage = (message,sender) => {
+    console.log('word try : ', message);
+    console.log('the good word  : ', this.state.word);
+
+    if(message===this.state.word){
+      this.setState({
+        winner : sender,
+        isPlaying : false
+      })
+    }
+  }
+
+  componentWillMount () {
+    let word = this.chooseAWord('sport');
+  }
 
 
 render(){
@@ -113,7 +138,7 @@ render(){
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
           <PlayersInDrawer players={players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
-          {!this.state.isPlaying && <ControlledPopup />}
+          {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} />}
         </div>
 
         <div className="draw-game">
@@ -122,7 +147,7 @@ render(){
             <WordInDrawer word={this.state.word} hints={this.state.hints} />
           </div>
           <Draw />
-          <Chat />
+          <Chat updateLastMessage={this.updateLastMessage} />
         </div>
     </div>
     );
