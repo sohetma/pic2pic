@@ -1,7 +1,9 @@
 import React from 'react';
 import HowToPlay from './HowToPlay.js';
+import Contact from './Contact.js';
 import {Link, NavLink} from "react-router-dom";
 import './HeroHeader.css';
+import './Contact.css';
 
 function HeroHeader() {
     return (
@@ -17,6 +19,7 @@ function HeroHeader() {
         </div>
         <hr />
         <HowToPlay />
+        <Contact />
         </>
     )
   }
