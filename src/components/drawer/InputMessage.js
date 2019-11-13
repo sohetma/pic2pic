@@ -1,4 +1,6 @@
 import React from 'react';
+import './InputMessage.css';
+
 
 const InputMessage = ({addMessage, confirmMessage, currentMessage}) => {
 
@@ -11,3 +13,5 @@ const InputMessage = ({addMessage, confirmMessage, currentMessage}) => {
 }
 
 export default InputMessage;
+
+//

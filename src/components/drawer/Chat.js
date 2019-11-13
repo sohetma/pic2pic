@@ -12,7 +12,7 @@ class Chat extends Component {
 
     handleChange = (event) => {
         this.setState({ isWriting: true })
-        this.setState({ 
+        this.setState({
             currentInput: event.target.value
         });
     }
@@ -26,15 +26,15 @@ class Chat extends Component {
              })
              this.setState({currentInput: ''})
             }
-            event.preventDefault();   
+            event.preventDefault();
     }
 
     getNewMessages = () => {
         let newDate = new Date().toLocaleString();
         let from = this.whoTalk()
         let existingMessages  = this.state.messages;
-        let newMessage = { content: from === "Benoit :" ? this.state.currentInput: this.state.currentInput.substring(0, this.state.currentInput.length - 5), 
-                            sender: from, 
+        let newMessage = { content: from === "Benoit" ? this.state.currentInput: this.state.currentInput.substring(0, this.state.currentInput.length - 5),
+                            sender: from,
                             date: "On " + newDate }
         existingMessages.push(newMessage)
 
@@ -48,30 +48,30 @@ class Chat extends Component {
         if(lastChar==="#else") {
             return "someone else"
         } else {
-            return "Benoit :"
+            return "Benoit"
         }
     }
-  
+
 
     render () {
-    
+
         return (
         <div>
-            <div className="chat-zone">   
+            <div className="chat-zone">
                 <AnswerBoard
                     messages={this.state.messages}>
                 </AnswerBoard>
-                { this.state.isWriting ? "" : ""} 
+                { this.state.isWriting ? "" : ""}
             </div>
             <div>
-                <InputMessage type="text" 
+                <InputMessage type="text"
                             addMessage={this.handleChange}
                             confirmMessage={this.handleSubmit}
                             currentMessage={this.state.currentInput}>
                 </InputMessage>
+            </div>
         </div>
-        </div>
-        )   
+        )
     }
 }
 

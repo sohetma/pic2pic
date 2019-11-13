@@ -8,8 +8,9 @@ class AnswerBoard extends Component {
         return (
             this.props.messages.map(message =>
                 <Messages
-                    content={message.content}  
-                    sender={message.sender} 
+                    content={message.content}
+                    sender={message.sender}
+                    date={message.date}
                     style={{
                         backgroundColor: "blue",
                         borderRadius: "20px",
@@ -18,7 +19,7 @@ class AnswerBoard extends Component {
                         marginBottom: "20px"
                     }}
                 />
-            
+
             )
         )
     }
