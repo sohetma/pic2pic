@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navigation.css';
+import {Link, NavLink} from "react-router-dom";
 
 const Navigation = (props)  => {
     return (
@@ -12,13 +13,13 @@ const Navigation = (props)  => {
                 <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#newGame">New Game</a>
+                <a href="#createyourGame">Create Your Game</a>
               </li>
               <li>
-                <a href="#profile">Profile</a>
+                <a href="createYourProfile">Create Your Profile</a>
               </li>
               <li>
-                <a href="#drawer">Drawer</a>
+                <a href="#game">Game</a>
               </li>
 
             </ul>
