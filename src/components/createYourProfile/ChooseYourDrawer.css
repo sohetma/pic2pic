@@ -6,6 +6,7 @@
 
 .pencils-background {
     width: 100vw;
+    height: 100vh;
     display: flex;
     background-image: url('./img/pencils-background.jpg');
     background-size: cover;
@@ -148,4 +149,20 @@
   color: black;
   font-size: 15px;
   border-radius: 5px;
+}
+
+
+.player-play{
+  width: 80px;
+  height: 50px;
+  float : right;
+  background-color: black;
+
+}
+
+.button-play{
+
+  text-align: center;
+  color : white;
+  text-decoration: none;
 }

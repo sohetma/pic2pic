@@ -4,7 +4,7 @@ import {Link, NavLink} from "react-router-dom";
 
 const Contact = (props)  => {
     return (
-    
+
         <div className="contact">
 
             <div className="espace-pub">
@@ -17,6 +17,7 @@ const Contact = (props)  => {
                         <p>Learn tech skills with passion</p>
                     </div>
 
+                    
                     <NavLink className="button-web" activeClassName="active" exact to="http://www.wildcodeschool.com"> Visite our website </NavLink>
 
                     <div className="buton-visit-website">
@@ -61,9 +62,8 @@ const Contact = (props)  => {
             </div>
 
         </div>
-       
+
     )
   }
 
 export default Contact;
-
