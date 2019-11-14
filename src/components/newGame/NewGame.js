@@ -1,5 +1,5 @@
 import React, {url} from 'react';
-import Theme from './Background.js';
+import Themes from './Background.js';
 import Container from './Container.js';
 import InviteContainer from './InviteContainer.js';
 import CreateYourGame from './CreateYourGame.js';
@@ -18,14 +18,14 @@ class NewGame extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      theme: 'photo_newgame.jpg',
+      theme: 'sport.jpg',
 
     }
   }
 
   selectJpg = (themeValue) => {
     if (themeValue) {
-
+      
     }
     // console.log("i am in select jpg function");
 
@@ -41,7 +41,7 @@ class NewGame extends React.Component {
   render() {
       return (
         <div className="newgame" style={{backgroundImage: `url("${this.state.theme}")`}}>
-          <Theme changeTheme={this.changeTheme} selectedTheme={1} />
+          <Themes changeTheme={this.changeTheme} selectedTheme={1} />
           <CreateYourGame/>
           <ButtonStart/>
           <Container/>
@@ -50,15 +50,5 @@ class NewGame extends React.Component {
       );
   }
 };
-/*const NewGame = (props) => (
-  <div className="newgame">
-    <Theme/>
-    <CreateYourGame/>
-    <ButtonStart/>
-    <Container/>
-    <InviteContainer/>
-  </div>
-
-);*/
 
 export default NewGame;

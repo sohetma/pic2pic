@@ -1,6 +1,38 @@
 .modal {
   font-size: 12px;
 }
+
+.image-unsplash{
+  width : 30%;
+  height: 220px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#pop-image-unsplash : hover{
+  width: 105%;
+  height: 260px;
+}
+
+.images-popup{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+}
+
+.popup3pics{
+  background-color: blue;
+  opacity : 50%;
+  border-radius: 10px;
+}
+
+
+
+
+/*
 .modal > .header-popup {
   width: 100%;
   border-bottom: 1px solid gray;
@@ -18,6 +50,7 @@
   margin: auto;
   text-align: center;
 }
+
 .modal > .close-popup {
   cursor: pointer;
   position: absolute;
@@ -31,3 +64,4 @@
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
+*/

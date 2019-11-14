@@ -12,7 +12,8 @@ import '../../App.css';
 import './Game.css';
 import '../heroHeaderComp/HeroHeader.css';
 import words from '../words.js';
-import ControlledPopup from './ControlledPopup.js'
+import ControlledPopup from './ControlledPopup.js';
+import Popupic from './PopupPics.js';
 
 //console.log(players);
 
@@ -26,7 +27,29 @@ constructor(props){
     word : 'wouwou',
     hints : '',
     isPlaying : true,
+    start : true,
+    urlPic : '',
+    latestMessage : '',
+    winner : 'Who gonna win ?',
+    isWinner : false
+
   }
+}
+
+startGame = () => {
+  this.setState({
+    start : true
+  })
+}
+
+updateUrl = (url) => {
+  // console.log('url update', url);
+  this.setState({
+    urlPic : url,
+    start : false
+  })
+  // setInterval(console.log('url state', this.state.urlPIc), 1000);
+
 }
 
 newGame = () => {
@@ -37,7 +60,8 @@ newGame = () => {
 
 endGame = () => {
   this.setState({
-    isPlaying : false
+    winner : false,
+    start : false
   })
 }
 
@@ -45,7 +69,13 @@ hints = word => {
   let hint = [];
   let dim = word.length;
   for(let i=0; i< dim; i++ ){
-    hint.push('_');
+    if(word[i]=== ' '){
+      hint.push(' ');
+    }
+    else{
+      hint.push('_');
+    }
+
   }
   let theHint = hint.join(' ')
   return theHint; // return a hint
@@ -74,24 +104,50 @@ chooseAWord = theme => {
   return listWords[random]
 }
 
+  updateLastMessage = (message,sender) => {
+    this.setState((prevState, {latestMessage}) => ({
+      latestMessage : message
+    }));
+    this.checkMessage(message,sender);
+  }
+
+
+  // Function yo check every last word enter in chat
+  checkMessage = (message,sender) => {
+    console.log('word try : ', message);
+    console.log('the good word  : ', this.state.word);
+
+    if(message===this.state.word){
+      this.setState({
+        winner : sender,
+        isPlaying : false
+      })
+    }
+  }
+
+  componentWillMount () {
+    let word = this.chooseAWord('sport');
+  }
+
 
 render(){
   return (
     <div className="game">
         <div className="header-game">
+          {this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
           <PlayersInDrawer players={players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
-          {!this.state.isPlaying && <ControlledPopup />}
+          {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} />}
         </div>
 
         <div className="draw-game">
           <div className="pic-word">
-            <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} />
+            <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic} />
             <WordInDrawer word={this.state.word} hints={this.state.hints} />
           </div>
           <Draw />
-          <Chat />
+          <Chat updateLastMessage={this.updateLastMessage} />
         </div>
     </div>
     );
