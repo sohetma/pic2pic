@@ -5,7 +5,7 @@
     border-radius: 35px;
     background: rgb(18,143,227);
     background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%);
-    margin: 100px;
+    margin: 90px;
   }
   
   .logo-wild-code{
@@ -16,18 +16,19 @@
     height: 130px;
     margin: 70px;
   }
-  
+
   .text-learn-tech{
     font-size: 2.5em;
     color: rgba(100, 3, 8);
+    line-height: 4em;
   }
   
   .contact-1 .button-web {
     width: 270px;
   
-    padding: 0.8em;
-    margin-top: -100px;
-    margin-bottom: 50px;
+    /* padding: 0.8em; */
+     /* margin-top: -100px; */
+    /* margin-bottom: 50px;  */
   
     color: white;
     text-decoration: none;
@@ -37,7 +38,8 @@
     border: 2px solid black;
     border-radius: 50px;
   
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
+    line-height: 3em;
   }
   
   .contact-1 .button-web:hover {
