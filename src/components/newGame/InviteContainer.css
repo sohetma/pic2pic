@@ -21,9 +21,10 @@
     margin-top: 5px;
 }
 .link-one{
+    font-size: 25px;
     display: flex;
-    margin: 3px;
-    margin-left: auto;
+    margin-top: 3px;
+    margin-left: 15px;
     width: 350px;
     height: 40px;
     background-color: white;

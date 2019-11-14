@@ -6,7 +6,6 @@
 
 .pencils-background {
     width: 100vw;
-    height: 100vh;
     display: flex;
     background-image: url('./img/pencils-background.jpg');
     background-size: cover;
@@ -40,13 +39,11 @@
 .name-profile {
     width: 50%;
     font-size: 1.5em;
-    margin-top: 100px;
 }
 
 .avatar-profile {
     width: 90%;
     border: 3px black solid;
-    height: 480px;
     background-color: #f2ecec;
 }
 
@@ -151,10 +148,4 @@
   color: black;
   font-size: 15px;
   border-radius: 5px;
-}
-
-.avatar-profile : hover{
-  border: 2px black solid;
-  width: 23%;
-  height: 23%;
 }

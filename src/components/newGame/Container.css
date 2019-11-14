@@ -5,6 +5,7 @@
   height: 400px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
 }
 .container{
     /* Le margin permettra d'ajuster sur la page le bloc container*/
