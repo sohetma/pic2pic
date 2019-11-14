@@ -45,7 +45,7 @@ class ControlledPopup extends Component {
               &times;
             </a>
             <h1 style={{marginBottom : '10px'}}> Congrats {this.props.winner} ! </h1>
-            <img src='../img/pod.jpg' alt="podium" />
+            <img src='../img/trophee.png' alt=" This part is finished" />
           </div>
 
 

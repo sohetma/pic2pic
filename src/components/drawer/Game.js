@@ -43,7 +43,6 @@ startGame = () => {
 }
 
 updateUrl = (url) => {
-  // console.log('url update', url);
   this.setState({
     urlPic : url,
     start : false
