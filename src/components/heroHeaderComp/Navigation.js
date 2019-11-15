@@ -10,23 +10,20 @@ const Navigation = (props)  => {
             <ul className="menu">
 
               <li>
-                <a href="#home">Home</a>
+                <a href="./">Home</a>
               </li>
               <li>
-                <a href="#createyourGame">Create Your Game</a>
+                <a href="../newGame">Create Your Game</a>
               </li>
               <li>
-                <a href="createYourProfile">Create Your Profile</a>
+                <a href="../profile">Create Your Profile</a>
               </li>
               <li>
-                <a href="#game">Game</a>
+                <a href="../game">Game</a>
               </li>
 
             </ul>
           </nav>
-
-
-
         </div>
     
        

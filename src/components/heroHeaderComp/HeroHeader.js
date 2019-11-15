@@ -9,9 +9,9 @@ import './Navigation.js';
 
 function HeroHeader() {
     return (
+        
         <>
-        <Navigation />
-
+        
         <div className="hero-header">
 
             <h2>Learn English by playing Pic2Pic !</h2>
