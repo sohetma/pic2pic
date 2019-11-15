@@ -10,6 +10,10 @@ class ChooseYourDrawer extends React.Component{
       username : [],
       avatarsList : []
     }
+  //  changeHandler = event => {
+  //     this.setState({
+  //       username: event.target.value
+  //     }); 
   }
 
   //  Il faut creer tes fonctions qui vont venir mettre a jour l'etat de ton composant quand quelqu'un a rempli le formulaire
@@ -30,8 +34,9 @@ class ChooseYourDrawer extends React.Component{
                 </div>
 
                 <div className="name-profile">
-
-                    <input className="user-profile" id="username-avatar" type="text" placeholder="Enter your username here"></input>
+                  <form>
+                    <input className="user-profile" id="username-avatar" type="text" placeholder="Enter your username here"/>
+                  </form>
                 </div>
 
                 <div className="avatar-profile">
