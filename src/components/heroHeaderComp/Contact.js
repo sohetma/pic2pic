@@ -17,8 +17,7 @@ const Contact = (props)  => {
                         <p>Learn tech skills with passion</p>
                     </div>
 
-                    
-                    <NavLink className="button-web" activeClassName="active" exact to="http://www.wildcodeschool.com"> Visite our website </NavLink>
+                    <a href="https://www.wildcodeschool.com/en-GB"><div className="button-web" activeClassName="active"> Visite our website </div></a>
 
                     <div className="buton-visit-website">
 
@@ -45,9 +44,9 @@ const Contact = (props)  => {
                     </div>
 
                     <div className="logo-social">
-                        <div className="logo-facebook"></div>
-                        <div className="logo-twitter"></div>
-                        <div className="logo-instagram"></div>
+                        <a href="https://www.facebook.com/wildcodeschoolbelgium/"><div className="logo-facebook"></div></a>
+                        <a href="https://www.twitter.com/wildschool_bxl/"><div className="logo-twitter"></div></a>
+                        <a href="https://www.instagram.com/wildcodeschoolbrussels/"><div className="logo-instagram"></div></a>
 
                     </div>
 

@@ -22,14 +22,16 @@
   .text-learn-tech{
     font-size: 2.5em;
     color: rgba(100, 3, 8);
+    line-height: 4em;
   }
 
   .contact-1 .button-web {
     width: 270px;
 
-    padding: 0.8em;
+    /* modify ? */
+    /* padding: 0.8em;
     margin-top: -100px;
-    margin-bottom: 50px;
+    margin-bottom: 50px; */
 
     color: white;
     text-decoration: none;
@@ -39,7 +41,8 @@
     border: 2px solid black;
     border-radius: 50px;
 
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
+    line-height: 3em;
   }
 
   .contact-1 .button-web:hover {

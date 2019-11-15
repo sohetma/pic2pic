@@ -24,7 +24,7 @@ const HowToPlay = (props)  => {
 
                 <div className="boxColumn">
                     
-                    <div className="draw ">
+                    <div className="pencil">
                         <div className="text"><p>III. draw like an artist</p></div>
                         <div className="logoPencil logo"></div>
                         <div className="textDowns" >or</div>
