@@ -4,14 +4,49 @@ import './ChooseYourDrawer.css';
 import {Link, NavLink} from "react-router-dom";
 
 
+
 class ChooseYourDrawer extends React.Component{
   constructor(props) {
     super(props);
 
     this.state = {
       username : [],
-      avatarsList : []
+      avatarsList : [],
+      value : ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    alert('Votre username est : ' + this.state.value);
+  }
+
+  onInputChange = (event) => {
+    this.setState({
+      value: event.target.value
+    })
+    this.enterUsername();
+    console.log(this.state.value)
+    event.preventDefault();
+}
+
+  enterUsername = () => {
+    let input = this.state.value;
+    let listUsername = this.state.username;
+    listUsername.push(input);
+    this.setState({
+      username  : listUsername
+    })
+    // console.log(listUsername);
+  }
+ 
+  selected= (url) => {
+    let listURL = this.state.avatarsList;
+    listURL.push(url);
+    this.setState({
+      avatarsList  : listURL
+    })
+    console.log(listURL);
   }
 
   //  Il faut creer tes fonctions qui vont venir mettre a jour l'etat de ton composant quand quelqu'un a rempli le formulaire
@@ -25,40 +60,26 @@ class ChooseYourDrawer extends React.Component{
     return (
         <div className="pencils-background">
 
-            <div className="components-page">
+         <form onSubmit={this.handleSubmit}>
 
-                <div className="title-profile">
-                    <h2><span className="word-create">Create </span><span className="word-your">your </span><span className="word-profile">profile</span></h2>
-                </div>
+          <input className="input-form-player" type="text" value={this.state.value} placeholder="Enter your username" onChange={(event) => this.onInputChange(event)} />
+          
+                        
 
-                <div className="name-profile">
+          <div className="list-avatars">
+            <img src="../img/avatar1.png" onClick={() => this.selected("../img/avatar1.png") }></img>
+            <img src="../img/avatar2.png" onClick={() => this.selected("../img/avatar2.png") }></img>
+            <img src="../img/avatar3.png" onClick={() => this.selected("../img/avatar3.png") }></img>
+            <img src="../img/avatar4.png" onClick={() => this.selected("../img/avatar4.png") }></img>
+            <img src="../img/avatar5.png" onClick={() => this.selected("../img/avatar5.png") }></img>
+            <img src="../img/avatar6.png" onClick={() => this.selected("../img/avatar6.png") }></img>
+          </div>
 
-                    <input className="user-profile" id="username-avatar" type="text" placeholder="Enter your username here"></input>
-                </div>
-
-                <div className="avatar-profile">
-
-                    <div className="choose-drawer">
-                        <h2>Choose your drawer</h2>
-                    </div>
-                    <div className="list-avatars">
-
-                        <div className="avatar-profile ghost"></div>
-                        <div className="avatar-profile frog"></div>
-                        <div className="avatar-profile genie"></div>
-                        <div className="avatar-profile skeleton"></div>
-                        <div className="avatar-profile unicorn"></div>
-                        <div className="avatar-profile mermaid"></div>
-                        <div className="avatar-profile invisibleman"></div>
-                        <div className="avatar-profile witch"></div>
-                    </div>
-
-                </div>
-                
-                <button className="player-play">
-                  <NavLink className="button-play" activeClassName="active" exact to="/game"> Play </NavLink>
-                </button>
-            </div>
+            <button className="player-play">
+              <NavLink className="button-play" activeClassName="active" exact to="/game"> Play </NavLink>
+            </button>
+              
+          </form>
         </div>
     );
   }
