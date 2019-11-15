@@ -1,9 +1,11 @@
 import React from 'react';
 import {Switch, Route} from "react-router-dom";
+import HeroHeader from './heroHeaderComp/HeroHeader.js';
 import NewGame from './newGame/NewGame.js';
 import ChooseYourDrawer from './createYourProfile/ChooseYourDrawer.js';
 import Game from './drawer/Game.js';
 import GamePlayer from './player/GamePlayer.js';
+import quickSort from './quickSort.js'
 
 
 // Strategie :
@@ -22,8 +24,27 @@ class Play extends React.Component {
       themeGame : '',
       word : 'FindMe',
       hints : '',
-
+      drawerOrPlayer : false
     };
+  }
+
+
+  // A finir
+  //  Ordonner les players en fonction des points
+  orderingPlayers = () =>{
+    let positionId = [];
+    let newPosition = [];
+    let pts = [];
+    let player;
+    let gamers = this.state.players;
+    let nbPlayers = gamers.length;
+
+    for(let i=0; i < nbPlayers ; i++){
+      player = gamers[i];
+      pts.push(player.points);
+      positionId.push(player.id);
+    }
+    let orderdArray = quickSort(pts);
   }
 
   // Reset the Game
@@ -123,19 +144,16 @@ class Play extends React.Component {
 
 
 
-  render = () =>  {
+  render(){
     return (
-      
         <div className="play-game">
-        <Switch>
-          <Route path="/newGame" component={NewGame} />
-          <Route path="/profile" component={ChooseYourDrawer} />
-          <Route path="/game" component={Game} />
-          <Route path="/player" component={Play} />
-        </Switch>
-      
+          <Switch>
+            <Route exact path='/' component={HeroHeader} />
+            <Route path="/newGame" component={NewGame} />
+            <Route path="/profile" component={ChooseYourDrawer} />
+            <Route path="/game" render={ () => (<Game drawerOrPlayer={this.state.drawerOrPlayer}/>)}  />
+          </Switch>
         </div>
-      
     );
   }
 }

@@ -140,10 +140,10 @@ render(){
 
     <div className="game">
 
-         <Navigation /> 
+         <Navigation />
 
         <div className="header-game">
-          {this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
+          {!this.props.drawerOrPlayer && this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
           <PlayersInDrawer players={players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
@@ -152,8 +152,8 @@ render(){
 
         <div className="draw-game">
           <div className="pic-word">
-            <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic} />
-            <WordInDrawer word={this.state.word} hints={this.state.hints} />
+            {!this.props.drawerOrPlayer && <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic} />}
+            {!this.props.drawerOrPlayer && <WordInDrawer word={this.state.word} hints={this.state.hints} />}
           </div>
           <Draw />
           <Chat updateLastMessage={this.updateLastMessage} />
