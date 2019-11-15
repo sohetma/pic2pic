@@ -149,19 +149,22 @@
   color: black;
   font-size: 15px;
   border-radius: 5px;
+
 }
 
-<<<<<<< HEAD
+
 .avatar-profile :hover{
   border: 2px black solid;
   width: 23%;
   height: 23%;
-=======
+
+
+}
 
 .player-play{
   width: 80px;
   height: 50px;
-  float : right;
+  float: right;
   background-color: black;
 
 }
@@ -171,5 +174,5 @@
   text-align: center;
   color : white;
   text-decoration: none;
->>>>>>> fd39fc9a11faaa48b60e795467b2d127c18c05e2
+
 }
