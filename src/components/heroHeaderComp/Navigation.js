@@ -25,10 +25,9 @@ const Navigation = (props)  => {
             </ul>
           </nav>
         </div>
-    
-       
+
+
     )
   }
 
 export default Navigation;
-

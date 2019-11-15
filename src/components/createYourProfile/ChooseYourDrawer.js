@@ -1,6 +1,8 @@
 import React from 'react';
 import chooseYourDrawer from './ChooseYourDrawer.js';
 import './ChooseYourDrawer.css';
+import {Link, NavLink} from "react-router-dom";
+
 
 class ChooseYourDrawer extends React.Component{
   constructor(props) {
@@ -52,6 +54,10 @@ class ChooseYourDrawer extends React.Component{
                     </div>
 
                 </div>
+                
+                <button className="player-play">
+                  <NavLink className="button-play" activeClassName="active" exact to="/game"> Play </NavLink>
+                </button>
             </div>
         </div>
     );

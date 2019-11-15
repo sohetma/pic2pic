@@ -17,11 +17,7 @@ class App extends React.Component{
     super(props);
 
     this.state = {
-      newPlayer : {
-        username : '',
-        avatar : '',
-        points : 0
-      }
+      qqch : ''
     };
   }
 

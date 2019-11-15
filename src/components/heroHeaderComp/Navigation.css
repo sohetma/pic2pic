@@ -1,12 +1,19 @@
+.menu{
+  display: flex;
+  justify-content: space-around;
+}
 
+.li-navbar{
+  margin-bottom: 8px; 
+}
 
 /* Style the navbar */
   .navBar {
     overflow: hidden;
     background-color: #333;
-  
+
   }
-  
+
   /* Navbar links */
   .navBar a {
     /* float: left; */
@@ -16,19 +23,19 @@
     padding: 14px;
     text-decoration: none;
   }
-  
+
   /* Page content */
   .content {
     padding: 16px;
   }
-  
+
   /* The sticky class is added to the navbar with JS when it reaches its scroll position */
   .sticky {
     position: fixed;
     top: 0;
     width: 100%;
   }
-  
+
   /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
   .sticky + .content {
     padding-top: 60px;

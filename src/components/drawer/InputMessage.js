@@ -1,5 +1,6 @@
 import React from 'react';
 import './InputMessage.css';
+import './Chat.css';
 
 
 const InputMessage = ({addMessage, confirmMessage, currentMessage}) => {

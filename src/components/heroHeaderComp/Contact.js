@@ -4,7 +4,7 @@ import {Link, NavLink} from "react-router-dom";
 
 const Contact = (props)  => {
     return (
-    
+
         <div className="contact">
 
             <div className="espace-pub">
@@ -61,9 +61,8 @@ const Contact = (props)  => {
             </div>
 
         </div>
-       
+
     )
   }
 
 export default Contact;
-

@@ -1,11 +1,9 @@
 import React from 'react';
 import HowToPlay from './HowToPlay.js';
 import Contact from './Contact.js';
-import Navigation from './Navigation.js';
 import {Link, NavLink} from "react-router-dom";
 import './HeroHeader.css';
 import './Contact.css';
-import './Navigation.js';
 
 function HeroHeader() {
     return (
