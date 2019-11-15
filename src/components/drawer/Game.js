@@ -14,6 +14,8 @@ import '../heroHeaderComp/HeroHeader.css';
 import words from '../words.js';
 import ControlledPopup from './ControlledPopup.js';
 import Popupic from './PopupPics.js';
+import Navigation from '../heroHeaderComp/Navigation.js';
+import '../heroHeaderComp/Navigation.js';
 
 //console.log(players);
 
@@ -135,7 +137,11 @@ chooseAWord = theme => {
 
 render(){
   return (
+
     <div className="game">
+
+         <Navigation /> 
+
         <div className="header-game">
           {this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>

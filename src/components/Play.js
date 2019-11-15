@@ -5,6 +5,7 @@ import ChooseYourDrawer from './createYourProfile/ChooseYourDrawer.js';
 import Game from './drawer/Game.js';
 import GamePlayer from './player/GamePlayer.js';
 
+
 // Strategie :
 // 1. Je recupere le nombre de joueur
 // 2. Je sais qui est drawer et qui sont les players
@@ -124,15 +125,17 @@ class Play extends React.Component {
 
   render = () =>  {
     return (
-      <div className="play-game">
-      <Switch>
-        <Route path="/newGame" component={NewGame} />
-        <Route path="/profile" component={ChooseYourDrawer} />
-        <Route path="/game" component={Game} />
-        <Route path="/player" component={Play} />
-      </Switch>
-    
-      </div>
+      
+        <div className="play-game">
+        <Switch>
+          <Route path="/newGame" component={NewGame} />
+          <Route path="/profile" component={ChooseYourDrawer} />
+          <Route path="/game" component={Game} />
+          <Route path="/player" component={Play} />
+        </Switch>
+      
+        </div>
+      
     );
   }
 }

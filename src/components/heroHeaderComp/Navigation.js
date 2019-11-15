@@ -9,24 +9,21 @@ const Navigation = (props)  => {
           <nav className="navBar">
             <ul className="menu">
 
-              <li className="li-navbar">
-                <a href="#home">Home</a>
+              <li>
+                <a href="./">Home</a>
               </li>
-              <li className="li-navbar">
-                <a href="#createyourGame">Create Your Game</a>
+              <li>
+                <a href="../newGame">Create Your Game</a>
               </li>
-              <li className="li-navbar" >
-                <a href="createYourProfile">Create Your Profile</a>
+              <li>
+                <a href="../profile">Create Your Profile</a>
               </li>
-              <li className="li-navbar">
-                <a href="#game">Game</a>
+              <li>
+                <a href="../game">Game</a>
               </li>
 
             </ul>
           </nav>
-
-
-
         </div>
 
 
