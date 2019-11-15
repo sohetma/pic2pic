@@ -29,7 +29,34 @@
   border-radius: 10px;
 }
 
+.button-actions, .close-popup-button, .continue-popup-button{
+  margin-bottom: 20px;
+  height: 40px;
+  font-size: 14px;
+  width: 150px;
+  padding: 0.8em;
+  color : white;
+  text-align: center;
+  margin-bottom: 5px;
+  /* margin-top: -100px;
+  margin-bottom: 50px; */
+  color: white;
+  text-decoration: none;
+  /* font-size: 1.5em; */
+  background: rgb(54,72,107);
+  /* background: linear-gradient(90deg, rgba(54,72,107,1) 0%, rgba(105,165,181,1) 36%, rgba(128,206,214,1) 52%, rgba(213,244,230,1) 100%); */
+  border: 2px solid black;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
 
+.actions-popup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+}
 
 
 /*

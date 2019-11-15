@@ -124,6 +124,10 @@ chooseAWord = theme => {
     }
   }
 
+  newPartOnGame = () => {
+    alert('Je teste qqch');
+  }
+
   componentWillMount () {
     let word = this.chooseAWord('sport');
   }
@@ -137,7 +141,7 @@ render(){
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
           <PlayersInDrawer players={players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
-          {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} />}
+          {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} newPartOnGame={this.newPartOnGame} />}
         </div>
 
         <div className="draw-game">

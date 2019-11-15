@@ -30,6 +30,11 @@ class ControlledPopup extends Component {
     this.openModal()
   }
 
+  buttonAction = () => {
+    this.closeModal();
+    this.props.newPartOnGame();
+  }
+
 
   render() {
     return (
@@ -49,26 +54,10 @@ class ControlledPopup extends Component {
           </div>
 
 
-          <div className="actions">
-          <Popup
-            trigger={<button className="button"> Action </button>}
-            position="top center"
-            closeOnDocumentClick
-          >
-            <span>
-              On va lui dire qqch ici
-            </span>
-          </Popup>
-
-          <Popup
-            trigger={<button onClick={() => this.closeModal} className="close-popup-button"> New Game </button>}
-            position="top center"
-            closeOnDocumentClick
-          >
-          <span>
-            On va lui dire qqch ici aussi
-          </span>
-          </Popup>
+          <div className="actions-popup">
+            <button className="button-actions" onClick={() => this.buttonAction()}> Start a new Game </button>
+            <button className="continue-popup-button" onClick={() => this.closeModal()} > Continue the Game </button>
+            <button className="close-popup-button" onClick={() => this.closeModal()} > Stop the Game </button>
         </div>
         </Popup>
       </div>
