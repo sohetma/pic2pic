@@ -1,7 +1,7 @@
 .how-to-play h2{
   font-size: 5em;
   text-align: center;
-  margin-top: 90px;
+  margin-top: 19px;
 }
 .pic-1 {
   color: rgba(100, 3, 8);
@@ -22,7 +22,7 @@
 
 .box{
   width: 100%;
-  height: 700px;
+  height: 610px;
   border: 1px solid black;
   display: flex;
   margin-top: 50px;
@@ -30,7 +30,7 @@
 
 .create{
   width: 23%;
-  height: 700px;
+  height: 610px;
   border: 1px solid black;
 }
 .logoMore{
@@ -46,7 +46,7 @@
 
 .name{
   width: 23%;
-  height: 700px;
+  height: 610px;
   border: 1px solid black;
 }
 .logoProfile{
@@ -61,10 +61,10 @@
   flex-direction: column;
 }
 
-/* .draw{
-  height: 349px;
+.pencil{
+  height: 296px;
   border: 1px solid black;
-} */
+} 
 
 .logoPencil{
   background-image:  url('./img/pencil.svg');
@@ -78,25 +78,25 @@
 }
 
 .guess{
-  height: 349px;
+  height: 312px;
   border: 1px solid black;
 }
 .logoManThinking{
   background-image:  url('./img/manthinking.png');
-  height: 200px;
+  height: 170px;
   margin-top: 20px;
 }
 
 
 .score{
   width: 23%;
-  height: 700px;
+  height: 610px;
   border: 1px solid black;
 }
 .logoPodium{
   background-image:  url('./img/pudium.png');
   height:192px;
-  margin-top: 150px;
+  margin-top: 120px;
 }
 
 .logo{
@@ -106,8 +106,10 @@
 }
 
 .my-gradient {
-  background: rgb(18,143,227);
-  background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%);
+  background: rgb(54,72,107);
+  background: linear-gradient(90deg, rgba(54,72,107,1) 0%, rgba(105,165,181,1) 36%, rgba(128,206,214,1) 52%, rgba(213,244,230,1) 100%);
+  /* background: rgb(18,143,227);
+  background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%); */
 }
 
 .text{

@@ -40,6 +40,7 @@ class Chat extends Component {
                             date: "On " + newDate }
         existingMessages.push(newMessage);
 
+        // retrieve the message in input
         let lengthMessages = existingMessages.length;
         if(lengthMessages===0){
           return;
@@ -66,19 +67,6 @@ class Chat extends Component {
             return "Benoit"
         }
     }
-
-
-      // let mess = this.getNewMessages();
-      // let lengthMessages = mess.length;
-      // console.log(lengthMessages);
-      // if(lengthMessages===0){
-      //   return;
-      // }
-      // else{
-      //   let wordInInput = this.state.messages[lengthMessages-1].content
-      //   this.props.updateLastMessage(wordInInput);
-      // }
-
 
 
     render () {

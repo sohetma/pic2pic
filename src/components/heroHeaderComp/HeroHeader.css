@@ -22,7 +22,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
+
 }
 
 .hero-header h1 {
@@ -44,8 +44,6 @@
 .hero-header h2 {
     font-size: 3.5em;
     color: black;
-    margin-bottom: 20px;
-    margin-top: 200px;
 }
 
 .hero-header hr {
@@ -74,8 +72,10 @@
     color: white;
     text-decoration: none;
     font-size: 1.5em;
-    background: rgb(18,143,227);
-    background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%);
+    background: rgb(54,72,107);
+    background: linear-gradient(90deg, rgba(54,72,107,1) 0%, rgba(105,165,181,1) 36%, rgba(128,206,214,1) 52%, rgba(213,244,230,1) 100%);
+    /* background: rgb(18,143,227);
+    background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%); */
 
     border: 2px solid black;
     border-radius: 50px;

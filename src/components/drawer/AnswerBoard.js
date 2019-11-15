@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Messages from './Messages'
 
+let i = 0;
 
 class AnswerBoard extends Component {
 
@@ -8,6 +9,7 @@ class AnswerBoard extends Component {
         return (
             this.props.messages.map(message =>
                 <Messages
+                    key={i++}
                     content={message.content}
                     sender={message.sender}
                     date={message.date}

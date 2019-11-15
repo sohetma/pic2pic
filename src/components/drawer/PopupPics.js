@@ -34,6 +34,7 @@ class Popupic extends Component {
   //   this.openModal();
   //   let query = this.props.word;
 
+<<<<<<< HEAD
   //   // API THREE PICS
   //   const response = await axios.get('https://api.unsplash.com/search/photos', {
   //       params: { query: query},
@@ -41,6 +42,15 @@ class Popupic extends Component {
   //           Authorization: APP_ACCESS_KEY
   //       }
   //   })
+=======
+    // API THREE PICS
+    const response = await axios.get('https://api.unsplash.com/search/photos', {
+        params: { query: query},
+        headers: {
+            Authorization: 'Client-ID 95a56e4dbdbda45b38ebd65bfde2e487cc2b6afbb0a6fd9737d915f36d872a9b'
+        }
+    })
+>>>>>>> fd39fc9a11faaa48b60e795467b2d127c18c05e2
 
   //   const res = response.data.results;
   //   let result = [];
@@ -73,11 +83,11 @@ class Popupic extends Component {
     return (
       <div className="modal-pop">
         <Popup
-          className="popup3pics"
           open={this.state.open}
           closeOnDocumentClick
           onClose={this.closeModal}
         >
+        <div>
           <h1> Choose a picture </h1>
           <div className="modal images-popup">
             <img src={this.state.photos[0]} alt="image1-popup" id={"pop-image-unsplash"} className="close-popup image-unsplash" onClick={() => this.selectionPicture(this.state.photos[0])} />
@@ -85,6 +95,7 @@ class Popupic extends Component {
             <img src={this.state.photos[2]} alt="image3-popup" className="close-popup image-unsplash" onClick={() => this.selectionPicture(this.state.photos[2])} />
           </div>
           <h2> {this.props.word} </h2>
+        </div>
         </Popup>
       </div>
     );
