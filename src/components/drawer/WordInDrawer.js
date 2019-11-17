@@ -6,7 +6,7 @@ import './WordInDrawer.css';
 // Take an argument : props.word
 const WordInDrawer = props => (
   <div className = "wordInDrawer">
-    <h3 className="theword">{props.word}</h3>
+    {props.drawerOrPlayer ? <h3 className="theword">{props.word}</h3> : <h3 className="theword">Hint</h3>}
     <HintsWord hints={props.hints}/>
   </div>
 );

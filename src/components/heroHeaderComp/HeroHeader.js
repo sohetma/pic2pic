@@ -7,9 +7,9 @@ import './Contact.css';
 
 function HeroHeader() {
     return (
-        
+
         <>
-        
+
         <div className="hero-header">
 
             <h2>Learn English by playing Pic2Pic !</h2>

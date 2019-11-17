@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import Matrix from './Matrix.js';
 import Draw from './Draw.js';
-import players from './utils.js';
+// import players from './utils.js';
 import PlayersInDrawer from './PlayersInDrawer.js';
 import Timer from './Timer.js';
 import PicInDrawer from './PicInDrawer.js';
@@ -102,6 +102,7 @@ chooseAWord = theme => {
     word : listWords[random],
     hints : hint
   })
+  console.log(listWords[random]);
   return listWords[random]
 }
 
@@ -118,16 +119,25 @@ chooseAWord = theme => {
     console.log('word try : ', message);
     console.log('the good word  : ', this.state.word);
 
+    // if(message===this.state.word && this.state.winner === sender){
+    //   alert('You already found the good word.')
+    // }
+
     if(message===this.state.word){
       this.setState({
         winner : sender,
         isPlaying : false
       })
+      this.props.winThePart(3,sender);
     }
   }
 
   newPartOnGame = () => {
-    alert('Je teste qqch');
+    console.log('new part ');
+    let newWord = this.chooseAWord('sport');
+    this.startGame();
+    this.newGame();
+    this.props.countNbPart();
   }
 
   componentWillMount () {
@@ -143,20 +153,20 @@ render(){
          <Navigation />
 
         <div className="header-game">
-          {!this.props.drawerOrPlayer && this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
+          {this.props.drawerOrPlayer && this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
-          <PlayersInDrawer players={players} />
+          <PlayersInDrawer players={this.props.players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
           {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} newPartOnGame={this.newPartOnGame} />}
         </div>
 
         <div className="draw-game">
           <div className="pic-word">
-            {!this.props.drawerOrPlayer && <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic} />}
-            {!this.props.drawerOrPlayer && <WordInDrawer word={this.state.word} hints={this.state.hints} />}
+            {this.props.drawerOrPlayer ? <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic}/> : <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1> }
+            <WordInDrawer word={this.state.word} hints={this.state.hints} drawerOrPlayer={this.props.drawerOrPlayer} />
           </div>
           <Draw />
-          <Chat updateLastMessage={this.updateLastMessage} />
+          <Chat players={this.props.players} updateLastMessage={this.updateLastMessage} />
         </div>
     </div>
     );

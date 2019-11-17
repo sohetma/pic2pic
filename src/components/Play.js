@@ -24,8 +24,28 @@ class Play extends React.Component {
       themeGame : '',
       word : 'FindMe',
       hints : '',
-      drawerOrPlayer : false
+      drawerOrPlayer : false, // true if drawer
+      nbPart : 0
     };
+  }
+
+  // check if last one is drawer or player
+  isDrawerOrPlayer = () =>{
+    let gamers = this.state.players;
+    let nbPlayers = gamers.length;
+    this.setState({
+      drawerOrPlayer : gamers[nbPlayers-1].isDrawer
+    })
+  }
+
+  countNbPart = () => {
+    this.setState((prevState, {nbPart}) => ({
+      nbPart : prevState+1
+    }));
+
+    // console.log(this.state.players);
+    // console.log(this.state.word);
+    // console.log(this.state.nbPart);
   }
 
 
@@ -61,16 +81,20 @@ class Play extends React.Component {
 
   // setState 'nbDrawer' : add nbDrawer by 1 if a player was a drawer ones
   HasAlreadyBeenDrawerNumber = (id) => {
+    let nb;
     let gamers = this.state.players;
     let nbPlayers = gamers.length;
     for (let i = 0; i < nbPlayers ; i++){
       let player = gamers[i];
       if(player.id === id && player.isDrawer === true){
-        this.setState((prevState, {nbDrawer}) => ({
-          nbDrawer : prevState+1
+        player.nbDrawer +=1 ;
+        nb = player.nbDrawer;
+        this.setState((prevState) => ({
+          players : gamers
         }));
       }
     }
+    return nb;
   }
 
   // setState 'isDrawer' : change the role of player at the end of a part of the Game
@@ -107,6 +131,10 @@ class Play extends React.Component {
   // isDrawer (boolean : drawer or player), nbDrawer (number), url
   addNewPlayer = (username, avatar, isDrawer) => {
     let newPlayers = this.state.players;
+    if(newPlayers.length >= 6){
+      alert('There is already 6 players for this game.');
+      return;
+    }
     let newPlayer = {
       id : this.getIdPlayer(),
       username : username,
@@ -125,21 +153,35 @@ class Play extends React.Component {
     let gamers = this.state.players;
     for(let i=0 ; i < this.state.players.length ; i++){
       let player = gamers[i];
+      console.log('players' , player.username);
+      console.log('sender',username, pts);
       if(player.username === username){
-        this.setState((prevState, {points}) => ({
-          points : prevState+pts
+        player.points += pts;
+        this.setState((prevState) => ({
+          players : gamers
         }));
       }
     }
   }
 
   // Create the players of the game
-  handleSubmit = (event, avatar, username, isDrawer) => {
-    let newPlayers = this.getNewPlayer(username,avatar,isDrawer);
+  handleSubmit = (event, avatar, username) => {
+    let isDrawer = false;
+    if(this.state.players.length < 1){
+      isDrawer = true;
+    }
+    else{
+      isDrawer = false;
+    }
+
+    let newPlayers = this.addNewPlayer(username,avatar,isDrawer);
     this.setState({
       players : newPlayers
     })
+    console.log(newPlayers);
     event.preventDefault();
+
+    this.isDrawerOrPlayer(); // Is a drawer or a player ?
   }
 
 
@@ -150,8 +192,15 @@ class Play extends React.Component {
           <Switch>
             <Route exact path='/' component={HeroHeader} />
             <Route path="/newGame" component={NewGame} />
-            <Route path="/profile" component={ChooseYourDrawer} />
-            <Route path="/game" render={ () => (<Game drawerOrPlayer={this.state.drawerOrPlayer}/>)}  />
+            <Route path="/profile" render={ () => (<ChooseYourDrawer handleSubmit={this.handleSubmit} />)} />
+            <Route path="/game" render={ () => (
+              <Game
+                drawerOrPlayer={this.state.drawerOrPlayer}
+                players={this.state.players}
+                winThePart={this.winThePart}
+                countNbPart={this.countNbPart}
+               />)}
+            />
           </Switch>
         </div>
     );

@@ -12,16 +12,36 @@ class ChooseYourDrawer extends React.Component{
     this.state = {
       username : [],
       avatarsList : [],
-      value : ''
+      value : '',
+      url : ''
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(event) {
-    alert('Votre username est : ' + this.state.value);
+  submit = (event) => {
+    // alert('Votre username est : ' + this.state.value);
+    this.props.handleSubmit(event, this.state.url, this.state.value);
+  }
+
+  usernameAlreadySelected = (event) => {
+    if(this.state.username.contains(event.target.value)){
+      alert('Username already selected. Choose an other one');
+      return false;
+    }
+    return true;
+  }
+
+  avatarAlreadySelected = (url) => {
+    if (this.state.avatarsList.contains(url)) {
+      alert('Avatar already selected. Choose an other one');
+      return false;
+    }
+    return true;
   }
 
   onInputChange = (event) => {
+    // let usernameIsSelected = this.usernameAlreadySelected(event);
+    // if(!usernameIsSelected){return;}
     this.setState({
       value: event.target.value
     })
@@ -39,11 +59,14 @@ class ChooseYourDrawer extends React.Component{
     })
     // console.log(listUsername);
   }
- 
+
   selected= (url) => {
+    // let urlIsSelected = this.avatarAlreadySelected(url);
+    // if(!urlIsSelected){return;}
     let listURL = this.state.avatarsList;
     listURL.push(url);
     this.setState({
+      url : url,
       avatarsList  : listURL
     })
     console.log(listURL);
@@ -59,26 +82,27 @@ class ChooseYourDrawer extends React.Component{
   render(){
     return (
         <div className="pencils-background">
+          <h1> Create your profile </h1>
 
-         <form onSubmit={this.handleSubmit}>
+         <form  className="form-profile" onSubmit={(event) => this.submit(event)}>
 
           <input className="input-form-player" type="text" value={this.state.value} placeholder="Enter your username" onChange={(event) => this.onInputChange(event)} />
-          
-                        
+
+
 
           <div className="list-avatars">
-            <img src="../img/avatar1.png" onClick={() => this.selected("../img/avatar1.png") }></img>
-            <img src="../img/avatar2.png" onClick={() => this.selected("../img/avatar2.png") }></img>
-            <img src="../img/avatar3.png" onClick={() => this.selected("../img/avatar3.png") }></img>
-            <img src="../img/avatar4.png" onClick={() => this.selected("../img/avatar4.png") }></img>
-            <img src="../img/avatar5.png" onClick={() => this.selected("../img/avatar5.png") }></img>
-            <img src="../img/avatar6.png" onClick={() => this.selected("../img/avatar6.png") }></img>
+            <img className="invisibleman" src="../img/avatar1.png" onClick={() => this.selected("../img/avatar1.png") }></img>
+            <img className="invisibleman" src="../img/avatar2.png" onClick={() => this.selected("../img/avatar2.png") }></img>
+            <img className="invisibleman" src="../img/avatar3.png" onClick={() => this.selected("../img/avatar3.png") }></img>
+            <img className="invisibleman" src="../img/avatar4.png" onClick={() => this.selected("../img/avatar4.png") }></img>
+            <img className="invisibleman" src="../img/avatar5.png" onClick={() => this.selected("../img/avatar5.png") }></img>
+            <img className="invisibleman" src="../img/avatar6.png" onClick={() => this.selected("../img/avatar6.png") }></img>
           </div>
 
-            <button className="player-play">
-              <NavLink className="button-play" activeClassName="active" exact to="/game"> Play </NavLink>
-            </button>
-              
+          <button onClick={(event) => this.submit(event)}>
+            <NavLink className="player-play button-play" activeClassName="active" exact to="/game"> Play </NavLink>
+           </button>
+
           </form>
         </div>
     );
