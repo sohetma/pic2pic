@@ -25,10 +25,9 @@
 
 }
 
-.hero-header h1 {
+/* .hero-header h1 {
     font-size: 10em;
-    margin-bottom: 0.5em;
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
 .pic-1 {
@@ -39,6 +38,16 @@
 }
 .pic-2 {
     color: rgba(100, 3, 8);
+} */
+
+.logo-pic2pic{
+    width: 50%;
+    height: 230px;
+    background-image: url('./img/Pic2pic-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 730px;
+    margin-top: 25px;
 }
 
 .hero-header h2 {
@@ -67,7 +76,7 @@
 
     padding: 0.8em;
     margin-top: -100px;
-    margin-bottom: 50px;
+    margin-bottom: -170px;
 
     color: white;
     text-decoration: none;

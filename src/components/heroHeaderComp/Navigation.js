@@ -25,8 +25,6 @@ const Navigation = (props)  => {
             </ul>
           </nav>
         </div>
-
-
     )
   }
 

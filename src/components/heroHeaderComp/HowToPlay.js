@@ -5,8 +5,7 @@ const HowToPlay = (props)  => {
     return (
         <>
             <div className="how-to-play">
-            <h2>How to play <span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h2>
-            <hr />
+            <h2>How to Play</h2>
             </div>
             
             <div className="box my-gradient">

@@ -3,9 +3,9 @@
   display: flex;
   width: 300px;
   height: 400px;
-  margin-left: auto;
+  margin-left: 140px;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 .container{
     /* Le margin permettra d'ajuster sur la page le bloc container*/
