@@ -165,7 +165,7 @@ render(){
 
         <div className="draw-game">
           <div className="pic-word">
-            {this.props.drawerOrPlayer ? <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic}/> : <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1> }
+            {this.props.drawerOrPlayer ? <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic}/> : <div className="logo2-pic2pic"></div> }
             <WordInDrawer word={this.state.word} hints={this.state.hints} drawerOrPlayer={this.props.drawerOrPlayer} />
           </div>
           <Draw />

@@ -93,7 +93,8 @@
 }
 
 .hero-header .button:hover {
-    color: rgb(209, 165, 49);
+    /* color: rgb(209, 165, 49); */
+    opacity: 80%;
     background-color: rgba(255, 255, 255, 0);
 }
 

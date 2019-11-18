@@ -59,10 +59,20 @@
 }
 
 .timer{
-  
+
   color : white;
   align-items: center;
   text-align: center;
   margin-top: 50px;
   margin-right: 20px;
+}
+
+.logo2-pic2pic{
+    width: 100%;
+    height: 280px;
+    background-image: url('./img/Pic2pic-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 380px;
+    margin-top: 25px;
 }

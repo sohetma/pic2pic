@@ -32,7 +32,8 @@
     margin-bottom: 50px; */
 
     color: white;
-    text-decoration: none;
+    /* text-decoration: none; */
+
     font-size: 1.5em;
     background: rgba(235,109,112);
 
@@ -43,10 +44,15 @@
     line-height: 3em;
   }
 
+  .button-web{
+    text-decoration: none;
+  }
+
   .contact-1 .button-web:hover {
 
-    color: rgb(209, 165, 49);
-    background-color: rgba(255, 255, 255, 0);
+    /* color: rgb(209, 165, 49); */
+    opacity: 80%;
+    /* background-color: rgba(255, 255, 255, 0); */
   }
 
 

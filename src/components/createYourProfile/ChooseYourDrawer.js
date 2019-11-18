@@ -1,5 +1,6 @@
 import React from 'react';
 import chooseYourDrawer from './ChooseYourDrawer.js';
+import ShowAvatar from './ShowAvatar.js'
 import './ChooseYourDrawer.css';
 import {Link, NavLink} from "react-router-dom";
 
@@ -13,7 +14,8 @@ class ChooseYourDrawer extends React.Component{
       username : [],
       avatarsList : [],
       value : '',
-      url : ''
+      url : '',
+      isWritting : false
     }
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -43,6 +45,7 @@ class ChooseYourDrawer extends React.Component{
     // let usernameIsSelected = this.usernameAlreadySelected(event);
     // if(!usernameIsSelected){return;}
     this.setState({
+      isWritting : true,
       value: event.target.value
     })
     this.enterUsername();
@@ -82,30 +85,35 @@ class ChooseYourDrawer extends React.Component{
   render(){
     return (
         <div className="pencils-background">
-          <h1> Create your profile </h1>
+          <div className="components-page">
 
-         <form  className="form-profile" onSubmit={(event) => this.submit(event)}>
+            <div className="title-profile">
+              <h2><span className="word-create">Create </span><span className="word-your">your </span><span className="word-profile">profile</span></h2>
+            </div>
 
-          <input className="input-form-player" type="text" value={this.state.value} placeholder="Enter your username" onChange={(event) => this.onInputChange(event)} />
+           <form  className="form-profile avatar-profile" onSubmit={(event) => this.submit(event)}>
 
+            <input className="input-form-player user-profile" type="text" value={this.state.value} placeholder="Enter your username" onChange={(event) => this.onInputChange(event)} />
 
+            <div className="list-avatars">
+              <img className="invisibleman" src="../img/avatar1.png" onClick={() => this.selected("../img/avatar1.png") }></img>
+              <img className="invisibleman" src="../img/avatar2.png" onClick={() => this.selected("../img/avatar2.png") }></img>
+              <img className="invisibleman" src="../img/avatar3.png" onClick={() => this.selected("../img/avatar3.png") }></img>
+              <img className="invisibleman" src="../img/avatar4.png" onClick={() => this.selected("../img/avatar4.png") }></img>
+              <img className="invisibleman" src="../img/avatar5.png" onClick={() => this.selected("../img/avatar5.png") }></img>
+              <img className="invisibleman" src="../img/avatar6.png" onClick={() => this.selected("../img/avatar6.png") }></img>
+            </div>
 
-          <div className="list-avatars">
-            <img className="invisibleman" src="../img/avatar1.png" onClick={() => this.selected("../img/avatar1.png") }></img>
-            <img className="invisibleman" src="../img/avatar2.png" onClick={() => this.selected("../img/avatar2.png") }></img>
-            <img className="invisibleman" src="../img/avatar3.png" onClick={() => this.selected("../img/avatar3.png") }></img>
-            <img className="invisibleman" src="../img/avatar4.png" onClick={() => this.selected("../img/avatar4.png") }></img>
-            <img className="invisibleman" src="../img/avatar5.png" onClick={() => this.selected("../img/avatar5.png") }></img>
-            <img className="invisibleman" src="../img/avatar6.png" onClick={() => this.selected("../img/avatar6.png") }></img>
+            </form>
+
+            <button  className="player-buttons-play" onClick={(event) => this.submit(event)}>
+              <NavLink className="button-play player-play" activeClassName="active" exact to="/guesseur"> Play </NavLink>
+              <NavLink className="button-play player-play" activeClassName="active" exact to="/player"> Play </NavLink>
+             </button>
+
+            {this.state.isWritting && <ShowAvatar value={this.state.value} url={this.state.url} />}
           </div>
-
-          <button onClick={(event) => this.submit(event)}>
-            <NavLink className="player-play button-play" activeClassName="active" exact to="/guesseur"> Play </NavLink>
-            <NavLink className="player-play button-play" activeClassName="active" exact to="/player"> Play </NavLink>
-           </button>
-
-          </form>
-        </div>
+      </div>
     );
   }
 }
