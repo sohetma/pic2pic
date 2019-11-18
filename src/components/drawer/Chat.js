@@ -31,6 +31,8 @@ class Chat extends Component {
             event.preventDefault();
     }
 
+    
+
     getNewMessages = () => {
         let newDate = new Date().toLocaleString();
         let from = this.whoTalk();

@@ -21,12 +21,13 @@ class Play extends React.Component {
 
     this.state = {
       players : [],
-      themeGame : '',
+      themeGame : 'sport',
       word : 'FindMe',
       hints : '',
       drawerOrPlayer : false, // true if drawer
       nbPart : 0
     };
+    this.handleSubmitTheme = this.handleSubmitTheme.bind(this);
   }
 
   // check if last one is drawer or player
@@ -43,9 +44,9 @@ class Play extends React.Component {
       nbPart : prevState+1
     }));
 
-    // console.log(this.state.players);
-    // console.log(this.state.word);
-    // console.log(this.state.nbPart);
+    console.log(this.state.players);
+    console.log(this.state.word);
+    console.log(this.state.nbPart);
   }
 
 
@@ -97,26 +98,63 @@ class Play extends React.Component {
     return nb;
   }
 
+  // Return inidice Drawer
+  getIndiceDrawer = () =>{
+    let gamers = this.state.players;
+    let nbPlayers = gamers.length;
+    let indice = 0;
+    for (let i = 0; i < nbPlayers ; i++){
+      if(gamers[i].isDrawer === true){
+        indice = i;
+      }
+    }
+    return indice;
+  }
+
+
   // setState 'isDrawer' : change the role of player at the end of a part of the Game
   changeYourRole = () => {
+
+    console.log('I m in changeyour role');
+
     let gamers = this.state.players;
     let nbPlayers = gamers.length;
     let index = 0;
+    let indiceDrawer = this.getIndiceDrawer();
+    let passedHere = false;
+
     for (let i = 0; i < nbPlayers ; i++){
       let player = gamers[i];
-      if(player.isDrawer === true){
-        index = player.id;
-        this.setState((prevState, {isDrawer}) => ({
-          isDrawer : false
+
+      // Special case where there is only one player
+      if(nbPlayers===1){
+        player.isDrawer = true;
+        this.setState((prevState) => ({
+          players : gamers
         }));
+        return;
       }
-    }
-    if(nbPlayers > index+1){
-      index = 0;
-    }
-    if(gamers[index+1].isDrawer === false && this.HasAlreadyBeenDrawerNumber(index+1) <= 1){
-      this.setState((prevState, {isDrawer}) => ({
-        isDrawer : true
+
+
+      if(i === indiceDrawer){
+        console.log('I m in changeyour role where i is indice', indiceDrawer);
+        this.HasAlreadyBeenDrawerNumber(i);
+        if(indiceDrawer+1 >= nbPlayers){
+          gamers[0].isDrawer = true;
+        }
+        else{
+          console.log('I m in changeyour role where i is indice : new drawer');
+          gamers[indiceDrawer].isDrawer = false;
+          gamers[indiceDrawer+1].isDrawer = true;
+          passedHere = true;
+        }
+      }
+      if(!passedHere){
+        player.isDrawer = false;
+      }
+
+      this.setState((prevState) => ({
+        players : gamers
       }));
     }
   }
@@ -164,6 +202,13 @@ class Play extends React.Component {
     }
   }
 
+  handleSubmitTheme = (event,theme) => {
+    this.setState({
+      themeGame : theme
+    })
+    event.preventDefault();
+  }
+
   // Create the players of the game
   handleSubmit = (event, avatar, username) => {
     let isDrawer = false;
@@ -191,14 +236,42 @@ class Play extends React.Component {
         <div className="play-game">
           <Switch>
             <Route exact path='/' component={HeroHeader} />
-            <Route path="/newGame" component={NewGame} />
-            <Route path="/profile" render={ () => (<ChooseYourDrawer handleSubmit={this.handleSubmit} />)} />
-            <Route path="/game" render={ () => (
+
+            <Route path="/newGame" render={ () => (
+              <NewGame
+                handleSubmitTheme={this.handleSubmitTheme}
+              />)}
+            />
+
+            <Route path="/profile" render={ () => (
+              <ChooseYourDrawer
+                handleSubmit={this.handleSubmit}
+              />)}
+            />
+
+            <Route path="/guesseur" render={ () => (
               <Game
                 drawerOrPlayer={this.state.drawerOrPlayer}
+                isDrawerOrPlayer={this.isDrawerOrPlayer}
                 players={this.state.players}
                 winThePart={this.winThePart}
                 countNbPart={this.countNbPart}
+                changeYourRole={this.changeYourRole}
+                handleSubmitTheme={this.handleSubmitTheme}
+                theme={this.state.themeGame}
+               />)}
+            />
+
+            <Route path="/player" render={ () => (
+              <Game
+                drawerOrPlayer={!this.state.drawerOrPlayer}
+                isDrawerOrPlayer={this.isDrawerOrPlayer}
+                players={this.state.players}
+                winThePart={this.winThePart}
+                countNbPart={this.countNbPart}
+                changeYourRole={this.changeYourRole}
+                handleSubmitTheme={this.handleSubmitTheme}
+                theme={this.state.themeGame}
                />)}
             />
           </Switch>

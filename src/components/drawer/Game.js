@@ -82,7 +82,8 @@ hints = word => {
   return theHint; // return a hint
 }
 
-chooseAWord = theme => {
+chooseAWord = () => {
+  let theme = this.props.theme;
   let listWords;
   // return the array in function of the theme : listWords
   if (theme === 'sport'){
@@ -92,7 +93,7 @@ chooseAWord = theme => {
     listWords = words.food;
   }
   else if (theme === 'travel') {
-      listWords = words.travel;
+    listWords = words.travel;
   }
   // return randomly a number between 0 and length-1 of listWords : i
   let random = Math.floor(Math.random() * Math.floor(listWords.length-1))
@@ -134,14 +135,16 @@ chooseAWord = theme => {
 
   newPartOnGame = () => {
     console.log('new part ');
-    let newWord = this.chooseAWord('sport');
+    let newWord = this.chooseAWord();
     this.startGame();
     this.newGame();
+    this.props.changeYourRole();
     this.props.countNbPart();
+    this.props.isDrawerOrPlayer();
   }
 
   componentWillMount () {
-    let word = this.chooseAWord('sport');
+    let word = this.chooseAWord();
   }
 
 

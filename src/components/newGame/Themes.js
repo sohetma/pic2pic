@@ -9,6 +9,8 @@ class Themes extends React.Component {
     this.state = {
       value: ''
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
@@ -16,22 +18,28 @@ class Themes extends React.Component {
     this.setState({
       value: event.target.value
     });
+    let themeVal = event.target.value;
+    console.log('the theme is',themeVal );
+    // this.props.update(themeVal);
+
+    // this.props.handleSubmitTheme(event,themeVal);
+    // console.log('the theme is', themeVal);
   }
 
   handleSubmit= (event) => {
+    // this.props.changeTheme(event,event.target.value);
+    console.log('the theme is still ', event.target.value);
     //alert('Your favorite flavor is: ' + this.state.value);
     event.preventDefault();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>
           <p className ='round'>Themes:
-            <select className ="list" value={this.state.value} onChange={this.handleChange}>
-              <option value="1">Sport</option>
-              <option value="2">Food</option>
-              <option value="3">Travel</option>
+            <select className ="list" value={this.state.value} onChange={(event) => this.handleChange(event)}>
+              <option value="sport">Sport</option>
           </select>
           </p>
         </label>
@@ -40,5 +48,5 @@ class Themes extends React.Component {
   }
 }
 
-      
-  export default Themes
+
+  export default Themes;

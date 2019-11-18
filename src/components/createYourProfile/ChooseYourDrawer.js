@@ -100,7 +100,8 @@ class ChooseYourDrawer extends React.Component{
           </div>
 
           <button onClick={(event) => this.submit(event)}>
-            <NavLink className="player-play button-play" activeClassName="active" exact to="/game"> Play </NavLink>
+            <NavLink className="player-play button-play" activeClassName="active" exact to="/guesseur"> Play </NavLink>
+            <NavLink className="player-play button-play" activeClassName="active" exact to="/player"> Play </NavLink>
            </button>
 
           </form>

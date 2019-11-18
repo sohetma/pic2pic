@@ -17,7 +17,7 @@ const Contact = (props)  => {
                         <p>Learn tech skills with passion</p>
                     </div>
 
-                    <a href="https://www.wildcodeschool.com/en-GB"><div className="button-web" activeClassName="active"> Visite our website </div></a>
+                    <a href="https://www.wildcodeschool.com/en-GB"><div className="button-web" > Visite our website </div></a>
 
                     <div className="buton-visit-website">
 

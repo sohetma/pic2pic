@@ -5,7 +5,7 @@ import {Link, NavLink} from "react-router-dom";
 const ButtonStart = () => {
     return(
         <div className="button">
-            <button className="start">
+            <button className="start" >
               <NavLink className="center-text" activeClassName="active" exact to="/profile"> Start </NavLink>
             </button>
 

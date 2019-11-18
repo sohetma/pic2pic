@@ -19,20 +19,29 @@ class NewGame extends React.Component {
     super(props)
     this.state = {
       theme: 'sport.jpg',
-
+      thematic: '',
     }
+    this.changeTheme = this.changeTheme.bind(this);
   }
 
   selectJpg = (themeValue) => {
-    if (themeValue) {
-      
-    }
-    // console.log("i am in select jpg function");
+  if (themeValue) {
+  }
+  // console.log("i am in select jpg function");
+  return '.jpg'
+}
 
-    return '.jpg'
+
+  updateTheme = (thematic) => {
+      this.setState({
+        thematic : thematic
+      })
+      console.log('yaaaah', thematic);
   }
 
-  changeTheme = (img) => {
+
+  changeTheme = (event, theme) => {
+    this.props.handleSubmitTheme(event, theme);
     // console.log("i am in change Theme function");
 
     //update state.theme
@@ -41,9 +50,9 @@ class NewGame extends React.Component {
   render() {
       return (
         <div className="newgame" style={{backgroundImage: `url("${this.state.theme}")`}}>
-          <Themes changeTheme={this.changeTheme} selectedTheme={1} />
+          <Themes changeTheme={this.props.handleSubmitTheme}  updateTheme={this.updateTheme} selectedTheme={1} />
           <CreateYourGame/>
-          <ButtonStart/>
+          <ButtonStart handleSubmitTheme={this.props.handleSubmitTheme}/>
           <Container/>
           <InviteContainer/>
       </div>
