@@ -1,12 +1,24 @@
 # PIC2PIC
 
-## Authors & Date
+### Context
+Creation of the Game Pic2Pic during the bootcamp at Wild Code school Brussels (11/2019)
 
-## Description of the Game
+### Authors - Date
 
-## Architecture of the code & Explanation 
+Last Update : 19 november 2019
 
-## Run the project
+Contributors on the project : 
+- Sohet Maxime
+- Benoit
+- Guislain
+- Nicolas
+
+
+### Description of the Game 
+
+### Architecture of the code & Explanation 
+
+### Run the project
 
 
 
