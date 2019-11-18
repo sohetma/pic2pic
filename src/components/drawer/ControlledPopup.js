@@ -38,13 +38,13 @@ class ControlledPopup extends Component {
 
   render() {
     return (
-      <div>
-
+      <div className="ControlledPopup">
         <Popup
           open={this.state.open}
           closeOnDocumentClick
           onClose={this.closeModal}
         >
+        <>
           <div className="modal">
             <a className="close-popup" onClick={this.closeModal}>
               &times;
@@ -58,7 +58,8 @@ class ControlledPopup extends Component {
             <button className="button-actions" onClick={() => this.buttonAction()}> Start a new Game </button>
             <button className="continue-popup-button" onClick={() => this.buttonAction()} > Continue the Game </button>
             <button className="close-popup-button" onClick={() => this.closeModal()} > Stop the Game </button>
-        </div>
+          </div>
+          </>
         </Popup>
       </div>
     );

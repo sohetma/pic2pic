@@ -19,7 +19,7 @@ class Themes extends React.Component {
       value: event.target.value
     });
     let themeVal = event.target.value;
-    console.log('the theme is',themeVal );
+    // console.log('the theme is',themeVal );
     // this.props.update(themeVal);
 
     // this.props.handleSubmitTheme(event,themeVal);
@@ -28,7 +28,7 @@ class Themes extends React.Component {
 
   handleSubmit= (event) => {
     // this.props.changeTheme(event,event.target.value);
-    console.log('the theme is still ', event.target.value);
+    // console.log('the theme is still ', event.target.value);
     //alert('Your favorite flavor is: ' + this.state.value);
     event.preventDefault();
   }

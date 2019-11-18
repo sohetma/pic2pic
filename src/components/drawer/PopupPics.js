@@ -52,7 +52,7 @@ class Popupic extends Component {
 
     let photosList = result.slice(0,3);
 
-    console.log('the result' , result);
+    // console.log('the result' , result);
 
     this.setState({
        photos : photosList,
@@ -61,7 +61,7 @@ class Popupic extends Component {
   }
 
   selectionPicture = (url) =>{
-    console.log('url : ', url);
+    // console.log('url : ', url);
     this.props.updateUrl(url);
     this.setState({
       open : false,

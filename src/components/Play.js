@@ -46,7 +46,7 @@ class Play extends React.Component {
 
     console.log(this.state.players);
     console.log(this.state.word);
-    console.log(this.state.nbPart);
+    // console.log(this.state.nbPart);
   }
 
 
@@ -115,7 +115,7 @@ class Play extends React.Component {
   // setState 'isDrawer' : change the role of player at the end of a part of the Game
   changeYourRole = () => {
 
-    console.log('I m in changeyour role');
+    // console.log('I m in changeyour role');
 
     let gamers = this.state.players;
     let nbPlayers = gamers.length;
@@ -137,13 +137,13 @@ class Play extends React.Component {
 
 
       if(i === indiceDrawer){
-        console.log('I m in changeyour role where i is indice', indiceDrawer);
+        // console.log('I m in changeyour role where i is indice', indiceDrawer);
         this.HasAlreadyBeenDrawerNumber(i);
         if(indiceDrawer+1 >= nbPlayers){
           gamers[0].isDrawer = true;
         }
         else{
-          console.log('I m in changeyour role where i is indice : new drawer');
+          // console.log('I m in changeyour role where i is indice : new drawer');
           gamers[indiceDrawer].isDrawer = false;
           gamers[indiceDrawer+1].isDrawer = true;
           passedHere = true;
@@ -180,7 +180,7 @@ class Play extends React.Component {
       points : 0,
       isDrawer : isDrawer,
       nbDrawer : 0,
-      url : isDrawer ? 'http://localhost:3000/game' : 'http://localhost:3000/player'
+      // url : isDrawer ? 'http://localhost:3000/game' : 'http://localhost:3000/player'
     }
     newPlayers.push(newPlayer);
     return newPlayers;
@@ -191,8 +191,8 @@ class Play extends React.Component {
     let gamers = this.state.players;
     for(let i=0 ; i < this.state.players.length ; i++){
       let player = gamers[i];
-      console.log('players' , player.username);
-      console.log('sender',username, pts);
+      // console.log('players' , player.username);
+      // console.log('sender',username, pts);
       if(player.username === username){
         player.points += pts;
         this.setState((prevState) => ({
