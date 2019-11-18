@@ -13,8 +13,9 @@ Contributors on the project :
 - Guislain
 - Nicolas
 
-Creation of the project in Agile Methodology : [Trello](https://trello.com/pic2pic1/home)
-Development in js with librairy [Reactjs](https://reactjs.org/)
+Tools :
+- Creation of the project in Agile Methodology : [Trello](https://trello.com/pic2pic1/home)
+- Development in js with librairy [Reactjs](https://reactjs.org/)
 
 
 ### Description of the Game 
