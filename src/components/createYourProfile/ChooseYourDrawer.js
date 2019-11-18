@@ -1,8 +1,7 @@
 import React from 'react';
-import chooseYourDrawer from './ChooseYourDrawer.js';
 import ShowAvatar from './ShowAvatar.js'
 import './ChooseYourDrawer.css';
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 
 
@@ -23,6 +22,9 @@ class ChooseYourDrawer extends React.Component{
   submit = (event) => {
     // alert('Votre username est : ' + this.state.value);
     this.props.handleSubmit(event, this.state.url, this.state.value);
+    this.setState({
+      isWritting : false
+    })
   }
 
   usernameAlreadySelected = (event) => {
@@ -96,12 +98,12 @@ class ChooseYourDrawer extends React.Component{
             <input className="input-form-player user-profile" type="text" value={this.state.value} placeholder="Enter your username" onChange={(event) => this.onInputChange(event)} />
 
             <div className="list-avatars">
-              <img className="invisibleman" src="../img/avatar1.png" onClick={() => this.selected("../img/avatar1.png") }></img>
-              <img className="invisibleman" src="../img/avatar2.png" onClick={() => this.selected("../img/avatar2.png") }></img>
-              <img className="invisibleman" src="../img/avatar3.png" onClick={() => this.selected("../img/avatar3.png") }></img>
-              <img className="invisibleman" src="../img/avatar4.png" onClick={() => this.selected("../img/avatar4.png") }></img>
-              <img className="invisibleman" src="../img/avatar5.png" onClick={() => this.selected("../img/avatar5.png") }></img>
-              <img className="invisibleman" src="../img/avatar6.png" onClick={() => this.selected("../img/avatar6.png") }></img>
+              <img className="invisibleman" src="../img/avatar1.png" alt="avatar" onClick={() => this.selected("../img/avatar1.png") }></img>
+              <img className="invisibleman" src="../img/avatar2.png" alt="avatar" onClick={() => this.selected("../img/avatar2.png") }></img>
+              <img className="invisibleman" src="../img/avatar3.png" alt="avatar" onClick={() => this.selected("../img/avatar3.png") }></img>
+              <img className="invisibleman" src="../img/avatar4.png" alt="avatar" onClick={() => this.selected("../img/avatar4.png") }></img>
+              <img className="invisibleman" src="../img/avatar5.png" alt="avatar" onClick={() => this.selected("../img/avatar5.png") }></img>
+              <img className="invisibleman" src="../img/avatar6.png" alt="avatar" onClick={() => this.selected("../img/avatar6.png") }></img>
             </div>
 
             </form>

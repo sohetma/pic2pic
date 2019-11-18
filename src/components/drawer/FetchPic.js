@@ -1,9 +1,9 @@
 import React , { Component } from 'react';
 import './PicInDrawer.css';
-import SearchBar from './SearchBar.js';
-import ButtonPic from './ButtonPic.js'
+// import SearchBar from './SearchBar.js';
+// import ButtonPic from './ButtonPic.js';
 
-const axios = require('axios');
+// const axios = require('axios');
 
 // Component pic return an image
 // picInDrawer take an argument 'picture' (a source)
