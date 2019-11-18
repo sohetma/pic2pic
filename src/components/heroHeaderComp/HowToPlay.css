@@ -3,7 +3,7 @@
   text-align: center;
   margin-top: 19px;
 }
-.pic-1 {
+/* .pic-1 {
   color: rgba(100, 3, 8);
 }
 .deux {
@@ -11,7 +11,7 @@
 }
 .pic-2 {
   color: rgba(37, 77, 25);
-}
+} */ */
 
 .how-to-play hr{
   width: 900px;
@@ -74,7 +74,7 @@
   font-size: 5em;
   text-transform: uppercase;
   text-align: center;
-  margin-top: -35px;
+  margin-top: 41px;
 }
 
 .guess{

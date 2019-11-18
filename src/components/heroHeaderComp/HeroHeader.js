@@ -14,7 +14,8 @@ function HeroHeader() {
 
             <h2>Learn English by playing Pic2Pic !</h2>
             <hr />
-            <h1><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
+            {/* <h1><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>  */}
+            <div className="logo-pic2pic"></div>
             <div className="hero-pen"></div>
             <NavLink className="button" activeClassName="active" exact to="/newgame"> Start to draw </NavLink>
 

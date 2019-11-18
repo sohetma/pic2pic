@@ -23,6 +23,7 @@
     width: 85%;
     font-size: 3em;
     margin: auto;
+    margin-bottom: 50px;
 }
 
 .word-create {
@@ -46,6 +47,7 @@
     width: 90%;
     border: 3px black solid;
     background-color: #f2ecec;
+    border-radius: 10px;
 }
 
 .choose-drawer {
@@ -144,7 +146,7 @@
 .user-profile{
   width: 60%;
   height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border: 1px black solid;
   color: black;
   font-size: 15px;
@@ -153,11 +155,17 @@
 
 
 .player-play{
-  width: 80px;
+  width: 270px;
   height: 50px;
-  float : right;
-  background-color: black;
-
+  border: 2px solid black;
+  border-radius: 50px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-left: 280px;
+  /* float : right; */
+  background: rgba(235,109,112);
+  transition: all 0.3s ease-in-out;
 }
 
 .button-play{
