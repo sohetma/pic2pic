@@ -7,7 +7,7 @@ const SaveTheDraw = (props) => (
     id = "heart"
     className = "SaveTheDraw"
     onClick = {() => props.saveTheDraw()}
-  > ❤️ </button>
+  ><span> ❤️ </span></button>
 );
 
 export default SaveTheDraw;

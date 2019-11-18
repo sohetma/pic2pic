@@ -8,7 +8,7 @@ const ButtonRefresh = (props) => (
     id = "ButRefresh"
     className = "ButtonRefresh"
     onClick = {() => props.refresh()}
-  > 🗑️ </button>
+  > <span>🗑️</span> </button>
 );
 
 export default ButtonRefresh;

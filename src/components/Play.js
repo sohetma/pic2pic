@@ -4,8 +4,8 @@ import HeroHeader from './heroHeaderComp/HeroHeader.js';
 import NewGame from './newGame/NewGame.js';
 import ChooseYourDrawer from './createYourProfile/ChooseYourDrawer.js';
 import Game from './drawer/Game.js';
-import GamePlayer from './player/GamePlayer.js';
-import quickSort from './quickSort.js'
+// import GamePlayer from './player/GamePlayer.js';
+// import quickSort from './quickSort.js';
 
 
 // Strategie :
@@ -52,21 +52,21 @@ class Play extends React.Component {
 
   // A finir
   //  Ordonner les players en fonction des points
-  orderingPlayers = () =>{
-    let positionId = [];
-    let newPosition = [];
-    let pts = [];
-    let player;
-    let gamers = this.state.players;
-    let nbPlayers = gamers.length;
-
-    for(let i=0; i < nbPlayers ; i++){
-      player = gamers[i];
-      pts.push(player.points);
-      positionId.push(player.id);
-    }
-    let orderdArray = quickSort(pts);
-  }
+  // orderingPlayers = () =>{
+  //   let positionId = [];
+  //   let newPosition = [];
+  //   let pts = [];
+  //   let player;
+  //   let gamers = this.state.players;
+  //   let nbPlayers = gamers.length;
+  //
+  //   for(let i=0; i < nbPlayers ; i++){
+  //     player = gamers[i];
+  //     pts.push(player.points);
+  //     positionId.push(player.id);
+  //   }
+  //   let orderdArray = quickSort(pts);
+  // }
 
   // Reset the Game
   resetGame = () => {
@@ -119,7 +119,6 @@ class Play extends React.Component {
 
     let gamers = this.state.players;
     let nbPlayers = gamers.length;
-    let index = 0;
     let indiceDrawer = this.getIndiceDrawer();
     let passedHere = false;
 

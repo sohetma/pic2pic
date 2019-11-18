@@ -20,13 +20,18 @@ class Themes extends React.Component {
     });
     let themeVal = event.target.value;
     // console.log('the theme is',themeVal );
-    // this.props.update(themeVal);
+    // this.updateTheTheme();
 
     // this.props.handleSubmitTheme(event,themeVal);
     // console.log('the theme is', themeVal);
   }
 
+  updateTheTheme = () => {
+    this.props.updateTheme(this.state.value);
+  }
+
   handleSubmit= (event) => {
+    // this.updateTheTheme();
     // this.props.changeTheme(event,event.target.value);
     // console.log('the theme is still ', event.target.value);
     //alert('Your favorite flavor is: ' + this.state.value);
@@ -38,11 +43,12 @@ class Themes extends React.Component {
       <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>
           <p className ='round'>Themes:
-            <select className ="list" value={this.state.value} onChange={(event) => this.handleChange(event)}>
+            <select className ="list" value={this.state.value} onChange={this.handleChange}>
               <option value="sport">Sport</option>
           </select>
           </p>
         </label>
+
       </form>
     );
   }

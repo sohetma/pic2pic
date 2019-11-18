@@ -1,7 +1,7 @@
 import React from 'react';
 import HowToPlay from './HowToPlay.js';
 import Contact from './Contact.js';
-import {Link, NavLink} from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import './HeroHeader.css';
 import './Contact.css';
 

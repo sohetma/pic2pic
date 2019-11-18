@@ -7,7 +7,7 @@ const DraftBack = (props) => (
     id = "Back"
     className = "DraftBack"
     onClick = {() => props.draftBack()}
-  > ↩️ </button>
+  > <span> ↩️ </span> </button>
 );
 
 export default DraftBack;
