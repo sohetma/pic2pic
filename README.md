@@ -1,5 +1,7 @@
 ![picture](./Pic2pic-logo.png)
 
+#Poject Pic2Pic
+
 ### Context
 Creation of the Game Pic2Pic during the bootcamp at Wild Code school Brussels (11/2019)
 
