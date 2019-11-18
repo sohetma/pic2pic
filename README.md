@@ -3,7 +3,7 @@
 ### Context
 Creation of the Game Pic2Pic during the bootcamp at Wild Code school Brussels (11/2019)
 
-### Authors - Date
+### Authors - Date - Tools
 
 Last Update : 19 november 2019
 
@@ -12,6 +12,9 @@ Contributors on the project :
 - Benoit
 - Guislain
 - Nicolas
+
+Creation of the project in Agile Methodology : [Trello](https://trello.com/pic2pic1/home)
+Development in js with librairy [Reactjs](https://reactjs.org/)
 
 
 ### Description of the Game 
