@@ -14,7 +14,7 @@ Contributors on the project :
 - Nicolas
 
 Tools :
-- Creation of the project in Agile Methodology : [Trello](https://trello.com/pic2pic1/home)
+- Creation of the project in Agile Methodology : [Trello - Pic2Pic](https://trello.com/pic2pic1/home)
 - Development in js with librairy [Reactjs](https://reactjs.org/)
 
 
