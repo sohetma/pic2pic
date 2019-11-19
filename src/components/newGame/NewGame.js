@@ -32,14 +32,14 @@ class NewGame extends React.Component {
 }
 
 
-  updateTheme = (word) => {
-    let thematic = word;
-    console.log('yaaaah', thematic);
-      // this.setState({
-      //   thematic : thematic
-      // })
-      // console.log('yaaaah', thematic);
-  }
+  // updateTheme = (word) => {
+  //   let thematic = word;
+  //   console.log('yaaaah', thematic);
+  //     this.setState({
+  //       thematic : thematic
+  //     })
+  //     console.log('yaaaah', thematic);
+  // }
 
 
   changeTheme = (event, theme) => {

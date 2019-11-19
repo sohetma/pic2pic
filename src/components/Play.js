@@ -44,8 +44,8 @@ class Play extends React.Component {
       nbPart : prevState+1
     }));
 
-    console.log(this.state.players);
-    console.log(this.state.word);
+    // console.log(this.state.players);
+    // console.log(this.state.word);
     // console.log(this.state.nbPart);
   }
 

@@ -32,7 +32,7 @@ class ButtonPic extends Component{
       numberOfApi : this.state.numberOfApi+1
     })
 
-    console.log('number of call to API unsplash : ', this.state.numberOfApi)
+    // console.log('number of call to API unsplash : ', this.state.numberOfApi)
   }
 
 

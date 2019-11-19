@@ -65,7 +65,7 @@ class PicInDrawer extends Component {
   }
 
   render() {
-    console.log('in render' , this.state.photo)
+    // console.log('in render' , this.state.photo)
     return (
       <div className="picInDrawer">
           {

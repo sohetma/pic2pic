@@ -103,7 +103,7 @@ chooseAWord = () => {
     word : listWords[random],
     hints : hint
   })
-  console.log(listWords[random]);
+  // console.log(listWords[random]);
   return listWords[random]
 }
 
@@ -117,7 +117,7 @@ chooseAWord = () => {
 
   // Function yo check every last word enter in chat
   checkMessage = (message,sender) => {
-    console.log('word try : ', message);
+    // console.log('word try : ', message);
     console.log('the good word  : ', this.state.word);
 
     // if(message===this.state.word && this.state.winner === sender){
@@ -134,7 +134,7 @@ chooseAWord = () => {
   }
 
   newPartOnGame = () => {
-    console.log('new part ');
+    // console.log('new part ');
     this.chooseAWord();
     this.startGame();
     this.newGame();

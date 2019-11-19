@@ -31,13 +31,18 @@ class Chat extends Component {
             event.preventDefault();
     }
 
-    
+
 
     getNewMessages = () => {
         let newDate = new Date().toLocaleString();
         let from = this.whoTalk();
-        let senders = this.props.players;
-        let sender = senders[0].username;
+        let sender = 'someone';
+
+        if (this.props.players.length > 0){
+          let senders = this.props.players;
+          sender = senders[0].username;
+        }
+
         let existingMessages  = this.state.messages;
         let newMessage = { content: from === sender ? this.state.currentInput: this.state.currentInput.substring(0, this.state.currentInput.length - 5),
                             sender: from,
@@ -63,9 +68,13 @@ class Chat extends Component {
 
     whoTalk = () => {
         var lastChar = this.state.currentInput.slice(-5);
-        let senders = this.props.players;
-        let sender = senders[0].username;
-        console.log('the sender is ', sender);
+        let sender = 'someone';
+        if (this.props.players.length > 0){
+          let senders = this.props.players;
+          sender = senders[0].username;
+        }
+
+        // console.log('the sender is ', sender);
 
         // console.log(lastChar)
         if(lastChar==="#else") {

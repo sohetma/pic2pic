@@ -6,10 +6,6 @@ import PlayerInDrawer from './PlayerInDrawer.js';
 // players must be an array
 const PlayersInDrawer = ({players}) => {
 
-  if(players.length === 1){
-    console.log('test 1 ');
-  }
-
   let listPlayers = players.map(function(player, index) {
      return <PlayerInDrawer key={index} username={player.username} avatar={player.avatar} points={player.points} />
   });
