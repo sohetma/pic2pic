@@ -11,7 +11,7 @@ import Chat from './Chat.js';
 import '../../App.css';
 import './Game.css';
 import '../heroHeaderComp/HeroHeader.css';
-import words from '../words.js';
+
 import ControlledPopup from './ControlledPopup.js';
 import Popupic from './PopupPics.js';
 import Navigation from '../heroHeaderComp/Navigation.js';
@@ -26,14 +26,12 @@ class Game extends Component{
 constructor(props){
   super(props);
   this.state = {
-    word : 'wouwou',
-    hints : '',
     isPlaying : true,
     start : true,
-    urlPic : '',
     latestMessage : '',
     winner : 'Who gonna win ?',
-    isWinner : false
+    isWinner : false,
+    urlPic: ''
 
   }
 }
@@ -44,14 +42,6 @@ startGame = () => {
   })
 }
 
-updateUrl = (url) => {
-  this.setState({
-    urlPic : url,
-    start : false
-  })
-  // setInterval(console.log('url state', this.state.urlPIc), 1000);
-
-}
 
 newGame = () => {
   this.setState({
@@ -66,65 +56,32 @@ endGame = () => {
   })
 }
 
-hints = word => {
-  let hint = [];
-  let dim = word.length;
-  for(let i=0; i< dim; i++ ){
-    if(word[i]=== ' '){
-      hint.push(' ');
-    }
-    else{
-      hint.push('_');
-    }
-
-  }
-  let theHint = hint.join(' ')
-  return theHint; // return a hint
-}
-
-chooseAWord = () => {
-  let theme = this.props.theme;
-  let listWords;
-  // return the array in function of the theme : listWords
-  if (theme === 'sport'){
-    listWords = words.sport;
-  }
-  else if (theme ==='food') {
-    listWords = words.food;
-  }
-  else if (theme === 'travel') {
-    listWords = words.travel;
-  }
-  // return randomly a number between 0 and length-1 of listWords : i
-  let random = Math.floor(Math.random() * Math.floor(listWords.length-1))
-  // set state word with the word pic randomly : listWords[i]
-  let hint = this.hints(listWords[random]);
+updateTheUrl = (url) => {
   this.setState({
-    word : listWords[random],
-    hints : hint
+    urlPic : url,
+    start : false
   })
-  // console.log(listWords[random]);
-  return listWords[random]
+  this.props.updateUrl(url);
 }
 
-  updateLastMessage = (message,sender) => {
-    this.setState((prevState, {latestMessage}) => ({
-      latestMessage : message
-    }));
-    this.checkMessage(message,sender);
-  }
+updateLastMessage = (message,sender) => {
+  this.setState((prevState, {latestMessage}) => ({
+    latestMessage : message
+  }));
+  this.checkMessage(message,sender);
+}
 
 
   // Function yo check every last word enter in chat
   checkMessage = (message,sender) => {
     // console.log('word try : ', message);
-    console.log('the good word  : ', this.state.word);
+    console.log('the good word  : ', this.props.word);
 
     // if(message===this.state.word && this.state.winner === sender){
     //   alert('You already found the good word.')
     // }
 
-    if(message===this.state.word){
+    if(message===this.props.word){
       this.setState({
         winner : sender,
         isPlaying : false
@@ -135,7 +92,7 @@ chooseAWord = () => {
 
   newPartOnGame = () => {
     // console.log('new part ');
-    this.chooseAWord();
+    this.props.chooseAWord();
     this.startGame();
     this.newGame();
     this.props.changeYourRole();
@@ -143,9 +100,6 @@ chooseAWord = () => {
     this.props.isDrawerOrPlayer();
   }
 
-  componentWillMount () {
-    this.chooseAWord();
-  }
 
 
 render(){
@@ -156,7 +110,7 @@ render(){
          <Navigation />
 
         <div className="header-game">
-          {this.props.drawerOrPlayer && this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
+          {this.props.drawerOrPlayer && this.state.start && <Popupic updateTheUrl={this.updateTheUrl} word={this.props.word} />}
           <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
           <PlayersInDrawer players={this.props.players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
@@ -165,8 +119,8 @@ render(){
 
         <div className="draw-game">
           <div className="pic-word">
-            {this.props.drawerOrPlayer ? <FetchPic word={this.state.word} chooseAWord={this.chooseAWord} urlPic={this.state.urlPic}/> : <div className="logo2-pic2pic"></div> }
-            <WordInDrawer word={this.state.word} hints={this.state.hints} drawerOrPlayer={this.props.drawerOrPlayer} />
+            {this.props.drawerOrPlayer ? <FetchPic word={this.props.word} chooseAWord={this.props.chooseAWord} urlPic={this.props.urlPic}/> : <div className="logo2-pic2pic"></div> }
+            <WordInDrawer word={this.props.word} hints={this.props.hints} drawerOrPlayer={this.props.drawerOrPlayer} />
           </div>
           <Draw />
           <Chat players={this.props.players} updateLastMessage={this.updateLastMessage} />

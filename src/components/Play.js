@@ -4,6 +4,7 @@ import HeroHeader from './heroHeaderComp/HeroHeader.js';
 import NewGame from './newGame/NewGame.js';
 import ChooseYourDrawer from './createYourProfile/ChooseYourDrawer.js';
 import Game from './drawer/Game.js';
+import words from './words.js';
 // import GamePlayer from './player/GamePlayer.js';
 // import quickSort from './quickSort.js';
 
@@ -25,7 +26,8 @@ class Play extends React.Component {
       word : 'FindMe',
       hints : '',
       drawerOrPlayer : false, // true if drawer
-      nbPart : 0
+      nbPart : 0,
+      urlPic : ''
     };
     this.handleSubmitTheme = this.handleSubmitTheme.bind(this);
   }
@@ -49,6 +51,52 @@ class Play extends React.Component {
     // console.log(this.state.nbPart);
   }
 
+  updateUrl = (url) => {
+    this.setState({
+      urlPic : url
+    })
+  }
+
+  hints = word => {
+    let hint = [];
+    let dim = word.length;
+    for(let i=0; i< dim; i++ ){
+      if(word[i]=== ' '){
+        hint.push('');
+      }
+      else{
+        hint.push('_');
+      }
+
+    }
+    let theHint = hint.join(' ')
+    return theHint; // return a hint
+  }
+
+  chooseAWord = () => {
+    let theme = this.state.themeGame;
+    let listWords;
+    // return the array in function of the theme : listWords
+    if (theme === 'sport'){
+      listWords = words.sport;
+    }
+    else if (theme ==='food') {
+      listWords = words.food;
+    }
+    else if (theme === 'travel') {
+      listWords = words.travel;
+    }
+    // return randomly a number between 0 and length-1 of listWords : i
+    let random = Math.floor(Math.random() * Math.floor(listWords.length-1))
+    // set state word with the word pic randomly : listWords[i]
+    let hint = this.hints(listWords[random]);
+    this.setState({
+      word : listWords[random],
+      hints : hint
+    })
+    // console.log(listWords[random]);
+    return listWords[random]
+  }
 
   // A finir
   //  Ordonner les players en fonction des points
@@ -228,6 +276,10 @@ class Play extends React.Component {
     this.isDrawerOrPlayer(); // Is a drawer or a player ?
   }
 
+  componentWillMount () {
+    this.chooseAWord();
+  }
+
 
 
   render(){
@@ -258,6 +310,11 @@ class Play extends React.Component {
                 changeYourRole={this.changeYourRole}
                 handleSubmitTheme={this.handleSubmitTheme}
                 theme={this.state.themeGame}
+                chooseAWord={this.chooseAWord}
+                word={this.state.word}
+                hints={this.state.hints}
+                updateUrl={this.updateUrl}
+                urlPic={this.state.urlPic}
                />)}
             />
 
@@ -271,6 +328,11 @@ class Play extends React.Component {
                 changeYourRole={this.changeYourRole}
                 handleSubmitTheme={this.handleSubmitTheme}
                 theme={this.state.themeGame}
+                chooseAWord={this.chooseAWord}
+                word={this.state.word}
+                hints={this.state.hints}
+                updateUrl={this.updateUrl}
+                urlPic={this.state.urlPic}
                />)}
             />
           </Switch>
