@@ -51,7 +51,7 @@ class ChooseYourDrawer extends React.Component{
       value: event.target.value
     })
     this.enterUsername();
-    console.log(this.state.value)
+    // console.log(this.state.value)
     event.preventDefault();
 }
 
@@ -74,7 +74,7 @@ class ChooseYourDrawer extends React.Component{
       url : url,
       avatarsList  : listURL
     })
-    console.log(listURL);
+    // console.log(listURL);
   }
 
   //  Il faut creer tes fonctions qui vont venir mettre a jour l'etat de ton composant quand quelqu'un a rempli le formulaire

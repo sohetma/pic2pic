@@ -44,10 +44,17 @@
 }
 
 .avatar-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
     width: 90%;
+    height: 280px;
+    text-align: center;
     border: 3px black solid;
     background-color: #f2ecec;
     border-radius: 10px;
+
 }
 
 .choose-drawer {
@@ -57,8 +64,12 @@
 }
 
 .list-avatars {
-    width: 100%;
-    height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+    width: 80%;
+    height:100%;
     display: flex;
     flex-flow: row wrap;
 }
@@ -149,9 +160,10 @@
 }
 
 .user-profile{
-  width: 60%;
+  width: 40%;
   height: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  margin-top: 30px;
   border: 1px black solid;
   color: black;
   font-size: 15px;
@@ -193,5 +205,9 @@
 }
 
 .show-avatar{
-  margin-top: 100px
+  margin-top: 100px;
+}
+
+.show-avatar h3{
+  margin-top: 25px;
 }
