@@ -29,11 +29,11 @@
   width : 15%;
   height: 50px;
   background-color: white;
-  opacity: 60%;
+  opacity: 0.6;
   cursor: pointer;
   border-radius: 5px;
 }
 #Back:hover, #ButRefresh:hover, #heart:hover {
   background-color: white;
-  opacity: 90%;
+  opacity: 0.9;
 }
