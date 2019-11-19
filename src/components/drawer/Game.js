@@ -1,10 +1,10 @@
 import React , { Component } from 'react';
-import Matrix from './Matrix.js';
+// import Matrix from './Matrix.js';
 import Draw from './Draw.js';
 // import players from './utils.js';
 import PlayersInDrawer from './PlayersInDrawer.js';
 import Timer from './Timer.js';
-import PicInDrawer from './PicInDrawer.js';
+// import PicInDrawer from './PicInDrawer.js';
 import FetchPic from './FetchPic.js';
 import WordInDrawer from './WordInDrawer.js';
 import Chat from './Chat.js';
@@ -135,7 +135,7 @@ chooseAWord = () => {
 
   newPartOnGame = () => {
     console.log('new part ');
-    let newWord = this.chooseAWord();
+    this.chooseAWord();
     this.startGame();
     this.newGame();
     this.props.changeYourRole();
@@ -144,7 +144,7 @@ chooseAWord = () => {
   }
 
   componentWillMount () {
-    let word = this.chooseAWord();
+    this.chooseAWord();
   }
 
 

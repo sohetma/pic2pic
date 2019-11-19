@@ -1,4 +1,4 @@
-import React, {url} from 'react';
+import React from 'react';
 import Themes from './Background.js';
 import Container from './Container.js';
 import InviteContainer from './InviteContainer.js';

@@ -7,8 +7,10 @@ const ButtonRefresh = (props) => (
   <button
     id = "ButRefresh"
     className = "ButtonRefresh"
-    onClick = {() => props.refresh()}
-  > <span>🗑️</span> </button>
+    onClick =  {() => props.refresh()}
+  >
+    <span role="img" aria-label="corbeille" >🗑️</span>
+  </button>
 );
 
 export default ButtonRefresh;

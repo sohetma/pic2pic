@@ -7,7 +7,9 @@ const SaveTheDraw = (props) => (
     id = "heart"
     className = "SaveTheDraw"
     onClick = {() => props.saveTheDraw()}
-  ><span> ❤️ </span></button>
+  >
+    <span role="img" aria-label="heart"> ❤️ </span>
+  </button>
 );
 
 export default SaveTheDraw;

@@ -23,4 +23,4 @@ const PlayersInDrawer = ({players}) => {
 
 export default PlayersInDrawer;
 
-  {/*{console.log(`player 0 : ${props.players[0]}`)}*/}
+/*{console.log(`player 0 : ${props.players[0]}`)}*/

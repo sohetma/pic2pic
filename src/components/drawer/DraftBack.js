@@ -7,7 +7,9 @@ const DraftBack = (props) => (
     id = "Back"
     className = "DraftBack"
     onClick = {() => props.draftBack()}
-  > <span> ↩️ </span> </button>
+  >
+    <span role="img" aria-label="Back"> ↩️ </span>
+  </button>
 );
 
 export default DraftBack;

@@ -18,7 +18,7 @@ class Themes extends React.Component {
     this.setState({
       value: event.target.value
     });
-    let themeVal = event.target.value;
+    // let themeVal = event.target.value;
     // console.log('the theme is',themeVal );
     // this.updateTheTheme();
 
