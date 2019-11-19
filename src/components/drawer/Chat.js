@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import InputMessage from './InputMessage';
 import AnswerBoard from './AnswerBoard';
+import { subscribeToTimer } from '../../api';
+import socketIOClient from "socket.io-client";
 import './Chat.css';
 
 let i= 0;
 
 class Chat extends Component {
-    state = {
+  constructor(props) {
+  super(props);
+
+    this.state = {
         currentInput: '',
         isWriting: false,
-        messages: []
+        messages: [],
+        timestamp: 'no timestamp yet'
     }
+
+    subscribeToTimer((err, timestamp) => this.setState({
+      timestamp
+    }));
+  }
 
     handleChange = (event) => {
         this.setState({ isWriting: true })
@@ -19,18 +30,26 @@ class Chat extends Component {
         });
     }
 
-    handleSubmit = (event, messageToAdd) => {
-        this.setState({ isWriting: false })
-        if (this.state.currentInput !== '') {
-             let newMessages = this.getNewMessages();
-             this.setState({
-                 messages: newMessages
-             })
-             this.setState({currentInput: ''})
-            }
-            event.preventDefault();
-    }
 
+    handleSubmit = (event, messageToAdd) => {
+      if(this.props.drawerOrPlayer === true){
+        alert('You are drawer. You cannot write the good word please ;) ')
+      }
+        this.setState({
+           isWriting: false
+         })
+        if (this.state.currentInput !== '') {
+          let newMessages = this.getNewMessages();
+          this.setState({
+            messages: newMessages
+          })
+          this.setState({
+            currentInput: ''
+          })
+        }
+        event.preventDefault();
+
+    }
 
 
     getNewMessages = () => {
@@ -90,6 +109,7 @@ class Chat extends Component {
         return (
         <div>
             <div className="chat-zone">
+            
                 <AnswerBoard
                     key={i++}
                     messages={this.state.messages}>
@@ -97,11 +117,20 @@ class Chat extends Component {
                 { this.state.isWriting ? "" : ""}
             </div>
             <div>
-                <InputMessage type="text"
+            {
+              this.props.drawerOrPlayer
+              ? <InputMessage type="text"
+                            addMessage={this.handleChange}
+                            confirmMessage={this.handleSubmit}
+                            currentMessage={this.state.currentInput}
+                            drawer={this.props.drawerOrPlayer}>
+                </InputMessage>
+              : <InputMessage type="text"
                             addMessage={this.handleChange}
                             confirmMessage={this.handleSubmit}
                             currentMessage={this.state.currentInput}>
                 </InputMessage>
+              }
             </div>
         </div>
         )
