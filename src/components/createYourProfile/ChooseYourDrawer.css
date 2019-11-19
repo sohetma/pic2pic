@@ -64,89 +64,25 @@
 }
 
 .list-avatars {
-  display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-    width: 80%;
-    height:100%;
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.ghost {
-    width: 20%;
-    height: 20%;
-    margin: 20px;
-    height: 150px;
-    border: 1px black solid;
-    background-image: url('./img/ghost.png');
-    background-size: cover;
-}
-
-.frog {
-    width: 20%;
-    height: 20%;
-    margin: 20px;
-    height: 150px;
-    border: 1px black solid;
-    background-image: url('./img/frog.png');
-    background-size: cover;
-}
-
-.genie {
-    width: 20%;
-    height: 20%;
-    margin: 20px;
-    height: 150px;
-    border: 1px black solid;
-    background-image: url('./img/genie.png');
-    background-size: cover;
-}
-
-.skeleton {
-    width: 20%;
-    height: 20%;
-    margin: 20px;
-    height: 150px;
-    border: 1px black solid;
-    background-image: url('./img/skeleton.png');
-    background-size: cover;
-}
-
-.unicorn {
-    width: 20%;
-    height: 20%;
-    margin: 20px;
-    height: 150px;
-    border: 1px black solid;
-    background-image: url('./img/unicorn.png');
-    background-size: cover;
-}
-
-.mermaid {
-    width: 20%;
-    height: 20%;
-    margin: 20px;
-    height: 150px;
-    border: 1px black solid;
-    background-image: url('./img/mermaid.png');
-    background-size: cover;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .invisibleman {
     width: 10%;
-    height: 20%;
-    margin: 20px;
-    height: 100px;
-    /* border: 1px black solid; */
+    height: 10%;
     /* background-image: url('./img/invisibleman.png'); */
     background-size: cover;
+    border: 1px solid black;
+    border-radius: 50px;
 }
 
-.invisibleman :hover{
-  width: 13%;
-  height: 22%;
+.invisibleman:hover{
+  
+  box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.7) ;
 }
 
 .witch {
@@ -168,6 +104,8 @@
   color: black;
   font-size: 15px;
   border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* .player-buttons-play{
@@ -176,7 +114,7 @@
   justify-content: space-around;
 } */
 
-.player-play{
+/*.player-play{
 
   width: 270px;
   height: 50px;
@@ -186,15 +124,25 @@
   text-transform: uppercase;
   margin-top: 30px;
   margin-left: 280px;
-  /* float : right; */
-  background: rgba(235,109,112);
   transition: all 0.3s ease-in-out;
-}
+}*/
 
 .button-play{
-  text-align: center;
-  color : white;
-  text-decoration: none;
+  
+    width: 100%;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 50px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-left: 280px;
+    transition: all 0.3s ease-in-out;
+    padding: 0.8em;
+    color: white;
+    text-decoration: none;
+    background: rgb(54,72,107);
+    background: linear-gradient(90deg, rgba(54,72,107,1) 0%, rgba(105,165,181,1) 36%, rgba(128,206,214,1) 52%, rgba(213,244,230,1) 100%);
 }
 
 .form-profile{
@@ -202,12 +150,32 @@
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 15px;
+  height: 200px;
 }
 
 .show-avatar{
-  margin-top: 100px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 30%;
+  text-align: center;
+  border: 3px black solid;
+  background-color: #f2ecec;
+  border-radius: 10px;
 }
 
 .show-avatar h3{
   margin-top: 25px;
 }
+
+.avatar-choosing {
+  margin: 20px;
+  height: 70%;
+  background-size: cover;
+  /* border: 1px black solid; */
+  /* background-image: url(./img/invisibleman.png); */
+ }
