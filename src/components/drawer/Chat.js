@@ -2,15 +2,22 @@ import React, { Component } from 'react';
 import InputMessage from './InputMessage';
 import AnswerBoard from './AnswerBoard';
 import './Chat.css';
+import socketIOClient from "socket.io-client";
 
 let i= 0;
 
 class Chat extends Component {
-    state = {
+  constructor(props){
+    super(props);
+
+    this.state = {
         currentInput: '',
         isWriting: false,
-        messages: []
+        messages: [],
+        color : 'white',
+        endpoint: "localhost:4001"
     }
+  }
 
     handleChange = (event) => {
         this.setState({ isWriting: true })
@@ -19,6 +26,35 @@ class Chat extends Component {
         });
     }
 
+    getEndpoint = () => {
+      let endpoint = "localhost:3000";
+      if(this.props.drawerOrPlayer){
+        endpoint = "localhost:3000/guesseur";
+      }
+      else{
+        endpoint = "localhost:3000/drawer";
+      }
+      return endpoint;
+    }
+
+    sendMessage = () => {
+      const socket = socketIOClient(this.state.endpoint);
+      socket.emit('chat message', this.state.currentInput);
+    }
+
+    send = () => {
+      // let endpoint = this.getEndpoint();
+      const socket = socketIOClient(this.state.endpoint);
+      console.log(this.state.color);
+      socket.emit('change color', this.state.color) // change 'red' to this.state.color
+    }
+
+    setColor = (color) => {
+       this.setState({
+         color : color
+        })
+     }
+
     handleSubmit = (event, messageToAdd) => {
         this.setState({ isWriting: false })
         if (this.state.currentInput !== '') {
@@ -26,6 +62,7 @@ class Chat extends Component {
              this.setState({
                  messages: newMessages
              })
+             this.sendMessage();
              this.setState({currentInput: ''})
             }
             event.preventDefault();
@@ -44,7 +81,9 @@ class Chat extends Component {
         }
 
         let existingMessages  = this.state.messages;
-        let newMessage = { content: from === sender ? this.state.currentInput: this.state.currentInput.substring(0, this.state.currentInput.length - 5),
+        let newMessage = { content: from === sender
+          ? this.state.currentInput
+          : this.state.currentInput.substring(0, this.state.currentInput.length - 5),
                             sender: from,
                             date: "On " + newDate }
         existingMessages.push(newMessage);
@@ -84,12 +123,25 @@ class Chat extends Component {
         }
     }
 
+    componentDidMount = () => {
+        let buttonCol = document.getElementById("red");
+        const socket = socketIOClient(this.state.endpoint);
+        setInterval(this.send(), 10000)
+        socket.on('change color', (col) => {
+            buttonCol.style.color = col
+        })
+
+        setInterval(this.sendMessage(), 1000)
+    }
+
 
     render () {
-
         return (
         <div>
             <div className="chat-zone">
+              <button onClick={() => this.send() }>Change Color</button>
+              <button id="blue" onClick={() => this.setColor('blue')}>Blue</button>
+              <button id="red" onClick={() => this.setColor('red')}>Red</button>
                 <AnswerBoard
                     key={i++}
                     messages={this.state.messages}>

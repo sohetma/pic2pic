@@ -123,7 +123,7 @@ render(){
             <WordInDrawer word={this.props.word} hints={this.props.hints} drawerOrPlayer={this.props.drawerOrPlayer} />
           </div>
           <Draw />
-          <Chat players={this.props.players} updateLastMessage={this.updateLastMessage} />
+          <Chat players={this.props.players} updateLastMessage={this.updateLastMessage} drawerOrPlayer={this.props.drawerOrPlayer} />
         </div>
     </div>
     );
