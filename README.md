@@ -1,6 +1,7 @@
 ![picture](./Pic2pic-logo.png)
 
 # Project Pic2Pic
+![Gif](./gifEnregistrement.gif)
 
 ### Context
 Creation of the Game Pic2Pic during the bootcamp at Wild Code school Brussels (11/2019).
@@ -12,9 +13,9 @@ Last Update : 19 november 2019
 
 Contributors on the project :
 - Sohet Maxime
-- Benoit
-- Guislain
-- Nicolas
+- Moëns Benoit
+- Donven Ghislain
+- Huens Nicolas
 
 Tools :
 - Creation of the project in Agile Methodology : [Trello - Pic2Pic](https://trello.com/pic2pic1/home)
@@ -22,8 +23,22 @@ Tools :
 
 
 ### Description of the Game
+Pic2pic is a pictionnary coded mainly in Reactjs.
+In this game we find two ways to play.
+
+- The guesser will invite his friends and choose the number of rounds and the theme.
+
+- The drawer will choose from a list of three images related to a specific theme and then draw in order to guess its image.
+
+Each drawer has 60 seconds to draw and try to be as precise as possible in its drawing.
+
+If a person finds the right word and indicates it in the chat, he wins the game, gains points and the game stops.
+
+On the next round another player takes over and so on until the end of the round set by the guesser.
 
 ### Architecture of the code & Explanation
+
+ We worked mainly with Reactjs but also with CSS. In our application we have defined routes that lead to a very specific point, namely the game.
 
 ### Run the project
 
