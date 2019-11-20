@@ -1,7 +1,7 @@
 ![picture](./Pic2pic-logo.png)
 
 # Project Pic2Pic
-![Gif](./gifEnregistrement.gif)
+![Gif](./EnregistrementBascket.gif)
 
 ### Context
 Creation of the Game Pic2Pic during the bootcamp at Wild Code school Brussels (11/2019).
@@ -38,7 +38,7 @@ On the next round another player takes over and so on until the end of the round
 
 ### Architecture of the code & Explanation
 
- We worked mainly with Reactjs but also with CSS. In our application we have defined routes that lead to a very specific point, namely the game.
+ (https://drive.google.com/file/d/1TsAQ9GXvFmS35Z8SFCtM3VmGx4q8YWzr/view)
 
 ### Run the project
 
