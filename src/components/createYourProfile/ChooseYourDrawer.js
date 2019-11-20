@@ -107,12 +107,15 @@ class ChooseYourDrawer extends React.Component{
             </div>
 
             </form>
+          
+          <button className="button-play" onClick={(event) => this.submit(event)}>
+          <NavLink className="text-button-play" activeClassName="active" exact to="/guesseur"> Guesseur </NavLink>
+          </button>
 
-            <button  className="player-buttons-play" onClick={(event) => this.submit(event)}>
-              <NavLink className="button-play player-play" activeClassName="active" exact to="/guesseur"> Play </NavLink>
-              <NavLink className="button-play player-play" activeClassName="active" exact to="/player"> Play </NavLink>
-             </button>
-
+          <button className="button-play" >
+          <NavLink className="text-button-play" activeClassName="active" exact to="/player"> Drawer </NavLink>
+          </button>
+          
             {this.state.isWritting && <ShowAvatar value={this.state.value} url={this.state.url} />}
           </div>
       </div>
