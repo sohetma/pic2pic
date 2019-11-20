@@ -33,7 +33,7 @@ class Popupic extends Component {
   componentDidMount = async () => {
     this.openModal();
     let query = this.props.word;
-    console.log(query);
+    // console.log(query);
 
     // API THREE PICS
     const response = await axios.get('https://api.unsplash.com/search/photos', {
@@ -48,12 +48,12 @@ class Popupic extends Component {
 
     res.forEach((photo,index) => {
       result[index] = photo.urls.regular;
-      console.log(typeof result[index], result[index]);
+      // console.log(typeof result[index], result[index]);
     })
 
     let photosList = result.slice(0,3);
 
-    console.log('the result' , result);
+    // console.log('the result' , result);
 
     this.setState({
        photos : photosList,

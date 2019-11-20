@@ -97,7 +97,7 @@ updateLastMessage = (message,sender) => {
     this.newGame();
     this.props.changeYourRole();
     this.props.countNbPart();
-    this.props.isDrawerOrPlayer();
+    // this.props.isDrawerOrPlayer();
   }
 
 

@@ -19,8 +19,10 @@ class ChooseYourDrawer extends React.Component{
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  submit = (event) => {
+  submit = (event, isDrawer) => {
     // alert('Votre username est : ' + this.state.value);
+    // console.log(isDrawer);
+    this.props.updateDrawerOrPlayer(isDrawer);
     this.props.handleSubmit(event, this.state.url, this.state.value);
     this.setState({
       isWritting : false
@@ -108,11 +110,11 @@ class ChooseYourDrawer extends React.Component{
 
             </form>
 
-          <button className="button-play" onClick={(event) => this.submit(event)}>
+          <button className="button-play" onClick={(event) => this.submit(event,false)}>
           <NavLink className="text-button-play" activeClassName="active" exact to="/guesseur"> Guesseur </NavLink>
           </button>
 
-          <button className="button-play" onClick={(event) => this.submit(event)}>
+          <button className="button-play" onClick={(event) => this.submit(event,true)}>
           <NavLink className="text-button-play" activeClassName="active" exact to="/player"> Drawer </NavLink>
           </button>
 

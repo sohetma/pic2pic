@@ -27,7 +27,8 @@ class Play extends React.Component {
       hints : '',
       drawerOrPlayer : false, // true if drawer
       nbPart : 0,
-      urlPic : ''
+      urlPic : '',
+      isDrawer : false
     };
     this.handleSubmitTheme = this.handleSubmitTheme.bind(this);
   }
@@ -39,6 +40,14 @@ class Play extends React.Component {
     this.setState({
       drawerOrPlayer : gamers[nbPlayers-1].isDrawer
     })
+  }
+
+  // Change state drawerOrplayer : true to false or false to true
+  updateDrawerOrPlayer = (isDrawer) => {
+    this.setState((prevState) => ({
+      isDrawer : isDrawer,
+      drawerOrplayer : isDrawer
+    }));
   }
 
   countNbPart = () => {
@@ -256,17 +265,17 @@ class Play extends React.Component {
     })
     event.preventDefault();
   }
-  
+
 
   // Create the players of the game
   handleSubmit = (event, avatar, username) => {
-    let isDrawer = false;
-    if(this.state.players.length < 1){
-      isDrawer = true;
-    }
-    else{
-      isDrawer = false;
-    }
+    let isDrawer = this.state.isDrawer;
+    // if(this.state.players.length < 1){
+    //   isDrawer = true;
+    // }
+    // else{
+    //   isDrawer = false;
+    // }
 
     let newPlayers = this.addNewPlayer(username,avatar,isDrawer);
     this.setState({
@@ -275,7 +284,7 @@ class Play extends React.Component {
     console.log(newPlayers);
     event.preventDefault();
 
-    this.isDrawerOrPlayer(); // Is a drawer or a player ?
+    // this.isDrawerOrPlayer(); // Is a drawer or a player ?
   }
 
   componentWillMount () {
@@ -299,6 +308,7 @@ class Play extends React.Component {
             <Route path="/profile" render={ () => (
               <ChooseYourDrawer
                 handleSubmit={this.handleSubmit}
+                updateDrawerOrPlayer={this.updateDrawerOrPlayer}
               />)}
             />
 
