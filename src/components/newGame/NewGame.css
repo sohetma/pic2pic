@@ -4,4 +4,23 @@
   width: 100vw;
   background-repeat: 'no-repeat';
   background-position: 'center';
+  background-image: url('./img/pencils-background.jpg');
+}
+.font-page{
+  width: 98%;
+  height: 700px;
+  background-size: 1431px;
+  background-image: url(/static/media/pages.6c9a3df9.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -610px;
+}
+.petit-logo-pic2pic{
+  width: 20%;
+  height: 70px;
+  background-size: 340px;
+  background-image: url(/static/media/Pic2pic-logo.96c72f91.png);
+  background-repeat: no-repeat;
+  margin-top: -710px;
+  margin-left: 1056px;
 }

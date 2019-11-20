@@ -1,9 +1,9 @@
 
 .chat-zone{
   font-size: 30px;
-  background-color: #FFFFFF;
+  background-color: rgb(225,205,197);
   height : 500px;
-  border : 3px solid black;
+  border : 3px solid rgb(190,74,48);
   border-radius: 5px;
   width: 100%;
   opacity: 60%;
@@ -23,7 +23,8 @@
   font-size: 15px;
   width : 75%;
   height: 40px;
-  border: 3px solid black;
+  border: 3px solid rgb(190,74,48);
+  background-color: rgb(237,169,46);
   margin-top: 5px;
   border-radius: 5px;
   padding-left: 5px;
@@ -31,12 +32,12 @@
 
 .submit-button{
   font-size: 15px;
-  background-color: black ;
+  background-color: rgb(225,205,197);
   width: 20%;
   height: 30px;
   border-radius: 20px;
-  border: 2px solid black;
-  color : white;
+  border: 2px solid rgb(190,74,48);
+  color : rgb(190,74,48);
 
 }
 

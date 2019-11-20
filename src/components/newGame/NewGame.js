@@ -51,13 +51,17 @@ class NewGame extends React.Component {
 
   render() {
       return (
-        <div className="newgame" style={{backgroundImage: `url("${this.state.theme}")`}}>
-          <Themes changeTheme={this.props.handleSubmitTheme}  updateTheme={this.updateTheme} selectedTheme={1} />
-          <CreateYourGame/>
-          <ButtonStart handleSubmitTheme={this.props.handleSubmitTheme}/>
-          <Container/>
-          <InviteContainer/>
-      </div>
+        <>
+          <div className="newgame">
+            <Themes changeTheme={this.props.handleSubmitTheme}  updateTheme={this.updateTheme} selectedTheme={1} />
+            <CreateYourGame/>
+            <ButtonStart handleSubmitTheme={this.props.handleSubmitTheme}/>
+            <Container/>
+            <InviteContainer/>
+            <div className='font-page'></div>
+            <div className='petit-logo-pic2pic'></div>
+          </div>
+        </>
       );
   }
 };

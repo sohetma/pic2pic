@@ -157,7 +157,7 @@ render(){
 
         <div className="header-game">
           {this.props.drawerOrPlayer && this.state.start && <Popupic updateUrl={this.updateUrl} word={this.state.word} />}
-          <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
+          <div className="logo3-pic2pic"></div>
           <PlayersInDrawer players={this.props.players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
           {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} newPartOnGame={this.newPartOnGame} />}

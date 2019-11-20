@@ -1,10 +1,9 @@
 .espace-pub{
     display: flex;
     width: 85%;
-    border: 2px solid black;
+    border: 2px solid rgb(190,74,48);
     border-radius: 35px;
-    background: rgb(54,72,107);
-    background: linear-gradient(90deg, rgba(54,72,107,1) 0%, rgba(105,165,181,1) 36%, rgba(128,206,214,1) 52%, rgba(213,244,230,1) 100%);
+    background: rgb(184,168,161);
     margin: 100px;
   }
 
@@ -19,28 +18,19 @@
 
   .text-learn-tech{
     font-size: 2.5em;
-    color: rgba(235,109,112);
+    color: rgba(190,74,48);
     line-height: 4em;
   }
 
   .contact-1 .button-web {
     width: 270px;
-
-    /* modify ? */
-    /* padding: 0.8em;
-    margin-top: -100px;
-    margin-bottom: 50px; */
-
-    color: white;
-    /* text-decoration: none; */
-
+    color: rgb(190,74,48);
+    text-decoration: none;
     font-size: 1.5em;
-    background: rgba(235,109,112);
-
+    text-transform: uppercase;
+    background: rgba(225,205,197);
     border: 2px solid black;
     border-radius: 50px;
-
-    /* transition: all 0.3s ease-in-out; */
     line-height: 3em;
   }
 
@@ -49,10 +39,7 @@
   }
 
   .contact-1 .button-web:hover {
-
-    /* color: rgb(209, 165, 49); */
-    opacity: 80%;
-    /* background-color: rgba(255, 255, 255, 0); */
+    opacity: 0.8;
   }
 
 
@@ -62,12 +49,12 @@
     margin: auto;
   }
 
-  .text-pic2pic{
-    width: 30%;
+  .contact .logo-pic2pic{
     display: flex;
-    justify-content: center;
-    font-size: 2.5em;
-    align-items: center;
+    width: 30%;
+    background-image: url(./img/Pic2pic-logo.png);
+    background-repeat: no-repeat;
+    background-size: 370px;
   }
 
   .team{
@@ -75,7 +62,7 @@
   }
 
   .team h3{
-    color: rgba(16, 84, 146);
+    color: rgba(16,122,129);
     font-size: 2em;
     text-align: center;
   }
@@ -84,6 +71,7 @@
     font-size: 1.5em;
     text-align: center;
     line-height: 3.5em;
+    color: rgb(105,101,93);
   }
 
 
@@ -94,18 +82,19 @@
   .text-wcs h3{
     font-size: 2em;
     text-align: center;
-    color: rgba(100, 3, 8);
+    color: rgb(237,169,46);
   }
 
   .text-wcs p{
     font-size: 2.7em;
     text-align: center;
     line-height: 2.5em;
+    color: rgba(235,109,112);
   }
 
   .logo-social{
     display: flex;
-    margin: auto;
+    justify-content: center;
   }
 
   .logo-facebook{
@@ -135,13 +124,12 @@
     margin: auto;
   }
 
-
   .work{
     width: 20%;
   }
 
   .work h3{
-    color: rgba(37, 77, 25);
+    color: rgba(190,74,48);
     font-size: 2em;
     text-align: center;
   }
@@ -150,15 +138,6 @@
     font-size: 1.5em;
     text-align: center;
     line-height: 3.5em;
+    color: rgb(105,101,93);
   }
 
-
-  .pic-1 {
-    color: rgba(100, 3, 8);
-    }
-    .deux {
-    color: rgba(16, 84, 146);
-    }
-    .pic-2 {
-    color: rgba(37, 77, 25);
-    }
