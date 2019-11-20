@@ -33,7 +33,7 @@ class Draw extends React.Component {
   render = () =>  {
     return (
       <div className="draw">
-        <Matrix theColor={this.state.theColor} choiceColor={this.state.color} ></Matrix>
+        <Matrix drawerOrPlayer={this.props.drawerOrPlayer} theColor={this.state.theColor} choiceColor={this.state.color} ></Matrix>
         <Palette color={this.state.color} name={this.state.name} updateColor={this.updateColor} ></Palette>
       </div>
     );

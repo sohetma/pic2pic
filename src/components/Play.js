@@ -249,12 +249,14 @@ class Play extends React.Component {
     }
   }
 
+
   handleSubmitTheme = (event,theme) => {
     this.setState({
       themeGame : theme
     })
     event.preventDefault();
   }
+  
 
   // Create the players of the game
   handleSubmit = (event, avatar, username) => {

@@ -119,14 +119,22 @@ class Matrix extends React.Component{
   }
 
   onMouseDown = () => {
+    let isActive = true
+    if(!this.props.drawerOrPlayer){
+      let isActive = false
+    }
     this.setState({
-        isActive : true
+        isActive : isActive
     })
   }
 
   onMouseUp = () => {
+    let isActive = false
+    if(!this.props.drawerOrPlayer){
+      let isActive = true
+    }
       this.setState({
-          isActive : false
+          isActive : isActive
       })
   }
 
@@ -149,6 +157,7 @@ class Matrix extends React.Component{
                               updateGrid={this.updateGrid}
                               key={"row" + rowIndex.toString() + "col" + colIndex.toString()}
                               actived={this.state.isActive}
+                              drawerOrPlayer={this.props.drawerOrPlayer}
                           ></Pix>
                         )
                       )}

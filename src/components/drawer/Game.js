@@ -123,7 +123,7 @@ render(){
             {this.props.drawerOrPlayer ? <FetchPic word={this.props.word} chooseAWord={this.props.chooseAWord} urlPic={this.props.urlPic}/> : <div className="logo2-pic2pic"></div> }
             <WordInDrawer word={this.props.word} hints={this.props.hints} drawerOrPlayer={this.props.drawerOrPlayer} />
           </div>
-          <Draw />
+          <Draw drawerOrPlayer={this.props.drawerOrPlayer} />
           <Chat players={this.props.players} updateLastMessage={this.updateLastMessage} />
         </div>
     </div>
