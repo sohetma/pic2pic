@@ -24,20 +24,6 @@
 
   .contact-1 .button-web {
     width: 270px;
-<<<<<<< HEAD
-
-    /* modify ? */
-    /* padding: 0.8em;
-    margin-top: -100px;
-    margin-bottom: 50px; */
-    color: white;
-    /* text-decoration: none; */
-    font-size: 1.5em;
-    background: rgba(235,109,112);
-    border: 2px solid black;
-    border-radius: 50px;
-    /* transition: all 0.3s ease-in-out; */
-=======
     color: rgb(190,74,48);
     text-decoration: none;
     font-size: 1.5em;
@@ -45,7 +31,6 @@
     background: rgba(225,205,197);
     border: 2px solid black;
     border-radius: 50px;
->>>>>>> origin/style-css
     line-height: 3em;
   }
 
@@ -155,4 +140,3 @@
     line-height: 3.5em;
     color: rgb(105,101,93);
   }
-

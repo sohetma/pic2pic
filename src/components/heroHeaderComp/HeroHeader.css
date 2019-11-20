@@ -54,11 +54,7 @@
     padding: 0.8em;
     margin-top: -100px;
     margin-bottom: -170px;
-<<<<<<< HEAD
-    color: white;
-=======
     color: rgb(190,74,48);
->>>>>>> origin/style-css
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.5em;
@@ -72,4 +68,3 @@
     opacity: 80%;
     background-color: rgba(255, 255, 255, 0);
 }
-

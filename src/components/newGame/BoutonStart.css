@@ -12,29 +12,23 @@
     text-transform: uppercase;
     margin: 175px 253px 0px 0px;
     transition: all 0.3s ease 0s;
-<<<<<<< HEAD
-    /* text-align: center; */
 
-=======
->>>>>>> origin/style-css
 }
 .start:hover {
     color: rgba(190,74,48) !important;
     font-weight: 700 !important;
     letter-spacing: 3px;
-<<<<<<< HEAD
-    background-image: url('./img/wood-lobby.jpg');
+    /* background-image: url('./img/wood-lobby.jpg'); */
     opacity: 0.8;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.8);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.8);
-=======
     background: rgb(225,205,197);
-    opacity: 80%;
+    /* opacity: 80%;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(190,74,48);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(190,74,48);
->>>>>>> origin/style-css
+    -moz-box-shadow: 0px 5px 40px -10px rgba(190,74,48);  */
     transition: all 0.3s ease 0s;
     }
+
 /* Permet de centrer le mot Start dans le bouton*/
 .center-text{
     color: rgba(190,74,48);
