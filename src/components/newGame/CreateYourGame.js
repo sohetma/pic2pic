@@ -4,11 +4,8 @@ import '../heroHeaderComp/HeroHeader.css';
 
 const CreateYourGame = () => {
     return(
-        <div className="header">
-
-            <h2 className="title-header"><span className="pic-1">Create </span><span className="deux">Your</span><span className="pic-2"> Game</span></h2>
-            <hr />
-              
+        <div className="createYourGame-header">
+            <h2 className="title-header">Create Your Game</h2>              
         </div>
 
 );

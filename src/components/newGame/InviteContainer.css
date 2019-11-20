@@ -1,23 +1,18 @@
 /* Les 3 sous point contrôle le Join a friend with the URL*/
 .link{
-    background-image: url('./img/wood-lobby.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    color: rgba(51, 51, 51);
-    text-align: center;
+    color: rgba(105,101,93);
     font-size: 30px;
     display: flex;
-    margin-left: 220px;
-    margin-top: 30px;
-    width: 800px;
+    margin-left: 50px;;
+    width: 1403px;
     height: 50px;
-    background-color: rgba(161, 161, 161);
+    background-color: rgba(237,169,46);
     border-radius: 10px;
 }
 
 .join-friend{
     display: flex;
-    margin-left: 50px;
+    margin-left: 360px;
     margin-top: 5px;
 }
 .link-one{
@@ -28,6 +23,6 @@
     width: 350px;
     height: 40px;
     background-color: white;
-    border: 1px solid black;
+    border: 3px solid rgb(190,74,48);
     border-radius: 3px;
 }

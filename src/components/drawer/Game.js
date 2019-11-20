@@ -111,7 +111,8 @@ render(){
 
         <div className="header-game">
           {this.props.drawerOrPlayer && this.state.start && <Popupic updateTheUrl={this.updateTheUrl} word={this.props.word} />}
-          <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
+          <div className="logo3-pic2pic"></div>
+
           <PlayersInDrawer players={this.props.players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
           {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} newPartOnGame={this.newPartOnGame} />}
@@ -133,3 +134,4 @@ render(){
 export default Game;
 
 // <PicInDrawer word={"House"} picture={"https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=architectuur-carport-dak-186077.jpg&fm=jpg"}/>
+// <h1 className="title-game"><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>

@@ -4,41 +4,20 @@
     font-family: cursive;
 }
 
-
-
 .hero-header {
     width: 100vw;
     height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     color: white;
-
     background-image: url('./img/photo_hero_header.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
 }
-
-/* .hero-header h1 {
-    font-size: 10em;
-    margin-top: 70px;
-}
-
-.pic-1 {
-    color: rgba(16, 84, 146);
-}
-.deux {
-    color: rgba(37, 77, 25);
-}
-.pic-2 {
-    color: rgba(100, 3, 8);
-} */
 
 .logo-pic2pic{
     width: 50%;
@@ -52,12 +31,12 @@
 
 .hero-header h2 {
     font-size: 3.5em;
-    color: black;
+    color: rgb(105,101,93);
 }
 
 .hero-header hr {
     width: 840px;
-    border: 2px solid black;
+    border: 2px solid rgb(105,101,93);
 }
 
 .hero-pen{
@@ -68,35 +47,29 @@
     width: 310px;
     height: 160px;
     margin-bottom: 100px;
-
 }
 
 .hero-header .button {
     width: 270px;
-
     padding: 0.8em;
     margin-top: -100px;
     margin-bottom: -170px;
+<<<<<<< HEAD
     color: white;
+=======
+    color: rgb(190,74,48);
+>>>>>>> origin/style-css
     text-decoration: none;
+    text-transform: uppercase;
     font-size: 1.5em;
-    background: rgb(54,72,107);
-    background: linear-gradient(90deg, rgba(54,72,107,1) 0%, rgba(105,165,181,1) 36%, rgba(128,206,214,1) 52%, rgba(213,244,230,1) 100%);
-    /* background: rgb(18,143,227);
-    background: linear-gradient(51deg, rgba(18,143,227,1) 0%, rgba(252,69,129,0.7889356426164216) 100%); */
-
+    background: rgb(225,205,197);
     border: 2px solid black;
     border-radius: 50px;
-
     transition: all 0.3s ease-in-out;
 }
 
 .hero-header .button:hover {
-    /* color: rgb(209, 165, 49); */
     opacity: 80%;
     background-color: rgba(255, 255, 255, 0);
 }
 
-hr{
-    border: 2px solid black;
-}

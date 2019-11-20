@@ -27,9 +27,7 @@ const Contact = (props)  => {
 
             <div className="contact-2">
 
-                <div className="text-pic2pic">
-                    <h1><span className="pic-1">Pic</span><span className="deux">2</span><span className="pic-2">Pic</span></h1>
-                </div>
+                <div className="logo-pic2pic"></div>
 
                 <div className="team">
                     <h3>Team</h3>
