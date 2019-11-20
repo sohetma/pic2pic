@@ -15,13 +15,15 @@ const server = http.createServer(app)
 const io = socketIO(server)
 
 
-io.on('connection', function(socket){
-
-});
+// io.on('connection', function(socket){
+//
+// });
 
 // This is what the socket.io syntax is like, we will work this later
 io.on('connection', socket => {
   console.log('New client connected')
+
+
 
   // just like on the client side, we have a socket.on method that takes a callback function
   socket.on('change color', (color) => {
@@ -31,9 +33,11 @@ io.on('connection', socket => {
     io.sockets.emit('change color', color)
   })
 
-  socket.on('chat message', msg){
-    console.log(msg);
-    io.emit('chat message', msg);
+
+  socket.on('chat message', (msg) => {
+    console.log('server speak' , msg);
+    io.emit('RECEIVE_MESSAGE', msg);
+    socket.broadcast.emit('RECEIVE_MESSAGE', msg);
   });
 
   // disconnect is fired when a client leaves the server

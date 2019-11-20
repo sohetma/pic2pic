@@ -3,6 +3,10 @@ import React from 'react';
 class Message extends React.Component {
 
     render = () => {
+      let players = this.props.players ;
+      let player = players[0];
+      let username = player.username;
+
         return (
             <div
                 style={{display:"flex",
@@ -28,8 +32,8 @@ class Message extends React.Component {
                         color : 'white',
                         wordBreak: "break-all",
                         width: "50%",
-                        backgroundColor:  this.props.sender === "Benoit :" ? "rgba(16, 84, 146)" : "rgba(16, 64, 146)",
-                        borderRadius: "20px",
+                        backgroundColor:  this.props.sender === username ? "rgba(1, 54, 126)" : "rgba(16, 64, 146)",
+                        borderRadius: this.props.sender === username ? "20px" : "0px",
                         padding: "5px",
                         fontSize: "15px",
                         alignSelf: this.props.sender === "myself" ? "start" : "end"
