@@ -5,7 +5,7 @@ import './Game.css';
 
 class Timer extends React.Component {
   state = {
-    seconds: 60,
+    seconds: 80,
     color : 'inherit'
   };
 
@@ -24,6 +24,7 @@ class Timer extends React.Component {
   stop = () => {
     // console.log('1', this.props.isPlaying);
     this.props.endGame();
+    clearInterval(this.interval);
     // console.log('2', this.props.isPlaying);
     //alert("End of the party");
   }
@@ -31,7 +32,7 @@ class Timer extends React.Component {
   reset = () => {
     this.props.newGame();
     this.setState(state => ({
-      seconds: 60,
+      seconds: 80,
       color : 'white'
     }));
   }
@@ -39,8 +40,8 @@ class Timer extends React.Component {
 
   componentDidMount() {
     this.interval = setInterval(() => this.tick(), 1000);
-    this.interval2 = setInterval(() => this.stop(), 60000);
-    this.interval3 = setInterval(() => this.reset(), 65000);
+    this.interval2 = setInterval(() => this.stop(), 80000);
+    //this.interval3 = setInterval(() => this.reset(), 65000);
   }
 
   componentWillUnmount() {
@@ -59,3 +60,12 @@ class Timer extends React.Component {
 }
 
 export default Timer;
+
+/*if(this.state.seconds === 1) {
+  clearInterval(this.interval); 
+}
+
+this.setState(State => ({
+  seconds: State.seconds - 1,
+  color : col
+}));*/
