@@ -1,7 +1,7 @@
 ![picture](./Pic2pic-logo.png)
 
 # Project Pic2Pic
-![Gif](./gifEnregistrement.gif)
+![Gif](./EnregistrementBascket.gif)
 
 ### Context
 Creation of the Game Pic2Pic during the bootcamp at Wild Code school Brussels (11/2019).
@@ -30,7 +30,7 @@ In this game we find two ways to play.
 
 - The drawer will choose from a list of three images related to a specific theme and then draw in order to guess its image.
 
-Each drawer has 60 seconds to draw and try to be as precise as possible in its drawing.
+Each drawer has 80 seconds to draw and try to be as precise as possible in its drawing.
 
 If a person finds the right word and indicates it in the chat, he wins the game, gains points and the game stops.
 
@@ -38,7 +38,7 @@ On the next round another player takes over and so on until the end of the round
 
 ### Architecture of the code & Explanation
 
- We worked mainly with Reactjs but also with CSS. In our application we have defined routes that lead to a very specific point, namely the game.
+ [Architecture of code](https://drive.google.com/file/d/1TsAQ9GXvFmS35Z8SFCtM3VmGx4q8YWzr/view)
 
 ### Run the project
 
