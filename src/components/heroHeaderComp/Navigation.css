@@ -12,13 +12,15 @@
 
 .navBar {
   overflow: hidden;
-  background-color: rgb(84,150,163);
+  background-color: black;
+  /* rgb(84,150,163); */
 }
 
 .navBar a {
   display: block;
   font-size: 1.2em;
-  color: rgb(105,101,93);
+  color: white;
+   /* rgb(105,101,93); */
   text-align: center;
   padding: 14px;
   text-decoration: none;
