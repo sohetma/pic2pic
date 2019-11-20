@@ -27,15 +27,15 @@
 }
 
 .word-create {
-    color: rgba(16, 84, 146);
+    color: black;
 }
 
 .word-your {
-    color: rgba(37, 77, 25);
+  color: black;
 }
 
 .word-profile {
-    color: rgba(100, 3, 8);
+  color: black;
 }
 
 .name-profile {
@@ -82,7 +82,7 @@
 
 .invisibleman:hover{
   
-  box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.7) ;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.7) ;
 }
 
 .witch {
@@ -108,41 +108,41 @@
   margin-right: auto;
 }
 
-/* .player-buttons-play{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-} */
-
-/*.player-play{
-
-  width: 270px;
-  height: 50px;
-  border: 2px solid black;
-  border-radius: 50px;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  margin-top: 30px;
-  margin-left: 280px;
-  transition: all 0.3s ease-in-out;
-}*/
-
 .button-play{
   
-    width: 100%;
-    height: 50px;
-    border: 2px solid black;
+    width: 270px;
+    height: 75px;
+    border: 2px solid rgb(190, 74, 47);
     border-radius: 50px;
     font-size: 1.5em;
     text-transform: uppercase;
-    margin-top: 30px;
-    margin-left: 280px;
+    margin-top: 120px;
+    margin-right: 100px;
+    display: flex;
+    float: right;
+    justify-content: space-around;
     transition: all 0.3s ease-in-out;
     padding: 0.8em;
     color: white;
     text-decoration: none;
-    background: rgb(54,72,107);
-    background: linear-gradient(90deg, rgba(54,72,107,1) 0%, rgba(105,165,181,1) 36%, rgba(128,206,214,1) 52%, rgba(213,244,230,1) 100%);
+    background: rgb(225, 205, 197);
+}
+
+.button-play:hover{
+    color: rgba(190,74,47) !important;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(190,74,47,0.8);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(190,74,47,0.8);
+    transition: all 0.3s ease 0s;
+}
+.text-button-play{
+  color: rgba(190,74,47);
+  display: flex;
+  margin-top: -10px;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
 }
 
 .form-profile{
