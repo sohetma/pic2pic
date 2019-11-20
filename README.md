@@ -30,7 +30,7 @@ In this game we find two ways to play.
 
 - The drawer will choose from a list of three images related to a specific theme and then draw in order to guess its image.
 
-Each drawer has 60 seconds to draw and try to be as precise as possible in its drawing.
+Each drawer has 80 seconds to draw and try to be as precise as possible in its drawing.
 
 If a person finds the right word and indicates it in the chat, he wins the game, gains points and the game stops.
 
