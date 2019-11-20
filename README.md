@@ -38,7 +38,7 @@ On the next round another player takes over and so on until the end of the round
 
 ### Architecture of the code & Explanation
 
- (https://drive.google.com/file/d/1TsAQ9GXvFmS35Z8SFCtM3VmGx4q8YWzr/view)
+ [Architecture of code](https://drive.google.com/file/d/1TsAQ9GXvFmS35Z8SFCtM3VmGx4q8YWzr/view)
 
 ### Run the project
 
