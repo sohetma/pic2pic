@@ -119,22 +119,14 @@ class Matrix extends React.Component{
   }
 
   onMouseDown = () => {
-    let isActive = true
-    if(!this.props.drawerOrPlayer){
-      let isActive = false
-    }
     this.setState({
-        isActive : isActive
+        isActive : true
     })
   }
 
   onMouseUp = () => {
-    let isActive = false
-    if(!this.props.drawerOrPlayer){
-      let isActive = true
-    }
       this.setState({
-          isActive : isActive
+          isActive : false
       })
   }
 
