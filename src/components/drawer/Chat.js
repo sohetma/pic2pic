@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import InputMessage from './InputMessage';
 import AnswerBoard from './AnswerBoard';
 import { subscribeToTimer } from '../../api';
-import socketIOClient from "socket.io-client";
 import './Chat.css';
 
 let i= 0;
@@ -109,7 +108,7 @@ class Chat extends Component {
         return (
         <div>
             <div className="chat-zone">
-            
+
                 <AnswerBoard
                     key={i++}
                     messages={this.state.messages}>
