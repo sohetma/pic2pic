@@ -3,24 +3,37 @@ import InputMessage from './InputMessage';
 import AnswerBoard from './AnswerBoard';
 import { subscribeToTimer } from '../../api';
 import './Chat.css';
+import socketIOClient from "socket.io-client";
 
 let i= 0;
 
 class Chat extends Component {
-  constructor(props) {
-  super(props);
+  constructor(props){
+    super(props);
 
     this.state = {
         currentInput: '',
         isWriting: false,
         messages: [],
-        timestamp: 'no timestamp yet'
+        color : 'white',
+        endpoint: "192.168.0.248:4001"
+        // "192.168.0.248:4001"
+    }
+  }
+
+  componentDidMount () {
+    this.socket = socketIOClient(this.state.endpoint);
+    this.socket.on('RECEIVE_MESSAGE', data => {
+      this.addMessage(data);
+    })
+  }
+
+    addMessage = (data) => {
+      this.setState({
+        messages : [...this.state.messages, data]
+      })
     }
 
-    subscribeToTimer((err, timestamp) => this.setState({
-      timestamp
-    }));
-  }
 
     handleChange = (event) => {
         this.setState({ isWriting: true })
@@ -30,28 +43,52 @@ class Chat extends Component {
     }
 
 
+    send = () => {
+      // let endpoint = this.getEndpoint();
+      const socket = socketIOClient(this.state.endpoint);
+      console.log(this.state.color);
+      socket.emit('change color', this.state.color) // change 'red' to this.state.color
+    }
+
+    setColor = (color) => {
+       this.setState({
+         color : color
+        })
+     }
+
     handleSubmit = (event, messageToAdd) => {
-      if(this.props.drawerOrPlayer === true){
-        alert('You are drawer. You cannot write the good word please ;) ')
-      }
-        this.setState({
-           isWriting: false
-         })
-        if (this.state.currentInput !== '') {
-          let newMessages = this.getNewMessages();
-          this.setState({
-            messages: newMessages
-          })
-          this.setState({
-            currentInput: ''
-          })
+        let date = new Date().toLocaleString();
+        let from = this.whoTalk();
+        let sender = 'someone';
+        let msg =  this.state.currentInput;
+
+        if (this.props.players.length > 0){
+          let senders = this.props.players;
+          sender = senders[0].username;
         }
-        event.preventDefault();
+
+        sender = this.props.currentPlayer.username;
+        //
+
+        this.setState({ isWriting: false })
+
+        this.socket.emit('chat message', {
+          content : msg,
+          sender : sender,
+          date : date
+
+      })
+
+      event.preventDefault();
+      this.props.updateLastMessage(msg,sender);
+      this.setState({currentInput: ''})
 
     }
 
+    
 
-    getNewMessages = () => {
+
+    getNewMessages = (msg) => {
         let newDate = new Date().toLocaleString();
         let from = this.whoTalk();
         let sender = 'someone';
@@ -62,11 +99,17 @@ class Chat extends Component {
         }
 
         let existingMessages  = this.state.messages;
-        let newMessage = { content: from === sender ? this.state.currentInput: this.state.currentInput.substring(0, this.state.currentInput.length - 5),
+        // let msg = this.state.currentInput;
+
+        let newMessage = { content: from === sender
+          ? msg
+          : msg.substring(0, msg.length - 5),
                             sender: from,
                             date: "On " + newDate }
-        existingMessages.push(newMessage);
 
+                            console.log('client speak', newMessage);
+
+        existingMessages.push(newMessage)
         // retrieve the message in input
         let lengthMessages = existingMessages.length;
         if(lengthMessages===0){
@@ -102,16 +145,26 @@ class Chat extends Component {
         }
     }
 
+    // componentDidMount = () => {
+    //     let buttonCol = document.getElementById("red");
+    //     const socket = socketIOClient(this.state.endpoint);
+    //     // setInterval(this.send(), 10000)
+    //     socket.on('change color', (col) => {
+    //         buttonCol.style.color = col
+    //     })
+    // }
+
 
     render () {
-
         return (
         <div>
             <div className="chat-zone">
 
                 <AnswerBoard
                     key={i++}
-                    messages={this.state.messages}>
+                    messages={this.state.messages}
+                    players={this.props.players}
+                    currentPlayer={this.props.currentPlayer}>
                 </AnswerBoard>
                 { this.state.isWriting ? "" : ""}
             </div>
