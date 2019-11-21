@@ -124,7 +124,7 @@ render(){
             <WordInDrawer word={this.props.word} hints={this.props.hints} drawerOrPlayer={this.props.drawerOrPlayer} />
           </div>
           <Draw />
-          <Chat players={this.props.players} currentPlayer={this.props.currentPlayer} dateLastMessage={this.updateLastMessage} drawerOrPlayer={this.props.drawerOrPlayer} />
+          <Chat players={this.props.players} updateLastMessage={this.updateLastMessage} currentPlayer={this.props.currentPlayer} dateLastMessage={this.updateLastMessage} drawerOrPlayer={this.props.drawerOrPlayer} />
         </div>
     </div>
     );

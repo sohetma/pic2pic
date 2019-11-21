@@ -67,7 +67,7 @@ class Chat extends Component {
         }
 
         sender = this.props.currentPlayer.username;
-        // this.props.updateLastMessage(msg,sender);
+        //
 
         this.setState({ isWriting: false })
 
@@ -89,7 +89,7 @@ class Chat extends Component {
       })
 
       event.preventDefault();
-
+      this.props.updateLastMessage(msg,sender);
       this.setState({currentInput: ''})
 
     }
