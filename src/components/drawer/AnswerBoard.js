@@ -11,12 +11,13 @@ class AnswerBoard extends Component {
                 <Messages
                     key={i++}
                     players={this.props.players}
+                    currentPlayer={this.props.currentPlayer}
                     content={message.content}
                     sender={message.sender}
                     date={message.date}
                     style={{
-                        textAlign : message.sender === this.props.players[0].username ? "left" : "right",
-                        backgroundColor:  message.sender !== this.props.players[0].username ? "blue" : "green",
+                        textAlign : message.sender === this.props.currentPlayer.username ? "left" : "right",
+                        backgroundColor:  message.sender !== this.props.currentPlayer.username ? "blue" : "green",
                         borderRadius: "20px",
                         border: "2px solid #c3c3c3",
                         padding: "0 18px 10px",

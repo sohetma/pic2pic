@@ -3,10 +3,10 @@ import React from 'react';
 class Message extends React.Component {
 
     render = () => {
-      let players = this.props.players ;
-      console.log(players);
-      let player = players[0];
-      let username = player.username;
+      // let players = this.props.players ;
+      // console.log(players);
+      // let player = players[0];
+      let username = this.props.currentPlayer.username;
 
         return (
             <div

@@ -18,6 +18,9 @@ class Chat extends Component {
         endpoint: "192.168.0.248:4001"
         // "192.168.0.248:4001"
     }
+  }
+
+  componentDidMount () {
     this.socket = socketIOClient(this.state.endpoint);
     this.socket.on('RECEIVE_MESSAGE', data => {
       this.addMessage(data);
@@ -63,12 +66,13 @@ class Chat extends Component {
           sender = senders[0].username;
         }
 
+        sender = this.props.currentPlayer.username;
+        // this.props.updateLastMessage(msg,sender);
+
         this.setState({ isWriting: false })
 
         this.socket.emit('chat message', {
-          content : from === sender
-            ? msg
-            : msg.substring(0, msg.length - 5),
+          content : msg,
           sender : sender,
           date : date
 
@@ -84,12 +88,10 @@ class Chat extends Component {
 
       })
 
-      let contentMessage = this.state.currentInput;
-      let playerMessage =  sender;
-      this.props.updateLastMessage(contentMessage,playerMessage);
+      event.preventDefault();
 
       this.setState({currentInput: ''})
-      event.preventDefault();
+
     }
 
 
@@ -168,7 +170,8 @@ class Chat extends Component {
                 <AnswerBoard
                     key={i++}
                     messages={this.state.messages}
-                    players={this.props.players}>
+                    players={this.props.players}
+                    currentPlayer={this.props.currentPlayer}>
                 </AnswerBoard>
                 { this.state.isWriting ? "" : ""}
             </div>

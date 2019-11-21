@@ -24,7 +24,8 @@ class Play extends React.Component {
     super(props);
 
     this.state = {
-      players : [],
+      allPlayers : [],
+      currentPlayer : '',
       themeGame : 'sport',
       word : 'FindMe',
       hints : '',
@@ -35,13 +36,46 @@ class Play extends React.Component {
       endpoint: "192.168.0.248:4001"
     };
     this.handleSubmitTheme = this.handleSubmitTheme.bind(this);
+  }
 
+  componentDidMount () {
     this.socket = socketIOClient(this.state.endpoint);
+
+    this.socket.emit('SEND_WORD', words.sport);
+
     this.socket.on('RECEIVE_WORD', data => {
       console.log('data received', data);
       this.addWord(data);
     })
 
+    this.socket.on('RECEIVE_PLAYER', data => {
+      let newUser = data.newUser;
+      let users = data.users;
+      console.log('receive new player', data);
+      this.addPlayers(newUser, users);
+    })
+
+    this.socket.on('RECEIVE_NEW_PLAYERS', data => {
+      console.log('receive new player', data);
+      this.addPlayer(data);
+    })
+
+
+  }
+
+
+  addPlayers = (newUser, players) => {
+    console.log(newUser.username);
+    this.setState({
+      currentPlayer : newUser,
+      allPlayers : [...players]
+    })
+  }
+
+  addPlayer = (players) => {
+    this.setState({
+      allPlayers : [...players]
+    })
   }
 
 
@@ -56,10 +90,12 @@ class Play extends React.Component {
 
   // check if last one is drawer or player
   isDrawerOrPlayer = () =>{
-    let gamers = this.state.players;
-    let nbPlayers = gamers.length;
+    // let gamers = this.state.allPlayers;
+    // let nbPlayers = gamers.length;
+    let isDrawer = this.state.currentPlayer.isDrawer
     this.setState({
-      drawerOrPlayer : gamers[nbPlayers-1].isDrawer
+      // drawerOrPlayer : gamers[nbPlayers-1].isDrawer
+      drawerOrPlayer : isDrawer
     })
   }
 
@@ -146,14 +182,14 @@ class Play extends React.Component {
   // ReInit the state players to an empty array
   clearGame = () => {
     this.setState({
-      players : []
+      allPlayers : []
     })
   }
 
   // setState 'nbDrawer' : add nbDrawer by 1 if a player was a drawer ones
   HasAlreadyBeenDrawerNumber = (id) => {
     let nb;
-    let gamers = this.state.players;
+    let gamers = this.state.allPlayers;
     let nbPlayers = gamers.length;
     for (let i = 0; i < nbPlayers ; i++){
       let player = gamers[i];
@@ -161,7 +197,7 @@ class Play extends React.Component {
         player.nbDrawer +=1 ;
         nb = player.nbDrawer;
         this.setState((prevState) => ({
-          players : gamers
+          allPlayers : gamers
         }));
       }
     }
@@ -170,7 +206,7 @@ class Play extends React.Component {
 
   // Return inidice Drawer
   getIndiceDrawer = () =>{
-    let gamers = this.state.players;
+    let gamers = this.state.allPlayers;
     let nbPlayers = gamers.length;
     let indice = 0;
     for (let i = 0; i < nbPlayers ; i++){
@@ -187,7 +223,7 @@ class Play extends React.Component {
 
     // console.log('I m in changeyour role');
 
-    let gamers = this.state.players;
+    let gamers = this.state.allPlayers;
     let nbPlayers = gamers.length;
     let indiceDrawer = this.getIndiceDrawer();
     let passedHere = false;
@@ -199,7 +235,7 @@ class Play extends React.Component {
       if(nbPlayers===1){
         player.isDrawer = true;
         this.setState((prevState) => ({
-          players : gamers
+          allPlayers : gamers
         }));
         return;
       }
@@ -223,25 +259,26 @@ class Play extends React.Component {
       }
 
       this.setState((prevState) => ({
-        players : gamers
+        allPlayers : gamers
       }));
     }
   }
 
   // Get the id of a player
   getIdPlayer = () => {
-    return this.state.players.length;
+    return this.state.allPlayers.length;
   }
 
   // Create a new player with all the propreties we need :
   // id (number), username (string), avatar (url), points (number)
   // isDrawer (boolean : drawer or player), nbDrawer (number), url
   addNewPlayer = (username, avatar, isDrawer) => {
-    let newPlayers = this.state.players;
+    let newPlayers = this.state.allPlayers;
     if(newPlayers.length >= 6){
       alert('There is already 6 players for this game.');
       return;
     }
+
     let newPlayer = {
       id : this.getIdPlayer(),
       username : username,
@@ -251,25 +288,33 @@ class Play extends React.Component {
       nbDrawer : 0,
       // url : isDrawer ? 'http://localhost:3000/game' : 'http://localhost:3000/player'
     }
-    newPlayers.push(newPlayer);
-    return newPlayers;
+    // newPlayers.push(newPlayer);
+
+    this.socket.emit('SEND_PLAYER', newPlayer);
+
+    // this.setState({
+    //   currentPlayer : newPlayer
+    // })
+    return newPlayer;
   }
 
   // setState 'points' : add points to the player who wins
   winThePart = (pts, username) => {
-    let gamers = this.state.players;
-    for(let i=0 ; i < this.state.players.length ; i++){
+
+    let gamers = this.state.allPlayers;
+    for(let i=0 ; i < gamers.length ; i++){
       let player = gamers[i];
       // console.log('players' , player.username);
       // console.log('sender',username, pts);
       if(player.username === username){
         player.points += pts;
-        this.setState((prevState) => ({
-          players : gamers
-        }));
       }
+      this.setState((prevState) => ({
+        allPlayers : gamers
+      }));
     }
   }
+
 
   handleSubmitTheme = (event,theme) => {
     this.setState({
@@ -281,36 +326,32 @@ class Play extends React.Component {
   // Create the players of the game
   handleSubmit = (event, avatar, username) => {
     let isDrawer = false;
-    if(this.state.players.length < 1){
+    if(this.state.allPlayers.length < 1){
+      console.log("this player is a drawer");
       isDrawer = true;
     }
     else{
+      console.log("This player is not a drawer");
       isDrawer = false;
     }
 
-    let newPlayers = this.addNewPlayer(username,avatar,isDrawer);
-    this.setState({
-      players : newPlayers
-    })
-    console.log(newPlayers);
+    this.addNewPlayer(username,avatar,isDrawer);
+    // this.setState({
+    //   players : newPlayers
+    // })
+    // console.log(newPlayers);
     event.preventDefault();
 
-    this.isDrawerOrPlayer(); // Is a drawer or a player ?
+    // this.isDrawerOrPlayer(); // Is a drawer or a player ?
   }
+
 
   sendSocket = () => {
     this.socket.emit('SEND_WORD', words.sport);
   }
 
 
-  componentDidMount () {
-    // fetch('http://localhost:4001/getWord')
-    //   .then(res => res.json())
-    //   .then(word => this.setState({word}))
-    // let aWord = this.chooseAWord();
 
-    this.socket.emit('SEND_WORD', words.sport);
-  }
 
 
 
@@ -336,7 +377,7 @@ class Play extends React.Component {
               <Game
                 drawerOrPlayer={this.state.drawerOrPlayer}
                 isDrawerOrPlayer={this.isDrawerOrPlayer}
-                players={this.state.players}
+                players={this.state.allPlayers}
                 winThePart={this.winThePart}
                 countNbPart={this.countNbPart}
                 changeYourRole={this.changeYourRole}
@@ -348,6 +389,7 @@ class Play extends React.Component {
                 updateUrl={this.updateUrl}
                 urlPic={this.state.urlPic}
                 sendSocket={this.sendSocket}
+                currentPlayer={this.state.currentPlayer}
                />)}
             />
 
@@ -355,7 +397,7 @@ class Play extends React.Component {
               <Game
                 drawerOrPlayer={!this.state.drawerOrPlayer}
                 isDrawerOrPlayer={this.isDrawerOrPlayer}
-                players={this.state.players}
+                players={this.state.allPlayers}
                 winThePart={this.winThePart}
                 countNbPart={this.countNbPart}
                 changeYourRole={this.changeYourRole}
@@ -367,6 +409,7 @@ class Play extends React.Component {
                 updateUrl={this.updateUrl}
                 urlPic={this.state.urlPic}
                 sendSocket={this.sendSocket}
+                currentPlayer={this.state.currentPlayer}
                />)}
             />
           </Switch>
