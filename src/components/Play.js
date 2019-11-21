@@ -5,8 +5,11 @@ import NewGame from './newGame/NewGame.js';
 import ChooseYourDrawer from './createYourProfile/ChooseYourDrawer.js';
 import Game from './drawer/Game.js';
 import words from './words.js';
+import socketIOClient from "socket.io-client";
+
 // import GamePlayer from './player/GamePlayer.js';
 // import quickSort from './quickSort.js';
+
 
 
 // Strategie :
@@ -27,9 +30,28 @@ class Play extends React.Component {
       hints : '',
       drawerOrPlayer : false, // true if drawer
       nbPart : 0,
-      urlPic : ''
+      urlPic : '',
+      theWord : 'aWord',
+      endpoint: "192.168.0.248:4001"
     };
     this.handleSubmitTheme = this.handleSubmitTheme.bind(this);
+
+    this.socket = socketIOClient(this.state.endpoint);
+    this.socket.on('RECEIVE_WORD', data => {
+      console.log('data received', data);
+      this.addWord(data);
+    })
+
+  }
+
+
+  addWord = (data) => {
+    let hint = this.hints(data);
+    this.setState({
+      theWord : data,
+      word : data,
+      hints : hint
+    })
   }
 
   // check if last one is drawer or player
@@ -276,8 +298,18 @@ class Play extends React.Component {
     this.isDrawerOrPlayer(); // Is a drawer or a player ?
   }
 
-  componentWillMount () {
-    this.chooseAWord();
+  sendSocket = () => {
+    this.socket.emit('SEND_WORD', words.sport);
+  }
+
+
+  componentDidMount () {
+    // fetch('http://localhost:4001/getWord')
+    //   .then(res => res.json())
+    //   .then(word => this.setState({word}))
+    // let aWord = this.chooseAWord();
+
+    this.socket.emit('SEND_WORD', words.sport);
   }
 
 
@@ -311,10 +343,11 @@ class Play extends React.Component {
                 handleSubmitTheme={this.handleSubmitTheme}
                 theme={this.state.themeGame}
                 chooseAWord={this.chooseAWord}
-                word={this.state.word}
+                word={this.state.theWord}
                 hints={this.state.hints}
                 updateUrl={this.updateUrl}
                 urlPic={this.state.urlPic}
+                sendSocket={this.sendSocket}
                />)}
             />
 
@@ -333,6 +366,7 @@ class Play extends React.Component {
                 hints={this.state.hints}
                 updateUrl={this.updateUrl}
                 urlPic={this.state.urlPic}
+                sendSocket={this.sendSocket}
                />)}
             />
           </Switch>

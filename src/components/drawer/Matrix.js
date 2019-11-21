@@ -4,6 +4,7 @@ import './Pix.css';
 import './Matrix.css'
 import './ButtonRefresh.css';
 import FunctionalityDrawer from './FunctionalityDrawer.js';
+import socketIOClient from "socket.io-client";
 
 const dimension = 50;
 
@@ -18,8 +19,14 @@ class Matrix extends React.Component{
       matrix : this.createTable(dimension),
       saved : this.createTable(dimension),
       status :"mouseUp",
-      isActive : false
+      isActive : false,
+      endpoint: "192.168.0.248:4001"
     };
+
+    this.socket = socketIOClient(this.state.endpoint);
+    this.socket.on('RECEIVE_GRID', data => {
+      this.addGrid(data);
+    })
 
     // console.log(this.freshGrid());
     // console.log(this.state.matrix);
@@ -28,7 +35,11 @@ class Matrix extends React.Component{
   }
 
 
-
+   addGrid = (data) => {
+     this.setState({
+       matrix : data
+     })
+   }
 
   createTable = dim => {
     //console.log(' I m in createTable')
@@ -103,6 +114,8 @@ class Matrix extends React.Component{
     //console.log('I m in update');
     // console.log(updateMyGrid);
     //return updateMyGrid;
+
+    this.socket.emit('SEND_GRID', updateMyGrid);
 
     this.setState({
         matrix: updateMyGrid,

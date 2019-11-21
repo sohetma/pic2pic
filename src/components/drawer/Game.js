@@ -92,12 +92,12 @@ updateLastMessage = (message,sender) => {
 
   newPartOnGame = () => {
     // console.log('new part ');
-    this.props.chooseAWord();
     this.startGame();
     this.newGame();
     this.props.changeYourRole();
     this.props.countNbPart();
     this.props.isDrawerOrPlayer();
+    this.props.sendSocket();
   }
 
 

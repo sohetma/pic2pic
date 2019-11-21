@@ -16,6 +16,7 @@ class Chat extends Component {
         messages: [],
         color : 'white',
         endpoint: "192.168.0.248:4001"
+        // "192.168.0.248:4001"
     }
     this.socket = socketIOClient(this.state.endpoint);
     this.socket.on('RECEIVE_MESSAGE', data => {
