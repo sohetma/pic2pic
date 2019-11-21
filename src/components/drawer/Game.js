@@ -16,6 +16,7 @@ import ControlledPopup from './ControlledPopup.js';
 import Popupic from './PopupPics.js';
 import Navigation from '../heroHeaderComp/Navigation.js';
 import '../heroHeaderComp/Navigation.js';
+import socketIOClient from "socket.io-client";
 
 //console.log(players);
 
@@ -29,11 +30,31 @@ constructor(props){
     isPlaying : true,
     start : true,
     latestMessage : '',
-    winner : 'Who gonna win ?',
+    winner : 'noWinner',
     isWinner : false,
-    urlPic: ''
+    urlPic: '',
+    endpoint: "192.168.0.248:4001"
 
   }
+}
+
+componentDidMount(){
+  this.socket = socketIOClient(this.state.endpoint);
+
+  this.socket.emit('SEND_POPUP', this.state.winner);
+
+  this.socket.on('RECEIVE_POPUP', data => {
+    let isPlaying = false;
+    if(this.state.winner==="noWinner"){
+      isPlaying = true;
+    }
+    this.setState({
+      winner : data,
+      isPlaying : isPlaying
+
+    })
+  })
+
 }
 
 startGame = () => {
@@ -116,7 +137,7 @@ render(){
 
           <PlayersInDrawer players={this.props.players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
-          {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} newPartOnGame={this.newPartOnGame} />}
+          {!this.state.isPlaying && <ControlledPopup currentPlayer={this.props.currentPlayer} winner={this.state.winner} newPartOnGame={this.newPartOnGame} drawerOrPlayer={this.props.drawerOrPlayer} />}
         </div>
 
         <div className="draw-game">

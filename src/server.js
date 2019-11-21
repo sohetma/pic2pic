@@ -84,6 +84,12 @@ io.on('connection', socket => {
     socket.broadcast.emit('RECEIVE_GRID', grid);
   })
 
+  socket.on('SEND_POPUP', (winner) => {
+    console.log('The winner is : ', winner);
+    socket.emit('RECEIVE_POPUP', winner);
+    socket.broadcast.emit('RECEIVE_POPUP', winner);
+  })
+
 
   // Add newPlayer
   socket.on('SEND_PLAYER', (newPlayer) => {
@@ -94,7 +100,7 @@ io.on('connection', socket => {
     socket.broadcast.emit('RECEIVE_NEW_PLAYERS', players);
   })
 
-  
+
 
 
 

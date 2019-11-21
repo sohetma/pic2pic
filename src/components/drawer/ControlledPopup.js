@@ -37,6 +37,8 @@ class ControlledPopup extends Component {
 
 
   render() {
+    console.log('currentPlayer' , this.props.currentPlayer);
+    console.log('winner', this.props.winner);
     return (
       <div className="ControlledPopup">
         <Popup
@@ -52,9 +54,11 @@ class ControlledPopup extends Component {
 
 
           <div className="actions-popup">
-            <button className="button-actions" onClick={() => this.buttonAction()}> Start a new Game </button>
-            <button className="continue-popup-button" onClick={() => this.buttonAction()} > Continue the Game </button>
-            <button className="close-popup-button" onClick={() => this.closeModal()} > Stop the Game </button>
+            {this.props.currentPlayer.username===this.props.winner && <button className="button-actions" onClick={() => this.buttonAction()}> Start a new Game </button>}
+            {this.props.currentPlayer.username===this.props.winner &&  <button className="continue-popup-button" onClick={() => this.buttonAction()} > Continue the Game </button>}
+            {this.props.currentPlayer.username===this.props.winner && <button className="close-popup-button" onClick={() => this.closeModal()} > Stop the Game </button>}
+            {this.props.currentPlayer.username !== this.props.winner && <p> Wait a second ... The drawer choose a new pic</p>}
+
           </div>
           </>
         </Popup>

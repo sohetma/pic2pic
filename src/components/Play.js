@@ -44,19 +44,19 @@ class Play extends React.Component {
     this.socket.emit('SEND_WORD', words.sport);
 
     this.socket.on('RECEIVE_WORD', data => {
-      console.log('data received', data);
+      // console.log('data received', data);
       this.addWord(data);
     })
 
     this.socket.on('RECEIVE_PLAYER', data => {
       let newUser = data.newUser;
       let users = data.users;
-      console.log('receive new player', data);
+      // console.log('receive new player', data);
       this.addPlayers(newUser, users);
     })
 
     this.socket.on('RECEIVE_NEW_PLAYERS', data => {
-      console.log('receive new player', data);
+      // console.log('receive new player', data);
       this.addPlayer(data);
     })
 
@@ -65,7 +65,7 @@ class Play extends React.Component {
 
 
   addPlayers = (newUser, players) => {
-    console.log(newUser.username);
+    // console.log(newUser.username);
     this.setState({
       currentPlayer : newUser,
       allPlayers : [...players]
@@ -248,7 +248,7 @@ class Play extends React.Component {
           gamers[0].isDrawer = true;
         }
         else{
-          // console.log('I m in changeyour role where i is indice : new drawer');
+          console.log('I m in changeyour role where i is indice : new drawer');
           gamers[indiceDrawer].isDrawer = false;
           gamers[indiceDrawer+1].isDrawer = true;
           passedHere = true;
@@ -322,7 +322,7 @@ class Play extends React.Component {
     })
     event.preventDefault();
   }
-  
+
 
   // Create the players of the game
   handleSubmit = (event, avatar, username) => {
