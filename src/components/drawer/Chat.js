@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InputMessage from './InputMessage';
 import AnswerBoard from './AnswerBoard';
-import { subscribeToTimer } from '../../api';
+// import { subscribeToTimer } from '../../api';
 import './Chat.css';
 import socketIOClient from "socket.io-client";
 
@@ -58,7 +58,7 @@ class Chat extends Component {
 
     handleSubmit = (event, messageToAdd) => {
         let date = new Date().toLocaleString();
-        let from = this.whoTalk();
+        // let from = this.whoTalk();
         let sender = 'someone';
         let msg =  this.state.currentInput;
 
@@ -68,7 +68,6 @@ class Chat extends Component {
         }
 
         sender = this.props.currentPlayer.username;
-        //
 
         this.setState({ isWriting: false })
 
@@ -85,7 +84,7 @@ class Chat extends Component {
 
     }
 
-    
+
 
 
     getNewMessages = (msg) => {
