@@ -90,6 +90,19 @@ io.on('connection', socket => {
     socket.broadcast.emit('RECEIVE_POPUP', winner);
   })
 
+  socket.on('OPEN_POPUP', (open) => {
+    console.log('The popup is open or not ? ', open);
+    socket.emit('RECEIVE_OPEN_POPUP', open);
+    socket.broadcast.emit('RECEIVE_OPEN_POPUP', open);
+  })
+
+  socket.on('POPUP_PIC', (open) => {
+    console.log('The popup pictures is open or not ? ', open);
+    socket.emit('RECEIVE_PIC_POPUP', open);
+    socket.broadcast.emit('RECEIVE_PIC_POPUP', open);
+  })
+
+
 
   // Add newPlayer
   socket.on('SEND_PLAYER', (newPlayer) => {

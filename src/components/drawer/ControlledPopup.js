@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import './popup.css';
 import Popup from "reactjs-popup";
-
+// import socketIOClient from "socket.io-client";
 
 
 class ControlledPopup extends Component {
@@ -26,13 +26,28 @@ class ControlledPopup extends Component {
      });
   }
 
-  componentDidMount(){
-    this.openModal()
-  }
+componentDidMount(){
+        this.setState({
+          open : true,
+        })
+}
+  // componentDidMount(){
+  //     this.socket = socketIOClient(this.state.endpoint);
+  //
+  //     this.socket.on('RECEIV_OPEN_POPUP', data => {
+  //       this.setState({
+  //         open : true,
+  //       })
+  //     })
+  // }
 
   buttonAction = () => {
     this.closeModal();
     this.props.newPartOnGame();
+  }
+
+  startANewGame = () => {
+    this.closeModal();
   }
 
 
@@ -54,10 +69,10 @@ class ControlledPopup extends Component {
 
 
           <div className="actions-popup">
-            {this.props.currentPlayer.username===this.props.winner && <button className="button-actions" onClick={() => this.buttonAction()}> Start a new Game </button>}
+            {this.props.currentPlayer.username===this.props.winner && <button className="button-actions" onClick={() => this.startANewGame()}> Start a new Game </button>}
             {this.props.currentPlayer.username===this.props.winner &&  <button className="continue-popup-button" onClick={() => this.buttonAction()} > Continue the Game </button>}
             {this.props.currentPlayer.username===this.props.winner && <button className="close-popup-button" onClick={() => this.closeModal()} > Stop the Game </button>}
-            {this.props.currentPlayer.username !== this.props.winner && <p> Wait a second ... The drawer choose a new pic</p>}
+            {this.props.currentPlayer.username !== this.props.winner && <p> Wait a second ... A new part will restart soon </p>}
 
           </div>
           </>

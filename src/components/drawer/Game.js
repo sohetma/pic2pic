@@ -41,17 +41,22 @@ constructor(props){
 componentDidMount(){
   this.socket = socketIOClient(this.state.endpoint);
 
-  this.socket.emit('SEND_POPUP', this.state.winner);
-
   this.socket.on('RECEIVE_POPUP', data => {
-    let isPlaying = false;
-    if(this.state.winner==="noWinner"){
-      isPlaying = true;
-    }
+    // console.log('the xinner is : ', data);
     this.setState({
       winner : data,
-      isPlaying : isPlaying
+    })
+  })
 
+  this.socket.on('RECEIVE_OPEN_POPUP', data => {
+    this.setState({
+      isPlaying : data
+    })
+  })
+
+  this.socket.on('RECEIVE_PIC_POPUP', data => {
+    this.setState({
+      start : data
     })
   })
 
@@ -72,7 +77,7 @@ newGame = () => {
 
 endGame = () => {
   this.setState({
-    winner : false,
+    winner : 'noWinner',
     start : false
   })
 }
@@ -109,6 +114,9 @@ updateLastMessage = (message,sender) => {
         isPlaying : false
       })
       this.props.winThePart(3,sender);
+      this.socket.emit('SEND_POPUP', sender);
+      this.socket.emit('OPEN_POPUP', false);
+
     }
   }
 
@@ -116,10 +124,12 @@ updateLastMessage = (message,sender) => {
     // console.log('new part ');
     this.startGame();
     this.newGame();
-    this.props.changeYourRole();
+    // this.props.changeYourRole();
     this.props.countNbPart();
-    this.props.isDrawerOrPlayer();
+    // this.props.isDrawerOrPlayer();
     this.props.sendSocket();
+    this.socket.emit('OPEN_POPUP', true);
+    this.socket.emit('POPUP_PIC', true);
   }
 
 
