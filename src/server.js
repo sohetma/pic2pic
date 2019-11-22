@@ -25,7 +25,12 @@ const listWords = ['soccer', 'tennis', 'volley','field hockey', 'rugby',
         'paddle', 'swimming', 'bycicle','running',
         'paragliding','taekwondo', 'fencing','skating', 'motocross'];
 
-const players = [];
+let players = [];
+
+let updatePlayers = (data) => {
+  players = data;
+  return players;
+}
 
 let chooseAWord = (words) => {
     let random = Math.floor(Math.random() * Math.floor(words.length-1));
@@ -100,6 +105,19 @@ io.on('connection', socket => {
     console.log('The popup pictures is open or not ? ', open);
     socket.emit('RECEIVE_PIC_POPUP', open);
     socket.broadcast.emit('RECEIVE_PIC_POPUP', open);
+  })
+
+
+  socket.on('TIMER', (count) => {
+    socket.emit('TIMER_BEGIN', count);
+    socket.broadcast.emit('TIMER_BEGIN', count);
+  })
+
+
+  socket.on('PLAYERS_UPDATE', (data) => {
+    let players = updatePlayers(data);
+    socket.emit('UPDATE_PLAYER', players);
+    socket.broadcast.emit('UPDATE_PLAYER', players);
   })
 
 

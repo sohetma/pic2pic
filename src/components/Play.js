@@ -60,6 +60,12 @@ class Play extends React.Component {
       this.addPlayer(data);
     })
 
+    this.socket.on('UPDATE_PLAYER', data => {
+      this.setState({
+        allPlayers : data
+      })
+    })
+
 
   }
 
@@ -257,11 +263,12 @@ class Play extends React.Component {
       if(!passedHere){
         player.isDrawer = false;
       }
-
-      this.setState((prevState) => ({
+    }
+    
+    this.setState((prevState) => ({
         allPlayers : gamers
       }));
-    }
+    this.socket.emit('PLAYERS_UPDATE', gamers);
   }
 
   // Get the id of a player
@@ -312,6 +319,9 @@ class Play extends React.Component {
       this.setState((prevState) => ({
         allPlayers : gamers
       }));
+
+      this.socket.emit('PLAYERS_UPDATE', gamers);
+
     }
   }
 

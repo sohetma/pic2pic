@@ -1,13 +1,32 @@
 import React from 'react';
 import './Game.css';
+import socketIOClient from "socket.io-client";
 
 // Timer component
 
 class Timer extends React.Component {
   state = {
     seconds: 80,
-    color : 'inherit'
+    color : 'inherit',
+    endpoint: "192.168.0.248:4001"
   };
+
+
+  componentDidMount () {
+
+    this.socket = socketIOClient(this.state.endpoint);
+
+    this.socket.emit('TIMER', 80);
+
+    this.socket.on('TIMER_BEGIN', count => {
+      this.setState({
+        seconds : count
+      })
+    })
+
+    this.interval = setInterval(() => this.tick(), 1000);
+    this.interval2 = setInterval(() => this.stop(), 80000);
+  }
 
   tick = () => {
     let col;
@@ -35,13 +54,6 @@ class Timer extends React.Component {
       seconds: 80,
       color : 'white'
     }));
-  }
-
-
-  componentDidMount() {
-    this.interval = setInterval(() => this.tick(), 1000);
-    this.interval2 = setInterval(() => this.stop(), 80000);
-    //this.interval3 = setInterval(() => this.reset(), 65000);
   }
 
   componentWillUnmount() {
