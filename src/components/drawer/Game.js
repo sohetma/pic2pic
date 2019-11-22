@@ -16,6 +16,7 @@ import ControlledPopup from './ControlledPopup.js';
 import Popupic from './PopupPics.js';
 import Navigation from '../heroHeaderComp/Navigation.js';
 import '../heroHeaderComp/Navigation.js';
+import socketIOClient from "socket.io-client";
 
 //console.log(players);
 
@@ -29,11 +30,36 @@ constructor(props){
     isPlaying : true,
     start : true,
     latestMessage : '',
-    winner : 'Who gonna win ?',
+    winner : 'noWinner',
     isWinner : false,
-    urlPic: ''
+    urlPic: '',
+    endpoint: "192.168.0.248:4001"
 
   }
+}
+
+componentDidMount(){
+  this.socket = socketIOClient(this.state.endpoint);
+
+  this.socket.on('RECEIVE_POPUP', data => {
+    // console.log('the xinner is : ', data);
+    this.setState({
+      winner : data,
+    })
+  })
+
+  this.socket.on('RECEIVE_OPEN_POPUP', data => {
+    this.setState({
+      isPlaying : data
+    })
+  })
+
+  this.socket.on('RECEIVE_PIC_POPUP', data => {
+    this.setState({
+      start : data
+    })
+  })
+
 }
 
 startGame = () => {
@@ -51,7 +77,7 @@ newGame = () => {
 
 endGame = () => {
   this.setState({
-    winner : false,
+    winner : 'noWinner',
     start : false
   })
 }
@@ -65,6 +91,7 @@ updateTheUrl = (url) => {
 }
 
 updateLastMessage = (message,sender) => {
+  // console.log(message, sender);
   this.setState((prevState, {latestMessage}) => ({
     latestMessage : message
   }));
@@ -75,7 +102,7 @@ updateLastMessage = (message,sender) => {
   // Function yo check every last word enter in chat
   checkMessage = (message,sender) => {
     // console.log('word try : ', message);
-    console.log('the good word  : ', this.props.word);
+    // console.log('the good word  : ', this.props.word);
 
     // if(message===this.state.word && this.state.winner === sender){
     //   alert('You already found the good word.')
@@ -87,17 +114,22 @@ updateLastMessage = (message,sender) => {
         isPlaying : false
       })
       this.props.winThePart(3,sender);
+      this.socket.emit('SEND_POPUP', sender);
+      this.socket.emit('OPEN_POPUP', false);
+
     }
   }
 
   newPartOnGame = () => {
     // console.log('new part ');
-    this.props.chooseAWord();
     this.startGame();
     this.newGame();
-    this.props.changeYourRole();
+    // this.props.changeYourRole();
     this.props.countNbPart();
     // this.props.isDrawerOrPlayer();
+    this.props.sendSocket();
+    this.socket.emit('OPEN_POPUP', true);
+    this.socket.emit('POPUP_PIC', true);
   }
 
 
@@ -115,16 +147,16 @@ render(){
 
           <PlayersInDrawer players={this.props.players} />
           <Timer endGame={this.endGame} newGame={this.newGame} isPlaying={this.state.isPlaying}  />
-          {!this.state.isPlaying && <ControlledPopup winner={this.state.winner} newPartOnGame={this.newPartOnGame} />}
+          {!this.state.isPlaying && <ControlledPopup currentPlayer={this.props.currentPlayer} winner={this.state.winner} newPartOnGame={this.newPartOnGame} drawerOrPlayer={this.props.drawerOrPlayer} />}
         </div>
 
         <div className="draw-game">
           <div className="pic-word">
-            {this.props.drawerOrPlayer ? <FetchPic word={this.props.word} chooseAWord={this.props.chooseAWord} urlPic={this.props.urlPic}/> : <div className="logo2-pic2pic"></div> }
+            {this.props.drawerOrPlayer ? <FetchPic word={this.props.word}  urlPic={this.props.urlPic}/> : <div className="logo2-pic2pic"></div> }
             <WordInDrawer word={this.props.word} hints={this.props.hints} drawerOrPlayer={this.props.drawerOrPlayer} />
           </div>
           <Draw drawerOrPlayer={this.props.drawerOrPlayer} />
-          <Chat players={this.props.players} updateLastMessage={this.updateLastMessage} />
+          <Chat players={this.props.players} updateLastMessage={this.updateLastMessage} currentPlayer={this.props.currentPlayer} dateLastMessage={this.updateLastMessage} drawerOrPlayer={this.props.drawerOrPlayer} />
         </div>
     </div>
     );

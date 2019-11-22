@@ -54,7 +54,7 @@ class PicInDrawer extends Component {
 
     const query = "apple";
     let urlsPhotos = this.fetchPhotos(query);
-    console.log(" are we here ", urlsPhotos);
+    // console.log(" are we here ", urlsPhotos);
     setInterval(1000)
     // console.log('urls : ', urlsPhotos[0] );
 
