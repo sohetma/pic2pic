@@ -19,7 +19,7 @@ const io = socketIO(server)
 
 
 
-const listWords = ['soccer', 'tennis', 'volley','field hockey', 'rugby',
+const listWords = ['sexy','soccer', 'tennis', 'volley','field hockey', 'rugby',
         'dance', 'boxe', 'basketball', 'handball', 'kayak',
         'windsurf','surf', 'sailing', 'kitesurf', 'badminton',
         'paddle', 'swimming', 'bycicle','running',
