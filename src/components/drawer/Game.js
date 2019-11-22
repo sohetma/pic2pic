@@ -91,7 +91,7 @@ updateTheUrl = (url) => {
 }
 
 updateLastMessage = (message,sender) => {
-  console.log(message, sender);
+  // console.log(message, sender);
   this.setState((prevState, {latestMessage}) => ({
     latestMessage : message
   }));
@@ -102,7 +102,7 @@ updateLastMessage = (message,sender) => {
   // Function yo check every last word enter in chat
   checkMessage = (message,sender) => {
     // console.log('word try : ', message);
-    console.log('the good word  : ', this.props.word);
+    // console.log('the good word  : ', this.props.word);
 
     // if(message===this.state.word && this.state.winner === sender){
     //   alert('You already found the good word.')

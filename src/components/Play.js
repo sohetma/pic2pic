@@ -328,7 +328,7 @@ class Play extends React.Component {
   handleSubmit = (event, avatar, username) => {
     let isDrawer = false;
     if(this.state.allPlayers.length < 1){
-      console.log("this player is a drawer");
+      // console.log("this player is a drawer");
       isDrawer = true;
     }
     else{

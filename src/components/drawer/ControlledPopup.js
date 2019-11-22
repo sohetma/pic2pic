@@ -52,8 +52,6 @@ componentDidMount(){
 
 
   render() {
-    console.log('currentPlayer' , this.props.currentPlayer);
-    console.log('winner', this.props.winner);
     return (
       <div className="ControlledPopup">
         <Popup
