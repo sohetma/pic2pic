@@ -144,6 +144,14 @@ class Chat extends Component {
         }
     }
 
+
+    messagesRef = React.createRef()
+    componentDidUpdate () {
+      const ref = this.messagesRef.current;
+      ref.scrollTop = ref.scrollHeight;
+    }
+
+
     // componentDidMount = () => {
     //     let buttonCol = document.getElementById("red");
     //     const socket = socketIOClient(this.state.endpoint);
@@ -157,7 +165,7 @@ class Chat extends Component {
     render () {
         return (
         <div>
-            <div className="chat-zone">
+            <div className="chat-zone" ref={this.messagesRef}>
 
                 <AnswerBoard
                     key={i++}

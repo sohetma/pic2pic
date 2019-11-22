@@ -2,12 +2,6 @@ import React from 'react';
 
 class Message extends React.Component {
 
-  messagesRef = React.createRef()
-  componentDidUpdate () {
-    const ref = this.messagesRef.current;
-    ref.scrollTop = ref.scrollHeight;
-    this.newData.scrollIntoView({ behavior: "smooth" });
-  }
 
     render = () => {
       // let players = this.props.players ;
@@ -16,7 +10,7 @@ class Message extends React.Component {
       let username = this.props.currentPlayer.username;
 
         return (
-            <div ref={this.messagesRef}
+            <div 
                 style={{display:"flex",
                         flexDirection: "column",
                         justifyContent : this.props.sender !== username ? "start" : "end" ,
